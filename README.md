@@ -7,7 +7,6 @@ npm run dev
 NODE_ENV=development
 PORT=3005
 
-
 # DATABASE URL
 DB_URL=mongodb+srv://olivaministriesquiz:olivaministriesquiz@cluster0.pbcxekn.mongodb.net/?retryWrites=true&w=majority
 
