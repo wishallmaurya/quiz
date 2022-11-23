@@ -1,0 +1,30 @@
+{
+  "name": "olivia-ministries-quiz",
+  "version": "1.0.0",
+  "description": "this is a quiz app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js",
+    "dev":"nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhishek9848/Olivia-Ministries-Quiz.git"
+  },
+  "author": "Abhishek sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhishek9848/Olivia-Ministries-Quiz/issues"
+  },
+  "homepage": "https://github.com/Abhishek9848/Olivia-Ministries-Quiz#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "mongoose": "^6.7.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
+  }
+}
