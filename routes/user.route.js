@@ -5,6 +5,7 @@ const { createUser, getUserById, getUsers, UserSignIn, updateById, deleteUser } 
 
 // middlewares
 const { verifyToken, verifyAdmin } = require('../utils/validate')
+
 const router = express.Router()
 const storage = multer.diskStorage({
     destination(req, file, cb) {

@@ -2,6 +2,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 var cors = require("cors");
+const env = process.env.NODE_ENV
 const app = express();
 var path = require('path');
 const morgan = require("morgan")
@@ -9,6 +10,10 @@ const morgan = require("morgan")
 
 //Root Router
 const routes = require("./routes");
+
+if (env === 'development') {
+    mongoose.set('debug', true);
+}
 
 //Middleware
 app.use(express.urlencoded({ extended: true }))

@@ -3,9 +3,9 @@ const {createError} = require('../utils/error')
 
 
 exports.verifyToken = (req, res, next) =>{
-    let token = req.get("authorization");
-    if(!token) next(createError(401 ,"You are not authenticated!"))
-    token = token.slice(7);
+    let token = req.headers.authorization || req.headers.token;
+    if(!token) return next(createError(401 ,"You are not authenticated!"))
+    token = token.replace("Bearer ", "");
     jwt.verify(token , process.env.JWT , (err, user) =>{
         if (err) next(createError(403, "Token is not valid!"))
         req.user = user;
@@ -26,7 +26,7 @@ exports.verifyUser =(req, res, next) =>{
 }
 exports.verifyAdmin =(req, res, next) =>{
     this.verifyToken(req,res, ()=>{
-        if(req.user.role === "admin"){
+        if(req.user?.role === "admin"){
             next()
         } else{
             return next(createError(403,"You are not authorized!"))

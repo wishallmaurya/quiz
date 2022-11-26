@@ -1,5 +1,6 @@
 # Oliva Ministries Quiz backend
 To run backend
+yarn dev
 npm start
 npm run dev
 
