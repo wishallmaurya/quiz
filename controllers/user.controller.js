@@ -1,21 +1,54 @@
+require("dotenv").config();
 const userModel = require("../models/users.model")
 const bcrypt = require('bcrypt')
 const { createError } = require('../utils/error');
 const { hashSync, genSaltSync } = require("bcrypt");
 const jwt = require('jsonwebtoken')
 
+
 exports.createUser = async (req, res, next) => {
+    let user;
+    let savedUser;
     try {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
-        const user = new userModel({
+        const isUser = await userModel.findOne({username: req.body.username})
+        if(isUser){
+            return res.status(400).send({
+                success: false,
+                data: null,
+                message:"Username already exist"
+            })
+        }else{
+        user = new userModel({
             username: req.body.username,
             email: req.body.email,
             password: hash,
             address: req.body.address,
-            referralCode: req.body.username.toLowerCase().slice(0, 4) + (Math.floor(Math.random() * 999) + 100)
+            referralCode: req.body.username.toLowerCase().slice(0, 4) + (Math.floor(Math.random() * 9999) + 1000)
         })
-        const savedUser = await user.save();
+        savedUser = await user.save();
+        if(req.body.referedBy){
+            const referedUser = await userModel.findOneAndUpdate({ referralCode: req.body.referedBy }, {
+                $push: {
+                    rewards: {
+                        rewardType: "referral",
+                        code: req.body.referedBy,
+                        points: process.env.REFERRAL_POINTS ,
+                        date: new Date(),
+                    }
+                }
+            }, { new: true })
+            if(!referedUser){
+                return res.status(400).send({
+                    success:false,
+                    data:null,
+                    message:"Referral code is not valid"
+                })
+            }
+        }
+    }
+        
         savedUser.password = undefined;
         res.status(200).send({
             success: true,
@@ -117,6 +150,7 @@ exports.UserSignIn = async (req, res, next) => {
     }
 }
 
+
 exports.getUserById = async (req, res, next) => {
     try {
         const user = req.user;
@@ -130,3 +164,5 @@ exports.getUserById = async (req, res, next) => {
         next(error)
     }
 }
+
+ 

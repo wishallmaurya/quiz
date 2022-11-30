@@ -30,6 +30,22 @@ const UserSchema = new mongoose.Schema({
     referralCode:{
         type:String,
     },
+    rewards:[{
+        rewardType:{
+            type:String,
+            required: true
+        },
+        points:{
+            type:Number,
+            required: true
+        },
+        date:{
+            type:Date
+        },
+        code:{
+            type:String,
+        }
+    }],
     address:{
         type:String,
     }
