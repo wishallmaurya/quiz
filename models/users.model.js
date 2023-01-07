@@ -46,6 +46,10 @@ const UserSchema = new mongoose.Schema({
             type:String,
         }
     }],
+    selectedLanguage:{
+        type:String,
+        required:true
+    },
     address:{
         type:String,
     }

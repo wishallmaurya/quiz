@@ -25,6 +25,7 @@ exports.createUser = async (req, res, next) => {
             email: req.body.email,
             password: hash,
             address: req.body.address,
+            selectedLanguage:req.body.selectedLanguage,
             referralCode: req.body.username.toLowerCase().slice(0, 4) + (Math.floor(Math.random() * 9999) + 1000)
         })
         savedUser = await user.save();
@@ -79,7 +80,8 @@ exports.updateById = async (req, res, next) => {
     const {
         username,
         address,
-        password
+        password, 
+        selectedLanguage
     } = req.body;
     if (password) {
         const salt = genSaltSync(10);
@@ -97,13 +99,15 @@ exports.updateById = async (req, res, next) => {
                 profilePhoto: fullPath,
                 password: hashPassword,
                 username,
-                address
+                address,
+                selectedLanguage
             }, options)
         } else {
             updated = await userModel.findByIdAndUpdate(id, {
                 password: hashPassword,
                 username,
-                address
+                address,
+                selectedLanguage
             }, options)
         }
         updated.password = undefined
