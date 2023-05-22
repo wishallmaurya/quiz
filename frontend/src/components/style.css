@@ -1,0 +1,36 @@
+.btn-bg-green{
+    background-color: #448268;
+}
+
+.btn-bg-green:hover{
+    background-color: #0E9D6A;
+}
+
+.bg-btn-green{
+    background-color: white;
+}
+
+.bg-btn-green:hover{
+    background-color: lightgray;
+}
+
+.btn-bg-gray{
+    background-color: #8D8D8D;
+}
+
+.btn-bg-red{
+    background-color: red;
+}
+
+.btn-bg-gray:hover{
+    background-color: #605D5D;
+}
+
+.circular-border{
+    border : 1px solid #448268;
+}
+.hIWEKa{
+    z-index:0!important;
+    position: inherit !important;
+}
+

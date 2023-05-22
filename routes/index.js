@@ -12,14 +12,14 @@ const membershipRoutes = require('./membership.route')
 const voucherRoutes = require('./voucher.route')
 
 // Routes Usage
-rootRouter.use('/auth', authRoutes)
-rootRouter.use('/user', userRoutes)
-rootRouter.use('/category', categoryRoutes)
-rootRouter.use('/quiz-module', quizModuleRoutes)
-rootRouter.use('/question', questionRoutes)
-rootRouter.use('/result', resultRoutes)
-rootRouter.use('/membership', membershipRoutes)
-rootRouter.use('/voucher', voucherRoutes)
+rootRouter.use('/auth', authRoutes)     
+rootRouter.use('/user', userRoutes)     
+rootRouter.use('/category', categoryRoutes)       
+rootRouter.use('/quiz-module', quizModuleRoutes)     
+rootRouter.use('/question', questionRoutes)     
+rootRouter.use('/result', resultRoutes)     
+rootRouter.use('/membership', membershipRoutes)     
+rootRouter.use('/voucher', voucherRoutes)   
 
 
 

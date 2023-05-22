@@ -12,6 +12,6 @@ router.route("/:id")
     .delete(verifyAdmin,deleteModules)
 
 router.route('/category/:id')
-    .get(verifyToken,moduleByCategory)
+    .get(verifyToken,moduleByCategory)  
 
 module.exports = router;

@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken')
 exports.createUser = async (req, res, next) => {
     let user;
     let savedUser;
+
     try {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(req.body.password, salt);
@@ -21,11 +22,11 @@ exports.createUser = async (req, res, next) => {
             })
         }else{
         user = new userModel({
-            username: req.body.username,
+            username: req.body.username, 
             email: req.body.email,
             password: hash,
             address: req.body.address,
-            selectedLanguage:req.body.selectedLanguage,
+            selectedLanguage:'English',
             referralCode: req.body.username.toLowerCase().slice(0, 4) + (Math.floor(Math.random() * 9999) + 1000)
         })
         savedUser = await user.save();
@@ -137,13 +138,15 @@ exports.deleteUser = async (req, res, next) => {
 
 exports.UserSignIn = async (req, res, next) => {
     try {
+        console.log('i am in user login')
         const { username } = req.body
         const user = await userModel.findOne({ $or: [{ "username": username }, { "email": username }] })
         if (!user) return next(createError(404, "User not found!"))
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
         if (!isPasswordCorrect) return next(createError(400, "Wrong password"))
         const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT)
-        const { password, role, ...options } = user._doc
+        console.log(token,"pass")
+        const { password,  ...options } = user._doc
         res.status(200).json({
             success: true,
             data: { token, ...options },

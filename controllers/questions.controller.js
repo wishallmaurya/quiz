@@ -21,7 +21,7 @@ exports.questionsByModule = async (req, res, next) => {
         const size = req.query.noOfQuestions || 1
 
         const data = await Questions.aggregate(
-            [{$match:{quizModule}},{ $sample: { size: parseInt(size) } } ,{$limit:parseInt(size)}]
+            [{$match:{quizModule}}]
         )
 
         // .populate('quizModule')

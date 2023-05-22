@@ -1,0 +1,1026 @@
+.background,
+.divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-darkslategray-500);
+  width: 1440px;
+  height: 490px;
+}
+.divider {
+  height: 0.41%;
+  width: 74.62%;
+  top: 68.88%;
+  right: 12.71%;
+  bottom: 30.71%;
+  left: 12.67%;
+  background-color: var(--white);
+  border: 1px solid var(--white);
+  box-sizing: border-box;
+  opacity: 0.2;
+}
+.textFieldIcon {
+  position: absolute;
+  height: 50%;
+  width: 100.4%;
+  top: 50.49%;
+  right: -0.2%;
+  bottom: -0.49%;
+  left: -0.2%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 500;
+}
+.subscribe {
+  position: absolute;
+  height: 20.82%;
+  width: 17.22%;
+  top: 27.76%;
+  right: 12.71%;
+  bottom: 51.43%;
+  left: 70.07%;
+  font-size: var(--font-size-lg);
+}
+.employeeDatabase {
+  position: absolute;
+  top: 38.69%;
+  left: 66.48%;
+  cursor: pointer;
+}
+.employeeDatabase1,
+.product1 {
+  position: absolute;
+  top: 84.67%;
+  left: 66.48%;
+}
+.product1 {
+  top: 0;
+  left: 0;
+  font-size: var(--font-size-lg);
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--white);
+}
+.employeeDatabase2 {
+  position: absolute;
+  top: 38.69%;
+  left: 0;
+}
+.employeeDatabase3,
+.quickLinks {
+  position: absolute;
+  top: 84.67%;
+  left: 0;
+}
+.quickLinks {
+  height: 27.96%;
+  width: 24.65%;
+  top: 27.55%;
+  right: 41.04%;
+  bottom: 44.49%;
+  left: 34.31%;
+  font-size: var(--font-size-sm);
+  color: var(--color-lightgray);
+}
+.div,
+.supportpersonalcom {
+  position: absolute;
+  top: 42.04%;
+  left: 12.71%;
+  letter-spacing: -0.01em;
+}
+.supportpersonalcom {
+  top: 50.82%;
+}
+.pricing {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.pricingWrapper,
+.socialLinksIcon {
+  position: absolute;
+  height: 68.57%;
+  width: 30.57%;
+  top: 20%;
+  right: 0;
+  bottom: 11.43%;
+  left: 69.43%;
+}
+.socialLinksIcon {
+  height: 104.29%;
+  width: 12.72%;
+  top: -2.14%;
+  right: 87.35%;
+  bottom: -2.14%;
+  left: -0.07%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.contentUnderDivider {
+  position: absolute;
+  height: 7.14%;
+  width: 74.51%;
+  top: 76.33%;
+  right: 12.71%;
+  bottom: 16.53%;
+  left: 12.78%;
+  font-size: var(--font-size-base);
+}
+.logoIcon,
+.tagline {
+  position: absolute;
+  left: 183px;
+}
+.logoIcon {
+  top: 61px;
+  width: 78px;
+  height: 55px;
+  overflow: hidden;
+}
+.tagline {
+  top: 148px;
+  font-size: 25px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.footer {
+  position: absolute;
+  top: 7152px;
+  left: 0;
+  width: 1440px;
+  height: 490px;
+  font-size: var(--font-size-mini);
+  color: var(--white);
+}
+.blueIcon {
+  position: absolute;
+  top: 0;
+  left: 674px;
+  width: 766px;
+  height: 1250px;
+}
+.loggedInOlivaMinistriesFChild {
+  position: absolute;
+  top: 166px;
+  left: 0;
+  width: 1124px;
+  height: 1418px;
+}
+.loggedInOlivaMinistriesFItem {
+  position: absolute;
+  top: 521px;
+  left: 139px;
+  border-right: 2px solid var(--color-darkslategray-200);
+  box-sizing: border-box;
+  width: 2px;
+  height: 28.71px;
+}
+.tagline1 {
+  position: absolute;
+  top: 257px;
+  left: 140px;
+  font-size: var(--font-size-31xl);
+  font-weight: 500;
+  display: inline-block;
+  width: 682px;
+}
+.subTagline {
+  position: absolute;
+  top: 522px;
+  left: 152px;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-100);
+}
+.aboutUs,
+.howItWorks,
+.pricing1,
+.referAFriend {
+  position: absolute;
+  top: 34px;
+  left: 920px;
+  color: var(--color-darkgray);
+  cursor: pointer;
+}
+.aboutUs,
+.howItWorks,
+.referAFriend {
+  left: 1000px;
+}
+.aboutUs,
+.howItWorks {
+  left: 801px;
+}
+.aboutUs {
+  left: 1128px;
+}
+.loggedInOlivaMinistriesFInner {
+  position: absolute;
+  top: 79.71px;
+  left: 49.71px;
+  border-top: 0.6px solid var(--style);
+  box-sizing: border-box;
+  width: 1340.58px;
+  height: 0.58px;
+}
+.logoIcon1 {
+  position: absolute;
+  top: 19px;
+  left: 50px;
+  width: 64px;
+  height: 45px;
+  overflow: hidden;
+}
+.vectorIcon {
+  position: absolute;
+  top: 876.84px;
+  left: 0;
+  width: 188.31px;
+  height: 160.99px;
+}
+.caption {
+  position: relative;
+  letter-spacing: 0.75px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.leftIcon {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+.button {
+  position: absolute;
+  top: 589px;
+  left: 140px;
+  border-radius: var(--br-9xs);
+  background-color: var(--style);
+  box-shadow: 0 4px 8px rgba(61, 88, 144, 0.24);
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-base);
+  align-items: flex-start;
+  justify-content: flex-start;
+  cursor: pointer;
+  text-align: center;
+  color: var(--white);
+}
+.buttonChild {
+  position: relative;
+  width: 9px;
+  height: 10.39px;
+}
+.button1 {
+  position: absolute;
+  top: 4204px;
+  left: 638px;
+  border-radius: var(--br-9xs);
+  background-color: var(--style);
+  box-shadow: 0 4px 8px rgba(61, 88, 144, 0.24);
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-base);
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  cursor: pointer;
+  text-align: center;
+  color: var(--white);
+}
+.groupIcon {
+  position: absolute;
+  height: 4.96%;
+  width: 46.36%;
+  top: 3.59%;
+  right: 3.47%;
+  bottom: 91.45%;
+  left: 50.17%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.loggedInOlivaMinistriesFChild1 {
+  position: absolute;
+  top: 809.24px;
+  left: 1359.18px;
+  width: 80.82px;
+  height: 237.34px;
+}
+.howItsWorksBgEllipse,
+.rectangleDiv {
+  position: absolute;
+  left: 0;
+  width: 1440px;
+}
+.rectangleDiv {
+  top: 1024px;
+  background-color: var(--white);
+  height: 824px;
+}
+.howItsWorksBgEllipse {
+  top: 842px;
+  height: 1418px;
+}
+.tagline2 {
+  position: absolute;
+  top: 0;
+  left: 269px;
+  font-weight: 500;
+}
+.heresHowItWorksChild {
+  position: absolute;
+  top: 1244px;
+  left: 327px;
+  width: 115px;
+  height: 115px;
+}
+.heresHowItWorksItem {
+  position: absolute;
+  top: 357px;
+  left: 704px;
+  border-right: 2px solid var(--color-darkslategray-200);
+  box-sizing: border-box;
+  width: 2px;
+  height: 28.71px;
+}
+.tagline3 {
+  position: absolute;
+  top: 297px;
+  left: 705px;
+  font-size: var(--font-size-8xl);
+  font-weight: 500;
+  color: var(--color-darkslategray-300);
+  cursor: pointer;
+}
+.subTagline1 {
+  position: absolute;
+  top: 358px;
+  left: 717px;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-100);
+}
+.heresHowItWorksInner,
+.image12Icon {
+  position: absolute;
+  top: 115px;
+  left: 0;
+  width: 582px;
+  height: 491px;
+}
+.image12Icon {
+  top: 148px;
+  left: 62px;
+  border-radius: var(--br-base);
+  width: 559px;
+  height: 414px;
+  object-fit: cover;
+}
+.ellipseIcon {
+  position: absolute;
+  top: 164px;
+  left: 833px;
+  width: 118px;
+  height: 118px;
+}
+.div1 {
+  position: absolute;
+  top: 187px;
+  left: 884px;
+  font-weight: 600;
+  color: var(--white);
+}
+.heresHowItWorks {
+  position: absolute;
+  top: 1154px;
+  left: 72px;
+  width: 1085px;
+  height: 606px;
+  font-size: var(--font-size-21xl);
+  color: var(--color-darkslategray-500);
+}
+.groupChild,
+.groupItem {
+  position: absolute;
+  top: 2446px;
+  left: 327px;
+  width: 115px;
+  height: 115px;
+}
+.groupItem {
+  top: 267px;
+  left: 704px;
+  border-right: 2px solid var(--color-darkslategray-200);
+  box-sizing: border-box;
+  width: 2px;
+  height: 28.71px;
+}
+.tagline4 {
+  position: absolute;
+  top: 207px;
+  left: 705px;
+  font-weight: 500;
+}
+.subTagline2 {
+  position: absolute;
+  top: 268px;
+  left: 717px;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-100);
+  display: inline-block;
+  width: 394px;
+}
+.groupInner,
+.image13Icon {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 582px;
+  height: 491px;
+}
+.image13Icon {
+  top: 58px;
+  left: 62px;
+  border-radius: var(--br-base);
+  width: 559px;
+  height: 414px;
+  object-fit: cover;
+}
+.groupChild1 {
+  position: absolute;
+  top: 74px;
+  left: 833px;
+  width: 118px;
+  height: 118px;
+}
+.div2 {
+  position: absolute;
+  top: 97px;
+  left: 880px;
+  font-size: var(--font-size-21xl);
+  font-weight: 600;
+  color: var(--white);
+}
+.ellipseParent {
+  position: absolute;
+  top: 2446px;
+  left: 72px;
+  width: 1111px;
+  height: 516px;
+  font-size: var(--font-size-8xl);
+}
+.groupChild2 {
+  position: absolute;
+  top: 3648px;
+  left: 327px;
+  width: 115px;
+  height: 115px;
+}
+.div3 {
+  position: absolute;
+  top: 97px;
+  left: 879px;
+  font-size: var(--font-size-21xl);
+  font-weight: 600;
+  color: var(--white);
+}
+.ellipseGroup {
+  position: absolute;
+  top: 3648px;
+  left: 72px;
+  width: 1111px;
+  height: 516px;
+  font-size: var(--font-size-8xl);
+}
+.groupChild5 {
+  position: absolute;
+  top: 267px;
+  left: -1px;
+  border-right: 2px solid var(--color-darkslategray-200);
+  box-sizing: border-box;
+  width: 2px;
+  height: 28.71px;
+}
+.tagline6 {
+  position: absolute;
+  top: 207px;
+  left: 0;
+  font-weight: 500;
+}
+.subTagline4 {
+  position: absolute;
+  top: 268px;
+  left: 12px;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-100);
+  display: inline-block;
+  width: 368px;
+}
+.groupChild6,
+.step2Content {
+  position: absolute;
+  top: 0;
+  left: 627px;
+  width: 621px;
+  height: 516px;
+}
+.groupChild6 {
+  top: 74px;
+  left: 128px;
+  width: 118px;
+  height: 118px;
+}
+.div4 {
+  position: absolute;
+  top: 97px;
+  left: 175px;
+  font-size: var(--font-size-21xl);
+  font-weight: 600;
+  color: var(--white);
+}
+.lineParent {
+  position: absolute;
+  top: 1845px;
+  left: 150px;
+  width: 1232px;
+  height: 516px;
+  font-size: var(--font-size-8xl);
+}
+.afterTakingThe {
+  margin: 0;
+}
+.div5 {
+  position: absolute;
+  top: 97px;
+  left: 173px;
+  font-size: var(--font-size-21xl);
+  font-weight: 600;
+  color: var(--white);
+}
+.lineGroup {
+  position: absolute;
+  top: 3047px;
+  left: 150px;
+  width: 1232px;
+  height: 516px;
+  font-size: var(--font-size-8xl);
+}
+.whoAreWeChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--lighter-shade-blue-2);
+  width: 1440px;
+  height: 855px;
+}
+.unsplashUhvrvdr7pgIcon {
+  position: absolute;
+  top: 133px;
+  left: 72px;
+  width: 552px;
+  height: 615px;
+  object-fit: cover;
+}
+.tagline8,
+.tagline9 {
+  position: absolute;
+  font-weight: 500;
+}
+.tagline8 {
+  top: 133px;
+  left: 789px;
+  font-size: var(--font-size-21xl);
+  display: inline-block;
+  width: 531px;
+}
+.tagline9 {
+  top: 37px;
+  left: 610px;
+  font-size: 36px;
+  color: var(--color-darkslategray-500);
+}
+.subTagline6 {
+  position: absolute;
+  top: 273px;
+  left: 789px;
+  font-size: var(--font-size-lg);
+  color: var(--color-darkslategray-100);
+  display: inline-block;
+  width: 506px;
+  height: 187px;
+}
+.tagline10 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 500;
+}
+.subTagline7 {
+  position: absolute;
+  top: 41px;
+  left: 0;
+  font-size: var(--font-size-base);
+  color: var(--color-darkslategray-100);
+  display: inline-block;
+  width: 402px;
+}
+.taglineGroup,
+.taglineParent {
+  position: absolute;
+  top: 500px;
+  left: 868px;
+  width: 402px;
+  height: 89px;
+}
+.taglineGroup {
+  top: 609px;
+}
+.whoAreWe,
+.whoAreWeInner,
+.whoAreWeItem {
+  position: absolute;
+  top: 515px;
+  left: 789px;
+  width: 60px;
+  height: 60px;
+}
+.whoAreWe,
+.whoAreWeInner {
+  top: 624px;
+}
+.whoAreWe {
+  top: 4361px;
+  left: 0;
+  width: 1440px;
+  height: 855px;
+  font-size: var(--font-size-8xl);
+}
+.tagline12 {
+  position: absolute;
+  top: 0;
+  left: 302px;
+}
+.pay,
+.tagline12 {
+  font-weight: 500;
+}
+.span {
+  font-weight: 600;
+  font-family: var(--font-inter);
+}
+.tagline13,
+.tagline14 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.tagline14 {
+  top: 105px;
+  left: 44px;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-100);
+}
+.taglineContainer {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  width: 742px;
+  height: 132px;
+  font-size: var(--font-size-31xl);
+  color: var(--color-darkslategray-300);
+}
+.tagline15 {
+  position: absolute;
+  top: 106px;
+  left: 181px;
+  line-height: 16px;
+  font-family: var(--font-inter);
+}
+.tagline16 {
+  position: absolute;
+  top: 132px;
+  left: 162px;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-100);
+}
+.standardPlanChild {
+  position: absolute;
+  top: -0.5px;
+  left: -0.5px;
+  border-radius: var(--br-base);
+  border: 1px solid var(--color-silver);
+  box-sizing: border-box;
+  width: 442px;
+  height: 480px;
+}
+.tagline17 {
+  position: absolute;
+  top: 27px;
+  left: 154px;
+  font-size: var(--font-size-8xl);
+  font-weight: 500;
+  color: #282828;
+}
+.selectPlanRadioButton {
+  position: absolute;
+  top: 24px;
+  left: 103px;
+  width: 46px;
+  height: 46px;
+}
+.tagline18 {
+  position: absolute;
+  top: 4px;
+  left: 42px;
+}
+.groupDiv,
+.iconsaxlinearticksquare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 34px;
+}
+.iconsaxlinearticksquare {
+  width: 34px;
+  overflow: hidden;
+}
+.groupDiv {
+  width: 240px;
+}
+.button2 {
+  position: absolute;
+  top: 164px;
+  left: 68px;
+  border-radius: var(--br-9xs);
+  background-color: var(--white);
+  border: 1px solid var(--style);
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xs) var(--padding-base);
+  align-items: flex-start;
+  justify-content: flex-start;
+  cursor: pointer;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--style);
+}
+.groupParent,
+.taglineParent1 {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 192px;
+  height: 201px;
+}
+.groupParent {
+  top: 193px;
+  left: 100px;
+  width: 240px;
+  height: 256px;
+  font-size: var(--font-size-lg);
+  color: var(--color-dimgray);
+}
+.standardPlan {
+  position: absolute;
+  top: 312px;
+  left: 150px;
+  width: 441px;
+  height: 479px;
+  font-size: 32px;
+  color: #181725;
+}
+.hereIsWhat,
+.pricing2 {
+  position: absolute;
+  font-size: var(--font-size-21xl);
+  color: var(--color-darkslategray-500);
+}
+.pricing2 {
+  top: 6181px;
+  left: 349px;
+  width: 742px;
+  height: 791px;
+}
+.hereIsWhat {
+  top: 5336px;
+  left: 277px;
+  font-weight: 500;
+}
+.ornament1Icon,
+.ornament2Icon {
+  position: absolute;
+  top: 5458px;
+  left: 935px;
+  width: 141px;
+  height: 154px;
+}
+.ornament2Icon {
+  top: 5684px;
+  left: 362px;
+  height: 155px;
+}
+.loggedInOlivaMinistriesFChild2 {
+  position: absolute;
+  top: 6095.5px;
+  left: 203.5px;
+  border-top: 1px solid var(--color-silver);
+  box-sizing: border-box;
+  width: 1033px;
+  height: 1px;
+}
+.john {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  letter-spacing: 0.75px;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconsaxlinearprofile,
+.johnWrapper {
+  position: absolute;
+  height: 99.46%;
+  width: 60.4%;
+  top: 0;
+  right: 0;
+  bottom: 0.54%;
+  left: 39.6%;
+}
+.iconsaxlinearprofile {
+  height: 100%;
+  width: 31.68%;
+  right: 68.32%;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.accountProfile {
+  position: absolute;
+  height: 13.56%;
+  width: 34.75%;
+  top: 0;
+  right: 0.11%;
+  bottom: 86.44%;
+  left: 65.14%;
+}
+.profileMenuStatesAfterClic {
+  position: absolute;
+  top: 33px;
+  left: 1157px;
+  width: 218px;
+  height: 177px;
+  overflow: hidden;
+  text-align: center;
+  color: var(--style);
+}
+.unionIcon {
+  position: relative;
+  width: 687px;
+  height: 393.24px;
+}
+.itWasA,
+.olivaMinistriesHave {
+  position: absolute;
+  display: inline-block;
+}
+.itWasA {
+  height: 9.14%;
+  width: 78.83%;
+  top: 11.79%;
+  left: 10.43%;
+  font-weight: 600;
+}
+.olivaMinistriesHave {
+  height: 47.46%;
+  width: 90.21%;
+  top: 26.82%;
+  left: 4.9%;
+  font-size: var(--font-size-lg);
+}
+.testimonyText {
+  position: absolute;
+  height: 65.74%;
+  width: 72.96%;
+  top: 0;
+  right: 13.93%;
+  bottom: 34.26%;
+  left: 13.11%;
+}
+.profilePicAndNameChild,
+.vectorIcon1,
+.vectorIcon2 {
+  position: absolute;
+  height: 10.09%;
+  width: 3.29%;
+  top: 20.55%;
+  right: 97%;
+  bottom: 69.37%;
+  left: -0.29%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.profilePicAndNameChild,
+.vectorIcon2 {
+  right: -0.29%;
+  left: 97%;
+}
+.profilePicAndNameChild {
+  height: 69.74%;
+  width: 21.88%;
+  top: 0;
+  right: 39.06%;
+  bottom: 30.26%;
+  left: 39.06%;
+  object-fit: cover;
+}
+.profilePicAndNameChild1,
+.profilePicAndNameChild2,
+.profilePicAndNameInner,
+.profilePicAndNameItem {
+  position: absolute;
+  height: 39.96%;
+  width: 12.54%;
+  top: 14.59%;
+  right: 67.96%;
+  bottom: 45.45%;
+  left: 19.5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.profilePicAndNameChild1,
+.profilePicAndNameChild2,
+.profilePicAndNameInner {
+  right: 87.46%;
+  left: 0;
+}
+.profilePicAndNameChild1,
+.profilePicAndNameChild2 {
+  top: 14.47%;
+  right: 19.5%;
+  bottom: 45.57%;
+  left: 67.96%;
+}
+.profilePicAndNameChild2 {
+  right: 0;
+  left: 87.46%;
+}
+.johnMartin1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 600;
+}
+.johnMartin,
+.profilePicAndName {
+  position: absolute;
+  height: 23.68%;
+  width: 30.14%;
+  top: 76.32%;
+  right: 34.98%;
+  bottom: 0;
+  left: 34.89%;
+}
+.profilePicAndName {
+  height: 29.46%;
+  width: 55.84%;
+  top: 70.54%;
+  right: 23.11%;
+  left: 21.06%;
+}
+.testimony {
+  position: absolute;
+  top: 5494px;
+  left: 286px;
+  width: 867.61px;
+  height: 516px;
+  text-align: center;
+  font-size: var(--font-size-5xl);
+  color: var(--color-darkslategray-400);
+}
+.loggedInOlivaMinistriesF {
+  position: relative;
+  background-color: var(--white);
+  width: 100%;
+  height: 7642px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-darkslategray-300);
+  font-family: var(--font-poppins);
+}

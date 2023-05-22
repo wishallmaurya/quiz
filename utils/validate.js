@@ -14,7 +14,7 @@ exports.verifyToken = (req, res, next) =>{
 }
 
 exports.verifyUser =(req, res, next) =>{
-    console.log('hey!!')
+
     this.verifyToken(req,res,next, ()=>{
         console.log("req.user --" , req.user)
         if(req.user.id === req.params.id || req.user.role ==="admin"){
