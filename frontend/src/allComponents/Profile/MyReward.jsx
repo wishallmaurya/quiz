@@ -9,6 +9,10 @@ const MyReward = () => {
         <div className="flex-col">
           <Menu />
         </div>
+        <div className="w-44 h-44 rounded-lg overflow-hidden shadow-lg ">
+            <div className="px-5 text-green-400 text-[2rem]">2333</div>
+            <div className="px-10">Points</div>
+          </div>
 
         <div className="w-3/5 h-20 rounded-lg overflow-hidden shadow-lg flex">
           <div className="px-6 mx-10 py-4 flex-col text-[0.8rem]">

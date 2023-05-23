@@ -108,13 +108,13 @@ console.log(totalScoreCount)
         </div>
       </div>
       <div className="flex mx-6 justify-center">
-        <button className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3" onClick={answerCount1}>
+        <button className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white" onClick={answerCount1}>
           A. {option1}
         </button>
-        <button className="bg-gray-200 mx-10 my-5 rounded-md text-center py-3 px-3" onClick={answerCount2}>
+        <button className="bg-gray-200 mx-10 my-5 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white" onClick={answerCount2}>
           B. {option2}
         </button>
-        <button className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3" onClick={answerCount3}>
+        <button className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white" onClick={answerCount3}>
           C. {option3}
         </button>
         {/* <div className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3">

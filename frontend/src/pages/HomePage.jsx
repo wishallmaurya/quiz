@@ -1,6 +1,8 @@
 import React from "react";
 import Skeleton from "../layouts/Skeleton";
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
+  const navigate=useNavigate()
   return (
     <Skeleton>
       <div className="relative  w-full h-[400rem] overflow-hidden text-left text-[0.88rem] text-darkslategray-300 ">
@@ -17,9 +19,9 @@ const HomePage = () => {
           We help you prepare for more Bible quizes
         </div>
         <div className="absolute top-[34rem] left-[8.75rem] rounded bg-style shadow-[0px_4px_8px_rgba(61,_88,_144,_0.24)] flex flex-row py-[0.5rem] px-[1rem] items-start justify-start cursor-pointer text-center text-white bg-blue-500">
-          <div className="relative tracking-[1px] capitalize font-medium">
+          <button className="relative tracking-[1px] capitalize font-medium" onClick={navigate('/quiz')}>
             Start The Quiz
-          </div>
+          </button>
         </div>
 
         <div className="absolute top-[70rem] left-[4.5rem] w-[69.44rem] h-[32.25rem] text-[1.69rem]">
@@ -161,9 +163,9 @@ const HomePage = () => {
         className="absolute top-[240rem] left-[39.88rem] rounded bg-style shadow-[0px_4px_8px_rgba(61,_88,_144,_0.24)] flex flex-row py-[0.5rem] px-[1rem] items-center justify-start gap-[0.25rem] cursor-pointer text-center text-white bg-blue-500"
         
       >
-        <div className="relative tracking-[0.75px] capitalize font-medium">
+        <button className="relative tracking-[0.75px] capitalize font-medium" onClick={navigate('/quiz')}>
           Start The Quiz
-        </div>
+        </button>
         <img className="relative w-[0rem] h-[0rem]" alt="" />
         <img className="relative w-[0rem] h-[0rem]" alt="" />
       </div>

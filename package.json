@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Abhishek9848/Olivia-Ministries-Quiz.git"
+    "url": "git+https://github.com/wishallmaurya/quiz.git"
   },
   "author": "Abhishek sharma",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Abhishek9848/Olivia-Ministries-Quiz/issues"
+    "url": "https://github.com/wishallmaurya/quiz/issues"
   },
-  "homepage": "https://github.com/Abhishek9848/Olivia-Ministries-Quiz#readme",
+  "homepage": "https://github.com/wishallmaurya/quiz#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
