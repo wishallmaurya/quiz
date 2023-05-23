@@ -17,6 +17,11 @@ import Quiz from "./pages/Quiz";
 import Language from "./pages/Language";
 import QuizList from "./pages/QuizList";
 import ScoreCard from "./pages/ScoreCard";
+import ProfileInfo from "./allComponents/Profile/ProfileInfo";
+import QuizPaymentDetails from "./allComponents/Profile/QuizPaymentDetails";
+import MyQuizzes from "./allComponents/Profile/MyQuizzes";
+import ChangePassword from "./allComponents/Profile/ChangePassword";
+import MyReward from "./allComponents/Profile/MyReward";
 
 
 function App() {
@@ -35,6 +40,16 @@ function App() {
          <Route exact path="/payment" element={ <Payment/>} />
          <Route exact path="/paymentmethod" element={ <Method/>} />
          <Route exact path="/profile" element={ <Profile/>} />
+
+
+         <Route exact path="/profileInfo" element={ <ProfileInfo/>} />
+         <Route exact path="/myRewards" element={ <QuizPaymentDetails/>} />
+         <Route exact path="/quizPaymentDetails" element={ <QuizPaymentDetails/>} />
+         <Route exact path="/myQuiz" element={ <MyQuizzes/>} />
+         <Route exact path="/ChangePassword" element={ <ChangePassword/>} />
+         <Route exact path="/myReward" element={ <MyReward/>} />
+
+
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
           <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} /> */}

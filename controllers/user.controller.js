@@ -76,6 +76,7 @@ exports.getUsers = async (req, res, next) => {
 }
 
 exports.updateById = async (req, res, next) => {
+    console.log('i am signin')
     const { id } = req.params;
     let hashPassword
     const {
@@ -86,7 +87,7 @@ exports.updateById = async (req, res, next) => {
     } = req.body;
     if (password) {
         const salt = genSaltSync(10);
-        hashPassword = hashSync(password, salt);
+        hashPassword = hashSync(password, salt);    
     }
     try {
         let updated;
