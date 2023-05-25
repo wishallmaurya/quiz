@@ -22,6 +22,7 @@ import QuizPaymentDetails from "./allComponents/Profile/QuizPaymentDetails";
 import MyQuizzes from "./allComponents/Profile/MyQuizzes";
 import ChangePassword from "./allComponents/Profile/ChangePassword";
 import MyReward from "./allComponents/Profile/MyReward";
+import CreateQuestion from "./pages/Admin/CreateQuestion";
 
 
 function App() {
@@ -48,8 +49,9 @@ function App() {
          <Route exact path="/myQuiz" element={ <MyQuizzes/>} />
          <Route exact path="/ChangePassword" element={ <ChangePassword/>} />
          <Route exact path="/myReward" element={ <MyReward/>} />
+{/* admin */}
 
-
+         <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
           <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} /> */}
