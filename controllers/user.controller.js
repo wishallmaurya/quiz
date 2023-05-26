@@ -76,7 +76,6 @@ exports.getUsers = async (req, res, next) => {
 }
 
 exports.updateById = async (req, res, next) => {
-    console.log('i am signin')
     const { id } = req.params;
     let hashPassword
     const {

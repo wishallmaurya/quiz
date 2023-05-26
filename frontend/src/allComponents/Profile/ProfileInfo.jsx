@@ -10,9 +10,9 @@ const ProfileInfo = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
-  const [password, setPassword] = useState("");
+  // const [password, setPassword] = useState("");
+        
 
-     
   const config = {
     headers:{
       Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjQ2NzNiNmViNDc4OWEzZTRhYTE5ZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0ODM5NzY2fQ.X70V8W3gHLphbd0RIKgoisqE7_N8OJvT6vqaGSGJR9k'
@@ -23,7 +23,7 @@ const ProfileInfo = () => {
     e.preventDefault();
     try {
       
-      const res = await axiosInstance.put(`/user/update/${id}`, { username, email,address,password },config);
+      const res = await axiosInstance.put(`/user/update/${id}`, { username, email,address },config);
       
       if (res.data.success) {
         localStorage.setItem("user", JSON.stringify(res.data.data));
@@ -71,7 +71,7 @@ const ProfileInfo = () => {
               required
             />
           </div>
-          <div>
+          {/* <div>
             <label className="block mb-2 text-sm font-medium text-black ">
              Password
             </label>
@@ -82,7 +82,7 @@ const ProfileInfo = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-          </div>
+          </div> */}
           <div className="mb-6">
             <label
               htmlFor="large-input"
