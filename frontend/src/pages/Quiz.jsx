@@ -5,6 +5,8 @@ import ScoreCard from "./ScoreCard";
 import { createSearchParams, useNavigate } from "react-router-dom";
 
 const Quiz = (props) => {
+  let token = JSON.parse(localStorage.getItem("token"));
+
   const navigate=useNavigate()
     const [question,setQuestion]=useState()
     const [questionNumber,setQuestionNumber]=useState(1)
@@ -19,7 +21,7 @@ const Quiz = (props) => {
    
     const config = {
         headers:{
-          Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjQ2NzNiNmViNDc4OWEzZTRhYTE5ZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0NDAwNTYyfQ.6Vrf_lVI4WAVpIOP5LFNZukmH3bP4UUw8wNlrxDyINI'
+          Authorization: token
         }
       };
     const handleSubmit = async (e) => {

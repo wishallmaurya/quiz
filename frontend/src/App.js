@@ -23,6 +23,8 @@ import MyQuizzes from "./allComponents/Profile/MyQuizzes";
 import ChangePassword from "./allComponents/Profile/ChangePassword";
 import MyReward from "./allComponents/Profile/MyReward";
 import CreateQuestion from "./pages/Admin/CreateQuestion";
+import AdminSignUp from "./layouts/AdminSignUp";
+import AdminSignIn from "./layouts/AdminSignIn";
 
 
 function App() {
@@ -52,6 +54,8 @@ function App() {
 {/* admin */}
 
          <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
+         <Route exact path="/admin-signup" element={ <AdminSignUp/>} />
+         <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
           <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} /> */}

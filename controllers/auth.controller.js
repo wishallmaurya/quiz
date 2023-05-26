@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 
 
 exports.register = async (req, res, next) => {
+    console.log('admin up')
     try {
         var salt = bcrypt.genSaltSync(10);
         var hash = bcrypt.hashSync(req.body.password, salt);

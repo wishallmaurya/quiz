@@ -1,59 +1,52 @@
 import React, { useState } from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import { MdDelete } from 'react-icons/md'
-import { checkVisibility, componentVisibility, fullName, validation } from '../../utils'
+import {  validation } from '../../utils'
+import { getAPI, postAPI , patchAPI, deleteAPI} from "../../network";
+import { axiosInstance } from '../../utils/axiosSetup';
 
 const CreateQuestion = () => {
+  let token = JSON.parse(localStorage.getItem("token"));
 
-  const [option, setOptions] = useState([{index:0,  option:''}])
+  const [option, setOptions] = useState([{index:0,  option:'',isCorrect:false }])
 
+  const [ques,setQues]=useState('')
+  const [questions, setQuestions] = useState({question: '', options: []})
 
-  const [questions, setQuestions] = useState([{ index: 0, question: '', options: [], correctAns: '' }])
-
-  // const addExperience = () => {
-  //   let index = questions.length;
-  //   var exp = questions;
-  //   exp.push({ index: index, question: '', options: [], correctAns: '' });
-  //   setQuestions([...exp])
-  //   setQuestions({
-  //     options:option
-  //   })
-  //   console.log("++++questions++++",questions)
-  //   setOptions([{index:0,  option:''}])
-  // }
-
-  const removeExperience = async (index, exp_id) => {
-    var arr = [];
-    if (questions.length === 1) {
-      validation(null, 'At least one field of', questions)
-      return;
+  const config = {
+    headers:{
+      Authorization:token
     }
+  };
+  const saveQuestion =  async(e) => {
+    e.preventDefault();
 
-    for (var i = 0; i < questions.length; i++) {
-      if (i !== index) {
-        arr.push(questions[i])
+    if(validation('empty','Question',ques)){
+       
+        return;
       }
+      else if(validation('array','options',option)){
+       
+        return;
+      }
+      let payload = {
+        quizModule:'638072e926bbb50dfd9ed8e3',
+        question: ques,
+        options:option
     }
-    setQuestions([...arr])
-   
-    console.log(questions, "--------------------remove questions")
+    console.log(payload,"Payload+++++++++++++++++++++++")
+    const data = await axiosInstance.post(`/question`, payload,config);
+    console.log(config)
+    if(data){
+      console.log(data)
+    }
   }
 
-  const changeQuestion = (value, ind) => {
-    setQuestions(current =>
-        current.map((obj, index) => {
-            if (index === ind) {
-                return { ...obj, question: value };
-            }
 
-            return obj;
-        }),
-    );
-}
 const addOptionBtn=()=>{
   let index=option.length
   var opts=option
-  opts.push({index:index,option:''})
+  opts.push({index:index,option:'',isCorrect:false})
 
   setOptions([...opts])
 
@@ -70,26 +63,35 @@ const changeOptions=(value,ind)=>{
     }),
 );
 }
+const setChecked=(val ,ind)=>{
+   let index=option.length
+  var opts=option
+  opts.push({index:index,option:'',isCorrect:true})
+
+  setOptions([...opts])
+
+}
 
   return (
     <>
       
-        <div className="text-[2rem] text-center font-bold">Create Questions</div>
+        <div className="text-[2rem] text-center font-bold my-10">Create Questions</div>
 
-        <div className="text-center text-[2rem] my-6">Question { }/{ }</div>
+        {/* <div className="text-center text-[2rem] my-6">Question { }/{ }</div> */}
 
 
-        <div className="w-full absolute flex justify-center items-center text-[1rem] flex-col font-semibold text-black"><span> Question &nbsp; &nbsp;  </span>
+        <div className="w-full absolute flex justify-center items-center text-[1rem] flex-col font-semibold text-black">
+          {/* <span> Question &nbsp; &nbsp;  </span> */}
+
 
          
 
 
-          {
-            questions.map((item, index) => (
-              <div className='grid' container key={index} sx={{ border: '1px solid lightgrey', p: 2, mt: 2, position: 'relative' }}>
-                <button variant="contained" color="error" size="small" onClick={() => { removeExperience(index, item.id) }} sx={{ position: 'absolute', left: -10, top: -10 }}><MdDelete /></button>
+          
+              <div className='grid w-[60rem]' container sx={{ border: '1px solid lightgrey', p: 2, mt: 2, position: 'relative' }}>
+               
 
-                <div className='mb-5 bg-gray-100 p-5 border-current rounded'>
+                <div className='mb-5 bg-gray-100 p-5 border-current rounded ' >
                   <div className='w-4/5'>
 
                   </div>
@@ -97,10 +99,10 @@ const changeOptions=(value,ind)=>{
                   <div className='mb-5 '>
                     <div className='grid grid-cols-2 gap-5  mt-10'>
 
-                      <label className="block text-gray-700 text-sm font-bold  "> Question
+                      <label className="block text-gray-700 text-sm font-bold w-[98rem] "> Question
                       <input className='p-3 outline-none rounded-md text-12 w-1/2'
                       onChange={(v) => {
-                        changeQuestion(v.target.value, index)
+                        setQues(v.target.value)
                       }}
                       ></input>
                       </label>
@@ -109,29 +111,37 @@ const changeOptions=(value,ind)=>{
                       {
                          option.map((item, index) => (
                           <label className="block text-gray-700 text-sm font-bold mb-2"> Add Options
+                
                           <input type="text" className='w-full p-2 h-10 border-1  shadow-md outline-0 rounded-lg bg-white text-gray-500 border-gray-300' onChange={(v) => {
                             changeOptions(v.target.value, index)
                           }}
                           />
-                        <p>{item.option}</p>
+                          <input type="checkbox" name="" id=""  onChange={(e) => setChecked(e.target.checked,)} />
+                          
                         </label>
                         
                          ))
                       }
                       
-                     <button onClick={addOptionBtn}>Add Option</button>
+                     <button className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded' onClick={addOptionBtn}>Add Option</button>
                       </div>
                   </div>
 
+
                 </div>
 
+
+
               </div>
-            ))
-          }
+            
+          
+
           <div className='grid m-5' item xs={12} align="right">
-            <button align="right" className={`text-white text-base w-1/2 rounded-3xl py-2 px-10 btn-bg-green `} variant="contained" >Add Question</button>
+            <button align="right" className={`text-white text-base w-56 rounded-3xl py-2 px-10 btn-bg-green `} variant="contained" onClick={saveQuestion}>Add Question</button>
           </div>
+
         </div>
+
     </>
   )
 }
