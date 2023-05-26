@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import Menu from "./Menu";
 import { axiosInstance } from "../../utils/axiosSetup";
+import { ToastContainer, toast } from 'react-toastify';
 
 const ProfileInfo = () => {
   let data = JSON.parse(localStorage.getItem("user"));
@@ -14,7 +15,7 @@ const ProfileInfo = () => {
      
   const config = {
     headers:{
-      Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmIyNDk0MzQ2ZDExM2Q0NDlhODJiNCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0NzUwMzYwfQ.jA1MF7gvUuEWzF2DNpOSKg2UBdwjYT-qBiBciDebS9A'
+      Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjQ2NzNiNmViNDc4OWEzZTRhYTE5ZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0ODM5NzY2fQ.X70V8W3gHLphbd0RIKgoisqE7_N8OJvT6vqaGSGJR9k'
     }
   };
   const handleSubmit = async (e) => {
@@ -22,12 +23,14 @@ const ProfileInfo = () => {
     e.preventDefault();
     try {
       
-      const res = await axiosInstance.put(`/user/update/${id}`,config, { username, email,address,password });
+      const res = await axiosInstance.put(`/user/update/${id}`, { username, email,address,password },config);
       
       if (res.data.success) {
-
-        console.log(res.data)
+        localStorage.setItem("user", JSON.stringify(res.data.data));
+        toast.success("Updated  Successfully")
       } else {
+        toast.error("something went wrong")
+
       }
     } catch (error) {
       console.log(error);
@@ -62,6 +65,7 @@ const ProfileInfo = () => {
             <input
               type="email"
               id="last_name"
+              disabled
               className="bg-white-50 border border-gray-300 text-white text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
               defaultValue={data.email} onChange={(e) => setEmail(e.target.value)}
               required
@@ -107,6 +111,7 @@ const ProfileInfo = () => {
         </div>
       </form>
       </div>
+      <ToastContainer />
     </>
   );
 };
