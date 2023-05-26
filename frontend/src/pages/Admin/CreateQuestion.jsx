@@ -100,7 +100,7 @@ const setChecked=(val ,ind)=>{
                     <div className='grid grid-cols-2 gap-5  mt-10'>
 
                       <label className="block text-gray-700 text-sm font-bold w-[98rem] "> Question
-                      <input className='p-3 outline-none rounded-md text-12 w-1/2'
+                      <input className='p-3 m-5 outline-none rounded-md text-12 w-1/2'
                       onChange={(v) => {
                         setQues(v.target.value)
                       }}

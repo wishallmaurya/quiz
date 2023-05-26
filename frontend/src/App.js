@@ -25,6 +25,7 @@ import MyReward from "./allComponents/Profile/MyReward";
 import CreateQuestion from "./pages/Admin/CreateQuestion";
 import AdminSignUp from "./layouts/AdminSignUp";
 import AdminSignIn from "./layouts/AdminSignIn";
+import AllUserList from "./pages/Admin/AllUserList";
 
 
 function App() {
@@ -53,9 +54,10 @@ function App() {
          <Route exact path="/myReward" element={ <MyReward/>} />
 {/* admin */}
 
-         <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
          <Route exact path="/admin-signup" element={ <AdminSignUp/>} />
          <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
+         <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
+         <Route exact path="/userList" element={ <AllUserList/>} />
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
           <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} /> */}
