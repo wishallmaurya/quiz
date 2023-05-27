@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import React, { useState } from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import { MdDelete } from 'react-icons/md'
 import {  validation } from '../../utils'
