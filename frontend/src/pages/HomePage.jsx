@@ -1,10 +1,12 @@
 import React from "react";
 import Skeleton from "../layouts/Skeleton";
+import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
 const HomePage = () => {
   const navigate=useNavigate()
   return (
     <Skeleton>
+       <Loader />
       <div className="relative  w-full h-[400rem] overflow-hidden text-left text-[0.88rem] text-darkslategray-300 ">
         <div className="absolute top-[32.56rem] left-[8.69rem] box-border w-[0.13rem] h-[1.79rem] border-r-[2px] border-solid border-darkslategray-200" />
         <img

@@ -6,7 +6,7 @@ const MyReward = () => {
   const [totalPoints,setTotalPoints]=useState()
   let data = JSON.parse(localStorage.getItem("user"));
   
-  console.log(data.rewards )
+  console.log(data?.rewards )
   return (
     <>
       <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div>
@@ -21,8 +21,8 @@ const MyReward = () => {
 
         <div className="w-3/5 h-20 rounded-lg overflow-hidden shadow-lg flex">
           <div className="px-6 mx-10 py-4 flex-col text-[0.8rem]">
-            <div className="  mb-2">{data.rewards[0].date}</div>
-            <div className="  mb-2">{data.rewards[0].date}</div>
+            <div className="  mb-2">{data.rewards[0]?.date}</div>
+            <div className="  mb-2">{data.rewards[0]?.date}</div>
           </div>
           <div className="px-6 mx-10 py-4 text-green-400">
             <div className="font-bold text-sm mb-2">500</div>
@@ -30,7 +30,7 @@ const MyReward = () => {
           <div className="px-6 mx-10 py-4">
             <div className=" text-sm mb-2">Gift Voucher:   </div>
           </div>
-          <div className="px-6 mx-1 py-4 bg-gray-300 h-9 w-32"> {data.rewards[1].code}</div> 
+          <div className="px-6 mx-1 py-4 bg-gray-300 h-9 w-32"> {data?.rewards[0].code}</div> 
         </div>
       </div>
     </>

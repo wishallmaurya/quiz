@@ -27,6 +27,7 @@ exports.register = async (req, res, next) => {
 }
 
 exports.login = async (req, res, next) => {
+    console.log('i was here')
     try {
         const { username } = req.body
         const user = await Admin.findOne({ $or: [{ "username": username }, { "email": username }] })

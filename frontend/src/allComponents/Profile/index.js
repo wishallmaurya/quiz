@@ -16,7 +16,7 @@ function Profile() {
         <div className="flex-col">
           {/* <Menu /> */}
         </div>
-        <ProfileInfo />
+        {/* <ProfileInfo /> */}
       </div>
     </Skeleton>
   );
