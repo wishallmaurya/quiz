@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../utils/axiosSetup";
 import { useEffect } from "react";
 import {AiOutlineMail} from 'react-icons/ai'
 
+
 const AllUserList = () => {
+  const navigate=useNavigate();
   let token = JSON.parse(localStorage.getItem("token"));
   const [userList, setUserList] = useState();
   const [id, setId] = useState();
@@ -21,18 +24,15 @@ const AllUserList = () => {
       }
     } catch (error) {}
   };
-  useEffect(()=>{
-    getUser()
-  },[])
+  // useEffect(()=>{
+  //   getUser()
+  // },[])
 
 const deleteUser=async(id)=>{
         try {
-            
-            const res = await axiosInstance.delete(`/user/${id}`, config);
-
-            console.log(res)
+            // const res = await axiosInstance.delete(`/user/${id}`, config);
         } catch (error) {
-            
+                  
         }
 }
 
@@ -42,7 +42,7 @@ const deleteUser=async(id)=>{
       <div className="text-center font-bold text-[2rem]">List  of the user</div>
       <div className="flex-row flex-wrap m-3 p-3">
       {userList?.map((e) => (
-        <div className="flex flex-row  w-5/6 p-10 m-5  bg:white text-black border-2 border-grey-500">
+        <div className="flex flex-row  w-5/6 p-10 ml-5  bg:white text-black border-2 border-grey-500">
           <div className="flex-shrink-0 w-10 mb-6 h-10 mx-10">
             <img
               src={e.profilePhoto}
@@ -70,8 +70,8 @@ const deleteUser=async(id)=>{
               <span className="flex items-center space-x-2"></span>
               </div>
             <div className="absolute right-80">
-            <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={deleteUser}>Delete</button>
-            <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-red-900">More details</button>
+            <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={deleteUser(e._id)}>Delete</button>
+            <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-red-900" onClick={navigate('')}>More details</button>
           </div>
           </div>
         </div>

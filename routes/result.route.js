@@ -6,6 +6,8 @@ const router = express.Router()
 router.route('/')
     .post(verifyToken, createResult)
     .get(verifyToken, getResultbyUser)
+router.route('/:id')
+    .get(verifyToken, getResultbyUser)
 
 router.route('/all')
     .get(verifyAdmin, getAllResults)

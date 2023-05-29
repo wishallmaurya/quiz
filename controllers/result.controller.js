@@ -39,7 +39,10 @@ exports.getAllResults = async (req, res, next) =>{
 
 exports.getResultbyUser = async(req, res, next) =>{
     try{
-        const userId = req.user?.id
+        console.log(req.user,'this')
+        // const userId = req.user?.id
+        const userId = req.params.id
+
         const results = await Result.find({userId}).populate('userId quizModule').sort({createdAt:-1})
         res.status(200).send({
             success: true,

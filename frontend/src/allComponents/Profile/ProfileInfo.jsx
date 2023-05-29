@@ -22,7 +22,6 @@ const ProfileInfo = () => {
 
     e.preventDefault();
     try {
-      
       const res = await axiosInstance.put(`/user/update/${id}`, { username, email,address },config);
       
       if (res.data.success) {

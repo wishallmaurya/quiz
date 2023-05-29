@@ -1,9 +1,39 @@
-import React from 'react'
-import { AiOutlineClockCircle, AiOutlineCalendar,AiOutlineMail } from "react-icons/ai";
+import React, { useEffect, useState } from 'react'
+import {  AiOutlineCalendar,AiOutlineMail } from "react-icons/ai";
+import { axiosInstance } from '../../utils/axiosSetup';
 const SingleUser = () => {
+    const [list,setList]=useState();
+    let token = JSON.parse(localStorage.getItem("token"));
+    const config = {
+      headers: {
+        Authorization: token,
+      },
+    };
+      const getResult = async () => {
+          try {
+            const res = await axiosInstance.get("/result/637e10cfa459c390c7127b5f",config, );
+            if (res.data.success) {
+              console.log(res.data.data)
+              setList(res.data.data)
+            }
+          } catch (error) {}
+        };
+      const getUser = async () => {
+          try {
+            const res = await axiosInstance.get("/user",config, );
+            if (res.data.success) {
+              console.log(res,'user')
+              
+            }
+          } catch (error) {}
+        };
+        useEffect(()=>{
+            getResult()
+            getUser()
+        },[])
   return (
     <>
-      <div className="text-center font-bold text-[2rem] bg-slate-500 p-5"> User Details </div>
+      <div className="text-center font-bold text-[2rem] bg-[#152C4F] text-white p-5"> User Details </div>
       <div className="flex flex-wrap m-3 p-3">
 
           <div className="flex-shrink-0 mb-6 h-60 w-60 mx-10 ">
@@ -32,45 +62,60 @@ const SingleUser = () => {
             </div>
           </div>
       </div>
-      <div className="text-center font-bold text-[2rem] bg-slate-500 p-5"> User Quiz Score </div>
+      <div className="text-center font-bold text-[2rem] bg-[#152C4F] text-white p-5"> User Quiz Score </div>
+     { list?.map((e)=>(
+      <div className="flex  relative left-20 m-2">
 
-      <div className="text-green-400 text-center text-[16px] font-light  mt-8">
-        You have Scored 3/23
-      </div>
-      <div className="flex ">
-
-        <div className="w-3/5 h-20 rounded-lg overflow-hidden shadow-lg flex">
+        <div className="w-5/6 h-28 rounded-lg overflow-hidden shadow-lg flex">
           <div className="px-6 mx-10 py-4">
-            <div className="font-bold text-xl mb-2">Quiz 1</div>
+            <div className="font-bold text-xl mb-2">{e.quizModule.name}</div>
           </div>
           <div className="px-6 mx-10 py-4">
-            <div className="font-bold text-xl mb-2">Question 1-100</div>
+            <div className="font-bold text-xl mb-2">Question 1-{e.totalQuestions}</div>
           </div>
           <div className="px-6 mx-10 py-4 flex-col text-[0.8rem]">
             <div className="  mb-2">
               <AiOutlineCalendar />
               Monday
             </div>
-            <div className="  mb-2"> 22 May 2023</div>
+            <div className="  mb-2"> {e.createdAt}</div>
           </div>
           <div className=" py-4 flex-col text-[0.8rem]">
-            <div className="  mb-2">
+            <div className="  mb-2 mx-7">
              Question Attempt
             </div>
-          </div>
-          <div className=" py-4 flex-col text-[0.8rem]">
-            <div className="  mb-2">
-             Correct Answer 
+            <div className="  mb-2 mx-7">
+             {e.questionAttempted}
             </div>
           </div>
           <div className=" py-4 flex-col text-[0.8rem]">
-            <div className="  mb-2">
-             Wrong Answer
+            <div className="  mb-2 mx-7">
+             Correct Answer 
+            </div>
+            <div className="  mb-2 mx-7">
+             {e.correctAnswers}
+            </div>
+          </div>
+          <div className=" py-4 flex-col text-[0.8rem]">
+            <div className="  mb-2 mx-7">
+             Wrong Answer 
+            </div>
+            <div className="  mb-2 mx-7">
+            {e.wrongAnswers}
+            </div>
+            
+          </div>
+          <div className=" py-4 flex-col text-[0.8rem]">
+            <div className="mb-2 mx-7">
+            Score
+            </div>
+            <div className="mb-2 mx-7">
+            {e.score}
             </div>
           </div>
         </div>
       </div>
-
+      ))}
     </>
   )
 }
