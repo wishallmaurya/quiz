@@ -2,12 +2,13 @@ import React from "react";
 import Skeleton from "../layouts/Skeleton";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
+import Right from "../assets/images/right.png";
 const HomePage = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
     <Skeleton>
-       <Loader />
-      <div className="relative  w-full h-[400rem] overflow-hidden text-left text-[0.88rem] text-darkslategray-300 ">
+      <Loader />
+      <div className="relative  w-full h-[380rem] overflow-hidden text-left text-[0.88rem] text-darkslategray-300 ">
         <div className="absolute top-[32.56rem] left-[8.69rem] box-border w-[0.13rem] h-[1.79rem] border-r-[2px] border-solid border-darkslategray-200" />
         <img
           className="absolute h-[4.96%] w-[46.36%] top-[3.59%] right-[3.47%] bottom-[91.45%] left-[50.17%] max-w-full overflow-hidden max-h-full"
@@ -21,7 +22,10 @@ const HomePage = () => {
           We help you prepare for more Bible quizes
         </div>
         <div className="absolute top-[34rem] left-[8.75rem] rounded bg-style shadow-[0px_4px_8px_rgba(61,_88,_144,_0.24)] flex flex-row py-[0.5rem] px-[1rem] items-start justify-start cursor-pointer text-center text-white bg-blue-500">
-          <button className="relative tracking-[1px] capitalize font-medium" onClick={()=>navigate("/quiz")}>
+          <button
+            className="relative tracking-[1px] capitalize font-medium"
+            onClick={() => navigate("/quiz")}
+          >
             Start The Quiz
           </button>
         </div>
@@ -59,7 +63,7 @@ const HomePage = () => {
           <div className="absolute top-[12.94rem] left-[0rem] font-medium">
             Log In with your credentials{" "}
           </div>
- 
+
           <img
             className="absolute top-[0rem] left-[39.19rem] w-[38.81rem] h-[32.25rem]"
             alt=""
@@ -108,15 +112,14 @@ const HomePage = () => {
       <div className="absolute top-[170rem] left-[9.38rem] w-[77rem] h-[32.25rem] text-[1.69rem]">
         <div className="absolute top-[16.69rem] left-[-0.06rem] box-border w-[0.13rem] h-[1.79rem] border-r-[2px] border-solid border-darkslategray-200" />
         <div className="absolute top-[12.94rem] left-[0rem] font-medium">
-         Choose Your Language 
+          Choose Your Language
         </div>
         <div className="absolute top-[16.75rem] left-[0.75rem] text-[1.13rem] text-gray-500 inline-block w-[23rem]">
           After taking the Membership proceed to the Language selection to play
-          Quiz in your selected Language. 
+          Quiz in your selected Language.
           <br />
           <br />
-          We have English, Telugu, Tamil and
-          Kannada language
+          We have English, Telugu, Tamil and Kannada language
         </div>
         <img
           className="absolute top-[0rem] left-[39.19rem] w-[38.81rem] h-[32.25rem]"
@@ -135,10 +138,11 @@ const HomePage = () => {
       <div className="absolute top-[205rem] left-[4.5rem] w-[69.44rem] h-[32.25rem] text-[1.69rem]">
         <div className="absolute top-[16.69rem] left-[44rem] box-border w-[0.13rem] h-[1.79rem] border-r-[2px] border-solid border-darkslategray-200" />
         <div className="absolute top-[12.94rem] left-[44.06rem] font-medium">
-        Start Playing the Quiz
+          Start Playing the Quiz
         </div>
         <div className="absolute top-[16.75rem] left-[44.81rem] text-[1.13rem] text-gray-500 inline-block w-[24.63rem]">
-        Play the Quiz game with 3 options you will have 90 sec for each Question
+          Play the Quiz game with 3 options you will have 90 sec for each
+          Question
         </div>
         <img
           className="absolute top-[1.56rem] left-[0rem] w-[36.38rem] h-[30.69rem]"
@@ -160,19 +164,16 @@ const HomePage = () => {
         </div>
       </div>
 
-
-      <div
-        className="absolute top-[240rem] left-[39.88rem] rounded bg-style shadow-[0px_4px_8px_rgba(61,_88,_144,_0.24)] flex flex-row py-[0.5rem] px-[1rem] items-center justify-start gap-[0.25rem] cursor-pointer text-center text-white bg-blue-500"
-        
-      >
-        <button className="relative tracking-[0.75px] capitalize font-medium" onClick={()=>navigate("/quiz")}>
+      <div className="absolute top-[240rem] left-[39.88rem] rounded bg-style shadow-[0px_4px_8px_rgba(61,_88,_144,_0.24)] flex flex-row py-[0.5rem] px-[1rem] items-center justify-start gap-[0.25rem] cursor-pointer text-center text-white bg-blue-500">
+        <button
+          className="relative tracking-[0.75px] capitalize font-medium"
+          onClick={() => navigate("/quiz")}
+        >
           Start The Quiz
         </button>
         <img className="relative w-[0rem] h-[0rem]" alt="" />
         <img className="relative w-[0rem] h-[0rem]" alt="" />
       </div>
-
-
 
       <div
         className="absolute top-[245rem] left-[0rem] w-[99rem] h-[53.44rem] text-[1.69rem] bg-gray-200"
@@ -184,7 +185,9 @@ const HomePage = () => {
           alt="group"
           src="https://ik.imagekit.io/wish/MAD_QUIZ_PROJECT/1ec6b182-b1df-4846-8fa0-627d845dfdd1_1684387213415784512_Expires_-62135596800_Signature_duxv7fYTE5Nxo_rM0CxhNeH4bt8wo7rsIpzWvx1ClT76tbct4NWIr2HenD8Zrxn5BEy0soZg_wCZsioi-Q54Mz3AF5DE_paYDa22-GhGNqsRDGKnRLsU2eYLCMEiYvSwjtEIEraOYF0xvnyMsUdkp0GnlVwzWin7wzGpXQgFv-R04Q6XucGPkOaKtJPdlHbSY1ErqySZliuGSl2sy9z5-sSOUUS71SutdLOHpaVyC8ltO9qqc3Ei7DroxSPWpAZVcpH0Fo88utwehPtR0S53O4Un9QVT4QsG47yK_kfiYSNNg0plw9SDY66PcMm44q4j_4l51_2weq5-gMDHuvNjMQ___Key-Pair-Id_K1P54FZWCHCL6J?updatedAt=1684398995175"
         />
-        <div className="absolute top-[8.31rem] left-[49.31rem] text-[2.5rem] font-medium inline-block w-[33.19rem]">We help to increase your Knowledge</div>
+        <div className="absolute top-[8.31rem] left-[49.31rem] text-[2.5rem] font-medium inline-block w-[33.19rem]">
+          We help to increase your Knowledge
+        </div>
         <div className="absolute top-[2.31rem] left-[38.13rem] text-[2.25rem] font-medium text-darkslategray-500">
           Who are We
         </div>
@@ -220,25 +223,232 @@ const HomePage = () => {
         />
       </div>
 
-
-
       <div className="absolute top-[305rem] left-[17.31rem] text-[2.5rem] font-medium text-darkslategray-500">
         Here is what our Clients are saying About us
       </div>
-      <img
-        className="absolute top-[309rem] left-[58.44rem] w-[8.81rem] h-[9.63rem]"
-        alt=""
-        src="https://ik.imagekit.io/wish/MAD_QUIZ_PROJECT/7c6530d2-5faf-4051-80b0-f45fb23405dd_1684387213416133141_Expires_-62135596800_Signature_ENNTA3J959rKysUhDc3Vy_4zK-EpBA3ysPALwA9QryWVMJii2KUYK4ndZ41aFnO_sz2wlvxkTID7gZCc2eQJpD1MhOcJSOoSXq8WKX1epGVXaK7py79-sOm8R0xRBw9poBvuTIPGMAMy6eCl3N6YRl1RlvPHl7CzmornkM4iQBCZoyjjmPPZfEN458lm9QeLZaHAmo1KIjW_XBttuljtpev-TvS0BMynBK3ljXCf9-6hVuUaG3jdVigJTo5LBj_jywVCjWrfwCJD_NvGsCK2nTTCJFTEJp8JZUILFAvfItfEScMzDS_4wfzFimEUkqKsxUdX-yp-msroELHkoyKzvg___Key-Pair-Id_K1P54FZWCHCL6J?updatedAt=1684399821361"
-      />
-      <img
-        className="absolute top-[324rem] left-[22.63rem] w-[8.81rem] h-[9.69rem]"
-        alt=""
-        src="https://ik.imagekit.io/wish/MAD_QUIZ_PROJECT/7c6530d2-5faf-4051-80b0-f45fb23405dd_1684387213416133141_Expires_-62135596800_Signature_ENNTA3J959rKysUhDc3Vy_4zK-EpBA3ysPALwA9QryWVMJii2KUYK4ndZ41aFnO_sz2wlvxkTID7gZCc2eQJpD1MhOcJSOoSXq8WKX1epGVXaK7py79-sOm8R0xRBw9poBvuTIPGMAMy6eCl3N6YRl1RlvPHl7CzmornkM4iQBCZoyjjmPPZfEN458lm9QeLZaHAmo1KIjW_XBttuljtpev-TvS0BMynBK3ljXCf9-6hVuUaG3jdVigJTo5LBj_jywVCjWrfwCJD_NvGsCK2nTTCJFTEJp8JZUILFAvfItfEScMzDS_4wfzFimEUkqKsxUdX-yp-msroELHkoyKzvg___Key-Pair-Id_K1P54FZWCHCL6J?updatedAt=1684399821361"
-      />
-      <div className="absolute top-[380.97rem] left-[12.72rem] box-border w-[64.56rem] h-[0.06rem] border-t-[1px] border-solid border-silver" />
 
+      <section className="absolute top-[305rem] left-14">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+          <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+            <blockquote className="rounded-lg bg-gray-100 p-8">
+              <div className="flex items-center gap-4">
+                <img
+                  alt="Man"
+                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                  className="h-16 w-16 rounded-full object-cover"
+                />
+                <div>
+                  <div className="flex justify-center gap-0.5 text-green-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </div>
+                  <p className="mt-1 text-lg font-medium text-gray-700">
+                    Paul Starr
+                  </p>
+                </div>
+              </div>
+              <p className="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt voluptatem alias ut provident sapiente repellendus.
+              </p>
+            </blockquote>
+            <blockquote className="rounded-lg bg-gray-100 p-8">
+              <div className="flex items-center gap-4">
+                <img
+                  alt="Man"
+                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                  className="h-16 w-16 rounded-full object-cover"
+                />
+                <div>
+                  <div className="flex justify-center gap-0.5 text-green-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </div>
+                  <p className="mt-1 text-lg font-medium text-gray-700">
+                    Paul Starr
+                  </p>
+                </div>
+              </div>
+              <p className="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt voluptatem alias ut provident sapiente repellendus.
+              </p>
+            </blockquote>
+            <blockquote className="rounded-lg bg-gray-100 p-8">
+              <div className="flex items-center gap-4">
+                <img
+                  alt="Man"
+                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                  className="h-16 w-16 rounded-full object-cover"
+                />
+                <div>
+                  <div className="flex justify-center gap-0.5 text-green-500">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </div>
+                  <p className="mt-1 text-lg font-medium text-gray-700">
+                    Paul Starr
+                  </p>
+                </div>
+              </div>
+              <p className="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt voluptatem alias ut provident sapiente repellendus.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
 
+      <div className="absolute top-[335rem] left-[41rem] text-[2.5rem] ">
+        Pricing
+      </div>
+      <div className="absolute top-[340rem] left-[26rem] text-[2.5rem] font-bold">
+        Pay ₹100 to start playing Quiz
+      </div>
+      <div className="absolute top-[345rem] left-[26rem] text-[1rem] text-gray-400 ">
+      Please select and pay the One Time Fee of Rs.100 in order to play the Quiz
+      </div>
       
+      <div className="absolute top-[345rem] left-[36rem] mt-40 ">
+          <div className="w-80 h-80 border-4 border-grey-500  rounded-xl">
+            <div>
+              <div className="text-xl  mt-5 font-bold text-center">
+                One Time Fee
+              </div>
+              <div className="text-xl font-bold mt-8 text-center">₹100</div>
+              <div className="text-gray-600 text-[14px] font-light text-center">
+                Per Month / Year
+              </div>
+              <div>
+                <div className="flex ml-6 mt-12">
+                  <img className="w-6 m-1 p-1" src={Right} alt="right" />
+                  Exciting Rewards
+                </div>
+              </div>
+              <div>
+                <div className="flex ml-6 mt-2">
+                  <img className="w-6 m-1 p-1" src={Right} alt="right" />
+                  100 Questions in 1 Quiz
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </Skeleton>
   );
 };
