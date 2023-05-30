@@ -47,7 +47,6 @@ const addOptionBtn=()=>{
   let index=option.length
   var opts=option
   opts.push({index:index,option:'',isCorrect:false})
-
   setOptions([...opts])
 
 }
@@ -67,27 +66,14 @@ const setChecked=(val ,ind)=>{
    let index=option.length
   var opts=option
   opts.push({index:index,option:'',isCorrect:true})
-
   setOptions([...opts])
-
 }
-
   return (
     <>
-      
         <div className="text-[2rem] text-center font-bold my-10">Create Questions</div>
-
         {/* <div className="text-center text-[2rem] my-6">Question { }/{ }</div> */}
-
-
         <div className="w-full absolute flex justify-center items-center text-[1rem] flex-col font-semibold text-black">
           {/* <span> Question &nbsp; &nbsp;  </span> */}
-
-
-         
-
-
-          
               <div className='grid w-[60rem]' container sx={{ border: '1px solid lightgrey', p: 2, mt: 2, position: 'relative' }}>
                
 
@@ -116,7 +102,7 @@ const setChecked=(val ,ind)=>{
                             changeOptions(v.target.value, index)
                           }}
                           />
-                          <input type="checkbox" name="" id=""  onChange={(e) => setChecked(e.target.checked,)} />
+                          <input type="checkbox" name="" id=""  onChange={(e) => setChecked(e.target.checked)} />
                           
                         </label>
                         
@@ -127,15 +113,10 @@ const setChecked=(val ,ind)=>{
                       </div>
                   </div>
 
-
                 </div>
 
-
-
               </div>
-            
-          
-
+      
           <div className='grid m-5' item xs={12} align="right">
             <button align="right" className={`text-white text-base w-56 rounded-3xl py-2 px-10 btn-bg-green `} variant="contained" onClick={saveQuestion}>Add Question</button>
           </div>

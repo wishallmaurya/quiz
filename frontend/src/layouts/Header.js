@@ -44,9 +44,9 @@ export default function Header(props) {
         </div>
         <div className="w-1/2 hidden lg:flex">
           <div className="w-full flex items-center pl-10 justify-end">
-            <div className="m-4 cursor-pointer">How it works</div>
-            <div className="m-4 cursor-pointer">Pricing</div>
-            <div className="m-4 cursor-pointer">About us</div>
+            <div className="m-4 cursor-pointer" onClick={()=>{navigate('/termsAndCondition')}}>How it works</div>
+            <div className="m-4 cursor-pointer"onClick={()=>{navigate('/termsAndCondition')}}>Pricing</div>
+            <div className="m-4 cursor-pointer"onClick={()=>{navigate('/termsAndCondition')}}>About us</div>
 
             <div
               className="flex items-center relative cursor-pointer w-48"
@@ -120,27 +120,8 @@ export default function Header(props) {
                     <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center">
                       <div
                         className="flex items-center"
-                        onClick={() => navigate("/profile")}
+                        onClick={() => navigate("/profileInfo")}
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="icon icon-tabler icon-tabler-apps"
-                          viewBox="0 0 24 24"
-                          width={18}
-                          height={18}
-                          stroke="currentColor"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
-                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                          <rect x="4" y="4" width="6" height="6" rx="1" />
-                          <rect x="4" y="14" width="6" height="6" rx="1" />
-                          <rect x="14" y="14" width="6" height="6" rx="1" />
-                          <line x1="14" y1="7" x2="20" y2="7" />
-                          <line x1="17" y1="4" x2="17" y2="10" />
-                        </svg>
-                        <span className="text-sm ml-2">Change Password</span>
                       </div>
                     </li>
                     <li
@@ -171,7 +152,6 @@ export default function Header(props) {
                   ""
                 )}
               </div>
-
             </div>
           </div>
         </div>
