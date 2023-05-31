@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const ProfileInfo = () => {
   let data = JSON.parse(localStorage.getItem("user"));
+  let token = JSON.parse(localStorage.getItem("token"));
 
   const [id, setId] = useState(data._id);
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ const ProfileInfo = () => {
 
   const config = {
     headers:{
-      Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NjQ2NzNiNmViNDc4OWEzZTRhYTE5ZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0ODM5NzY2fQ.X70V8W3gHLphbd0RIKgoisqE7_N8OJvT6vqaGSGJR9k'
+      Authorization:token
     }
   };
   const handleSubmit = async (e) => {
