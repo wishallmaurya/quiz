@@ -1,9 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AiOutlineHome,AiFillPlayCircle } from "react-icons/ai";
 import { FaUsers,FaRupeeSign } from "react-icons/fa";
 import { VscPassFilled } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
 const AdminDashboard = () => {
+    const navigate=useNavigate()
   return (
     <>
       <div>
@@ -133,7 +135,7 @@ const AdminDashboard = () => {
 
           <div class="h-full ml-14 mt-2 mb-10 md:ml-64">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4 h-44">
-              <div className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black">
+              <Link to='/userlist' className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black">
                 <div className="flex justify-center items-center w-16 h-16 bg-white rounded-full transition-all duration-300 transform group-hover:-rotate-12 text-[#152C4F] hover:bg-blue-200 hover:text-black">
                     <FaUsers size={60}/>
                 </div>
@@ -141,8 +143,8 @@ const AdminDashboard = () => {
                   <p className="text-2xl font-bold">257</p>
                   <p>Daily Registration</p>
                 </div>
-              </div>
-              <div className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black">
+              </Link>
+              <Link to='userList' className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black">
                 <div className="flex justify-center items-center w-16 h-16 bg-white rounded-full transition-all duration-300 transform group-hover:-rotate-12 text-[#152C4F] hover:bg-blue-200 hover:text-black">
                 <AiFillPlayCircle size={70}/>
                 </div>
@@ -150,8 +152,8 @@ const AdminDashboard = () => {
                   <p className="text-2xl font-bold">157</p>
                   <p>Daily Quiz Played</p>
                 </div>
-              </div>
-              <div className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black">
+              </Link>
+              <Link to='/AllResults' className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black">
                 <div className="flex justify-center items-center w-16 h-16 bg-white rounded-full transition-all duration-300 transform group-hover:-rotate-12 text-[#152C4F] hover:bg-blue-200 hover:text-black">
                 <VscPassFilled size={70}/>
                 </div>
@@ -159,8 +161,10 @@ const AdminDashboard = () => {
                   <p className="text-2xl font-bold">121</p>
                   <p>Daily Passed User</p>
                 </div>
-              </div>
-              <div className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black">
+              </Link>
+              <Link
+              to='/' className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black"
+              >
                 <div className="flex justify-center items-center w-16 h-16 bg-white rounded-full transition-all duration-300 transform group-hover:-rotate-12 text-[#152C4F] hover:bg-blue-200 hover:text-black">
                 <FaRupeeSign size={50}/>
                 </div>
@@ -168,7 +172,7 @@ const AdminDashboard = () => {
                   <p className="text-2xl font-bold">₹ 75,257</p>
                   <p>Daily Earnings</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
