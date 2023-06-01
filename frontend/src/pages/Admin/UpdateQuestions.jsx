@@ -23,6 +23,11 @@ const UpdateQuestions = () => {
       Authorization: token,
     },
   };
+
+  useEffect(() => {
+    handleSubmit();
+  },[]);
+
   const handleSubmit = async (e) => {
     try {
       const res = await axiosInstance.get(
@@ -45,6 +50,9 @@ const UpdateQuestions = () => {
           res.data.data[questionNumber - 1].options[2].isCorrect
         );
         setTotalQuestion(res.data.data.length);
+
+        console.log('res----------+++++++++++++++++++++++',res.data.data);
+
       } else {
       }
     } catch (error) {
@@ -93,18 +101,15 @@ const UpdateQuestions = () => {
       }).toString(),
     });
   };
-  useEffect(() => {
-    handleSubmit();
-  });
+ 
+
+
  const deleteQuestion=async(id)=>{
-    try {
-        // const res = await axiosInstance.delete(`/question/${id}`,
-        //     config
-        //   );
-        
-    } catch (error) {
-        
-    }
+  
+        const res = await axiosInstance.delete(`/question/${id}`,
+            config
+          );
+     
   }
   const updateQuestion =  async(e) => {
     e.preventDefault();
@@ -130,7 +135,7 @@ const UpdateQuestions = () => {
       <div className="text-center text-[2rem] my-6">
         Question {questionNumber}/{totalQuestion}
       </div>
-      <button className="bg-red-600 text-white rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white" onClick={deleteQuestion(id)}>
+      <button className="bg-red-600 text-white rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white" onClick={()=>{deleteQuestion(id)}}>
           Delete
         </button>
       <div className="bg-[#3D5890] h-72 min-h-24 w-[100%] text-white my-10 ">

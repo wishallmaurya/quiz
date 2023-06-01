@@ -50,7 +50,7 @@ function App() {
 
 
          <Route exact path="/profileInfo" element={ <ProfileInfo/>} />
-         <Route exact path="/myRewards" element={ <QuizPaymentDetails/>} />
+         <Route exact path="/myRewards" element={ <MyReward/>} />
          <Route exact path="/quizPaymentDetails" element={ <QuizPaymentDetails/>} />
          <Route exact path="/myQuiz" element={ <MyQuizzes/>} />
          <Route exact path="/ChangePassword" element={ <ChangePassword/>} />

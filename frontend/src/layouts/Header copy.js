@@ -26,13 +26,13 @@ export default function Header(props) {
     console.log(visible);
   }, []);
 
-  const logout = async() => {
-  console.log('logoutClick----------  -----')
-    let clear = await localStorage.clear();
-    navigate("/signIn");
+  const logout = () => {
+  console.log('logoutClick---------------')
+    // let clear = await localStorage.clear();
+    // navigate("/signin");
   };
   return (
-    <nav className="h-20 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-0">
+    <nav className="h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-0">
       <div className="hidden lg:flex w-full pr-6">
         <div className="w-1/2 h-full hidden lg:flex items-center pl-3 pr-24">
           <img
@@ -91,36 +91,15 @@ export default function Header(props) {
                 </p>
               )}
 
-              <div className="top-8 absolute bg-white z-1"
-               >
+              <div className="rounded-full">
                 {profile ? (
                   // <button onClick={(e)=>{logout(e)}}>My Profile</button>
                   
-                   <ul className="py-1 m-2">
+                   <ul className="bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
 
-<li className="" >
-                      <div
-                        className="flex items-center"
-                       
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="w-6 h-6"
-                          
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm5.03 4.72a.75.75 0 010 1.06l-1.72 1.72h10.94a.75.75 0 010 1.5H10.81l1.72 1.72a.75.75 0 11-1.06 1.06l-3-3a.75.75 0 010-1.06l3-3a.75.75 0 011.06 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <span className="text-sm ml-2"  onClick={logout} >Sign Out</span>
-                      </div>
-                    </li>
+                    
                    
-                     <li className="" >
+                     <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center" >
                       <div
                         className="flex items-center"
                        
@@ -141,27 +120,21 @@ export default function Header(props) {
                           <circle cx={12} cy={7} r={4} />
                           <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                         </svg>
-                        <span className="text-sm ml-2"  onClick={() => navigate("/profile")} >My Profile</span>
+                        <span className="text-sm ml-2"   onClick={() => navigate("/profile")}>My Profile</span>
                       </div>
                     </li>
-                    
-                    {/* <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center">
+                    <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center">
                       <div
                         className="flex items-center"
                         onClick={() => navigate("/profile")}
                       >
                       </div>
-                    </li> */}
+                    </li>
                     <li
-                      // className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2"
-                    
+                      className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2"
+                      onClick={logout}
                     >
-                     
-                      {/* <div 
-                      className="flex items-center"
-                      > 
-                      
-                      
+                      <div className="flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -176,9 +149,12 @@ export default function Header(props) {
                           />
                         </svg>
 
-                        <span className="cursor-pointer" onClick={logout} >Sign out</span>
-                      </div> */}
+                        <button className="cursor-pointer" onClick={logout} >Sign out</button>
+                      </div>
                     </li> 
+                    <li className="text-gray-600 hover:text-blue-600">
+                               
+                    </li>
                  </ul>
                 ) : (
                   ""
