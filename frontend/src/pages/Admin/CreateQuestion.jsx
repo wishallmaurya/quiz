@@ -102,6 +102,7 @@ const setChecked=(val ,ind)=>{
                       }}
                       ></input>
                       </label>
+                      <span>Create at Least 3 Options </span>
                     </div>
                    
                     <div className='grid grid-cols-2 gap-5  mt-5'>

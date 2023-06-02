@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import { MdPadding } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Arrow from "../assets/images/arrow.png"
+import { ToastContainer, toast } from 'react-toastify';
+
 
 import Logo from "../assets/images/logImg.png";
 import Linkedin from "../assets/images/linkedin.png";
@@ -22,6 +24,9 @@ export default function Footer() {
     //     let clear = await localStorage.clear();
     //     navigate('/signin');
     // }
+    const subscribe=()=>{
+        toast.success("Subscribed")
+    }
     return (
         <>
 
@@ -43,14 +48,15 @@ export default function Footer() {
                         <div className="flex justify-around flex-col mt-6">
                             <div className="font-normal">&nbsp;</div>
                             <div className="text-[#D6D6D6] text-[12px] font-light"><Link to="/termsAndCondition">Terms and Policy</Link></div>
-                            <div className="text-[#D6D6D6] text-[12px] font-light">Quiz</div>
+                            <div className="text-[#D6D6D6] text-[12px] font-light">
+                                <Link to='/quiz'>Quiz</Link></div>
                         </div>
                         <div className="flex justify-around flex-col mt-6">
                             <div className="font-normal">Subscribe</div>
                             <div className="text-[#152C4F]">
                                 <input type="text" className="focus:outline-none  p-2 rounded-l-lg"></input>
                                 <span >
-                                    <button style={{ height: "2.1rem", width: "2rem", float: "right", backgroundColor: "#478EFF" }} className="rounded-r-lg" >
+                                    <button onClick={subscribe} style={{ height: "2.1rem", width: "2rem", float: "right", backgroundColor: "#478EFF" }} className="rounded-r-lg" >
                                         <img alt="arrow" src={Arrow} className="p-2 "></img>
                                     </button>
                                 </span>
@@ -61,9 +67,9 @@ export default function Footer() {
                     <div className="border-b"></div>
                     <div className="flex justify-between m-8">
                         <div className="flex justify-between p-1">
-                            <div className=" w-12"><img src={Linkedin} alt="link"></img></div>
-                            <div className="w-12"><img src={Facebook} alt="fb"></img></div>
-                            <div className="w-12"><img src={Twitter} alt="twt"></img></div>
+                            <a href="https://linkedin.com/" target="_blank"rel='noreferrer' className=" w-12"><img src={Linkedin} alt="link"></img></a>
+                            <a href="https://facebook.com/" target="_blank"rel='noreferrer' className="w-12"><img src={Facebook} alt="fb"></img></a>
+                            <a href="https://twitter.com/" target="_blank" rel='noreferrer' className="w-12"><img src={Twitter} alt="twt"></img></a>
                         </div>
                         <div>
                             <p>© {Year} Oliva Ministries. All rights reserved</p>
@@ -73,6 +79,7 @@ export default function Footer() {
 
             </div>
 
+            <ToastContainer />
 
 
         </>

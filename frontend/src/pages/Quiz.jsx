@@ -45,7 +45,6 @@ const Quiz = (props) => {
         }
       };
       const questionCount=()=>{
-        console.log(questionNumber,totalQuestion)
         if(questionNumber<totalQuestion){
           setQuestionNumber( questionNumber+1) 
           handleSubmit()
@@ -90,7 +89,6 @@ const Quiz = (props) => {
           }).toString()
         })
       }
-console.log(totalScoreCount)
       useEffect(() => {
         handleSubmit()
       });
