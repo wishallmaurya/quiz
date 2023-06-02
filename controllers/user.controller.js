@@ -8,57 +8,97 @@ const jwt = require("jsonwebtoken");
 exports.createUser = async (req, res, next) => {
   let user;
   let savedUser;
+
   try {
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync(req.body.password, salt);
-      const isUser = await userModel.findOne({username: req.body.username})
-      if(isUser){
-          return res.status(400).send({
-              success: false,
-              data: null,
-              message:"Username already exist"
-          })
-      }else{
+    let username = req.body.username;
+    if (!username) {
+      return res.status(200).send({
+        success: false,
+        message: "Enter Username",
+      });
+    }
+    let email = req.body.email;
+    if (!email) {
+      return res.status(200).send({
+        success: false,
+        message: "Enter Email",
+      });
+    }
+    const isValidEmail=(mail)=>{
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+      return true
+  }
+    if (!isValidEmail(email)) {
+      return res.status(200).send({
+        success: false,
+        message: "Enter Valid Email",
+      });
+    }
+    let password = req.body.password;
+    if (!password) {
+      return res.status(200).send({
+        success: false,
+        message: "Enter Password",
+      });
+    }
+
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(req.body.password, salt);
+    const isUser = await userModel.findOne({ username: req.body.username });
+
+    if (isUser) {
+      return res.status(200).send({
+        success: false,
+        data: null,
+        message: "Username already exist",
+      });
+    } else {
       user = new userModel({
-          username: req.body.username,
-          email: req.body.email,
-          password: hash,
-          address: req.body.address,
-          selectedLanguage:'English',
-          referralCode: req.body.username.toLowerCase().slice(0, 4) + (Math.floor(Math.random() * 9999) + 1000)
-      })
+        username: req.body.username,
+        email: req.body.email,
+        password: hash,
+        address: req.body.address,
+        selectedLanguage: "English",
+        referralCode:
+          req.body.username.toLowerCase().slice(0, 4) +
+          (Math.floor(Math.random() * 9999) + 1000),
+      });
       savedUser = await user.save();
-      if(req.body.referedBy){
-          const referedUser = await userModel.findOneAndUpdate({ referralCode: req.body.referedBy }, {
-              $push: {
-                  rewards: {
-                      rewardType: "referral",
-                      code: req.body.referedBy,
-                      points: process.env.REFERRAL_POINTS ,
-                      date: new Date(),
-                  }
-              }
-          }, { new: true })
-          if(!referedUser){
-              return res.status(400).send({
-                  success:false,
-                  data:null,
-                  message:"Referral code is not valid"
-              })
-          }
+      if (req.body.referedBy) {
+        const referedUser = await userModel.findOneAndUpdate(
+          { referralCode: req.body.referedBy },
+          {
+            $push: {
+              rewards: {
+                rewardType: "referral",
+                code: req.body.referedBy,
+                points: process.env.REFERRAL_POINTS,
+                date: new Date(),
+              },
+            },
+          },
+          { new: true }
+        );
+        if (!referedUser) {
+          return res.status(200).send({
+            success: false,
+            data: null,
+            message: "Referral code is not valid",
+          });
+        }
       }
-  }
-      
-      savedUser.password = undefined;
-      res.status(200).send({
-          success: true,
-          data: savedUser,
-          message: "User created successfully"
-      })
+    }
+
+    savedUser.password = undefined;
+    res.status(200).send({
+      success: true,
+      data: savedUser,
+      message: "User created successfully",
+    });
   } catch (error) {
-      next(error)
+    next(error);
   }
-}
+};
 
 exports.getUsers = async (req, res, next) => {
   try {
@@ -139,6 +179,7 @@ exports.deleteUser = async (req, res, next) => {
 exports.UserSignIn = async (req, res, next) => {
   try {
     const { username } = req.body;
+
     const user = await userModel.findOne({
       $or: [{ username: username }, { email: username }],
     });
@@ -179,29 +220,25 @@ exports.updatePassword = async (req, res, next) => {
   const { id } = req.params;
   const user = await userModel.findById(id);
   if (!user) return next(createError(404, "User not found!"));
-  
+
   const { password, newPassword } = req.body;
-  if (!password)   return next(createError(400, " password invalid"));
-  if (!newPassword)   return next(createError(400, "new password invalid"));
+  if (!password) return next(createError(400, " password invalid"));
+  if (!newPassword) return next(createError(400, "new password invalid"));
 
-  const isPasswordCorrect = await bcrypt.compare(
-    password,
-    user.password
-  );
-  if (!isPasswordCorrect){
+  const isPasswordCorrect = await bcrypt.compare(password, user.password);
+  if (!isPasswordCorrect) {
     res.status(200).send({
-        success: false,
-        message: "Incorrect Password",
-      });
+      success: false,
+      message: "Incorrect Password",
+    });
   }
-
 
   const salt = bcrypt.genSaltSync(10);
   const hashPassword = bcrypt.hashSync(newPassword, salt);
 
-  let username=user.username
-  let address=user.address
-  let selectedLanguage=user.selectedLanguage
+  let username = user.username;
+  let address = user.address;
+  let selectedLanguage = user.selectedLanguage;
   try {
     let updated;
     const options = {
@@ -244,24 +281,22 @@ exports.updatePassword = async (req, res, next) => {
   }
 };
 
-
 exports.getSingleUser = async (req, res, next) => {
-    try {
-      const id = req.params.id;
-      const user = await userModel.findById(id);
-      if(!user){
-        res.status(200).json({
-            success: false,
-            message: "User not Found",
-          });
-      }
+  try {
+    const id = req.params.id;
+    const user = await userModel.findById(id);
+    if (!user) {
       res.status(200).json({
-        success: true,
-        data: user,
-        message: "User fetched successfully",
+        success: false,
+        message: "User not Found",
       });
-    } catch (error) {
-      next(error);
     }
-  };
-  
+    res.status(200).json({
+      success: true,
+      data: user,
+      message: "User fetched successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
