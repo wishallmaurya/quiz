@@ -43,9 +43,9 @@ export default function SignUp(props) {
     };
   return (
     <>
-      <div className="flex">
-
-        <div className="w-1/2 flex  justify-center">
+      <div className="flex flex-wrap">
+        
+        <div className="w-[100%]  flex justify-center sm:w-1/2 ">
 
           <div className="flex justify-center flex-col w-96">
 
@@ -115,13 +115,15 @@ export default function SignUp(props) {
 
         </div>
 
-        <div className="w-1/2 h-auto flex justify-center items-center bg-[#D5D8DB]" >
+        <div className="w-1/2 h-screen flex justify-center items-center bg-[#D5D8DB] max-[640px]:hidden" >
           <img
             src={require("../assets/images/imgSignUp.png")}
             alt=""
             style={{ height: "400px", width: "400px" }}
           />
         </div>
+
+
       </div>
 
       <ToastContainer />
