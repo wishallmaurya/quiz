@@ -28,7 +28,10 @@ export default function SignUp(props) {
         console.log(res.data)
         if (res.data.success) {
           toast.success(res.data.message)
-          navigate("/signIn");
+          setTimeout(() => {
+            
+            navigate("/signIn");
+          }, 900);
         } else {
           toast.error(res.data.message)
         } 
