@@ -29,7 +29,9 @@ export default function AdminSignIn (props) {
           localStorage.setItem("user", JSON.stringify(res.data.data));
           console.log(res.data)
           toast.success("Login Successfully")
+          setTimeout(() => {
             navigate("/adminDashboard");
+          }, 900);
         } else {
           toast.error(res.data.message)
         }
