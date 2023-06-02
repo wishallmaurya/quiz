@@ -8,63 +8,57 @@ const jwt = require("jsonwebtoken");
 exports.createUser = async (req, res, next) => {
   let user;
   let savedUser;
-
   try {
-
-    const isUser = await userModel.findOne({ username: req.body.username });
-    if (isUser) {
-      return res.status(400).send({
-        success: false,
-        data: null,
-        message: "Username already exist",
-      });
-    } else {
-      user = new userModel({
-        username: req.body.username,
-        email: req.body.email,
-        password: hash,
-        address: req.body.address,
-        selectedLanguage: "English",
-        referralCode:
-          req.body.username.toLowerCase().slice(0, 4) +
-          (Math.floor(Math.random() * 9999) + 1000),
-      });
-      savedUser = await user.save();
-      if (req.body.referedBy) {
-        const referedUser = await userModel.findOneAndUpdate(
-          { referralCode: req.body.referedBy },
-          {
-            $push: {
-              rewards: {
-                rewardType: "referral",
-                code: req.body.referedBy,
-                points: process.env.REFERRAL_POINTS,
-                date: new Date(),
-              },
-            },
-          },
-          { new: true }
-        );
-        if (!referedUser) {
+      const salt = bcrypt.genSaltSync(10);
+      const hash = bcrypt.hashSync(req.body.password, salt);
+      const isUser = await userModel.findOne({username: req.body.username})
+      if(isUser){
           return res.status(400).send({
-            success: false,
-            data: null,
-            message: "Referral code is not valid",
-          });
-        }
+              success: false,
+              data: null,
+              message:"Username already exist"
+          })
+      }else{
+      user = new userModel({
+          username: req.body.username,
+          email: req.body.email,
+          password: hash,
+          address: req.body.address,
+          selectedLanguage:'English',
+          referralCode: req.body.username.toLowerCase().slice(0, 4) + (Math.floor(Math.random() * 9999) + 1000)
+      })
+      savedUser = await user.save();
+      if(req.body.referedBy){
+          const referedUser = await userModel.findOneAndUpdate({ referralCode: req.body.referedBy }, {
+              $push: {
+                  rewards: {
+                      rewardType: "referral",
+                      code: req.body.referedBy,
+                      points: process.env.REFERRAL_POINTS ,
+                      date: new Date(),
+                  }
+              }
+          }, { new: true })
+          if(!referedUser){
+              return res.status(400).send({
+                  success:false,
+                  data:null,
+                  message:"Referral code is not valid"
+              })
+          }
       }
-    }
-
-    savedUser.password = undefined;
-    res.status(200).send({
-      success: true,
-      data: savedUser,
-      message: "User created successfully",
-    });
-  } catch (error) {
-    next(error);
   }
-};
+      
+      savedUser.password = undefined;
+      res.status(200).send({
+          success: true,
+          data: savedUser,
+          message: "User created successfully"
+      })
+  } catch (error) {
+      next(error)
+  }
+}
 
 exports.getUsers = async (req, res, next) => {
   try {
