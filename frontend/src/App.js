@@ -29,6 +29,7 @@ import AllUserList from "./pages/Admin/AllUserList";
 import AllResults from "./pages/Admin/AllResults";
 import SingleUser from "./pages/Admin/SingleUser";
 import UpdateQuestions from "./pages/Admin/UpdateQuestions";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
 
          {/* <Route exact path="/admin-signup" element={ <AdminSignUp/>} /> */}
          <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
+         <Route exact path="/adminDashboard" element={ <AdminDashboard/>} />
          <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
          <Route exact path="/updateQuestion" element={ <UpdateQuestions/>} />
          <Route exact path="/userList" element={ <AllUserList/>} />
