@@ -28,7 +28,7 @@ export default function SignUp(props) {
         console.log(res.data)
         if (res.data.success) {
           toast.success(res.data.message)
-          navigate("/");
+          navigate("/signIn");
         } else {
           toast.error(res.data.message)
         } 
