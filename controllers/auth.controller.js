@@ -27,13 +27,28 @@ exports.register = async (req, res, next) => {
 }
 
 exports.login = async (req, res, next) => {
-    console.log('i was here')
     try {
         const { username } = req.body
-        const user = await Admin.findOne({ $or: [{ "username": username }, { "email": username }] })
-        if (!user) return next(createError(404, "User not found!"))
+        if(!username){
+            return res.status(200).send({
+              success: false,
+              message: "Enter Username or Email",
+            });
+          }
+        const user = await Admin.findOne({ $or: [{ username: username }, { email: username }] })
+        if (!user){
+            return res.status(200).send({
+              success: false,
+              message: "Admin Not Found",
+            });
+          }
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
-        if (!isPasswordCorrect) return next(createError(400, "Wrong password"))
+        if (!isPasswordCorrect){
+            return res.status(200).send({
+              success: false,
+              message: "Incorrect Password",
+            });
+          }
         const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT)
         const { password, role, ...options } = user._doc
         res.status(200).json({

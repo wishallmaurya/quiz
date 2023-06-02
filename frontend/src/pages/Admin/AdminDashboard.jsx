@@ -106,7 +106,8 @@ const AdminDashboard = () => {
                   </div>
                 </li>
                 <li>
-                  <NavLink className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
+                  <NavLink
+                  to='/profile' className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
                     <span className="inline-flex justify-center items-center ml-4">
                       <AiOutlineHome />
                     </span>
