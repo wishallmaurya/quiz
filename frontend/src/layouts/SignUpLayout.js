@@ -57,8 +57,9 @@ export default function SignUp(props) {
     <>
       <div className="flex flex-wrap">
         <div className="w-[100%]  flex justify-center sm:w-1/2 ">
-          <div className="flex justify-center flex-col w-96">
-            <div className="p-3 flex justify-center ">
+        <div className="flex justify-center flex-col w-96  ">
+          <div className="p-3 flex justify-center ">
+              
               <img
                 src={require("../assets/images/logo.png")}
                 alt=""

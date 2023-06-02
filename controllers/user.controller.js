@@ -179,16 +179,32 @@ exports.deleteUser = async (req, res, next) => {
 exports.UserSignIn = async (req, res, next) => {
   try {
     const { username } = req.body;
+    if(!username){
+      return res.status(200).send({
+        success: false,
+        message: "Enter Username or Email",
+      });
+    }
 
     const user = await userModel.findOne({
-      $or: [{ username: username }, { email: username }],
+      $or: [{ username: username }, {email: username }],
     });
-    if (!user) return next(createError(404, "User not found!"));
+    if (!user){
+      return res.status(200).send({
+        success: false,
+        message: "User Not Found",
+      });
+    }
     const isPasswordCorrect = await bcrypt.compare(
       req.body.password,
       user.password
     );
-    if (!isPasswordCorrect) return next(createError(400, "Wrong password"));
+    if (!isPasswordCorrect){
+      return res.status(200).send({
+        success: false,
+        message: "Incorrect Password",
+      });
+    }
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT);
     console.log(token, "pass");
     const { password, ...options } = user._doc;
