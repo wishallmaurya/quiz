@@ -1,6 +1,7 @@
 const Result = require('../models/result.model')
 
 exports.createResult = async (req, res, next) => {
+    console.log(req.body)
     try {
         const userId = req.user?.id;
         const result = new Result({

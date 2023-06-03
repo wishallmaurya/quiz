@@ -9,6 +9,7 @@ const Quiz = (props) => {
 
   const navigate=useNavigate()
     const [question,setQuestion]=useState()
+    const [skipQuestionCount,setSkipQuestionCount]=useState(0)
     const [questionNumber,setQuestionNumber]=useState(1)
     const [totalQuestion,setTotalQuestion]=useState()
     const [option1,setOption1]=useState()
@@ -62,7 +63,8 @@ const Quiz = (props) => {
       }
       const skipQuestion=()=>{
         if(questionNumber<totalQuestion){
-            setQuestionNumber( questionNumber+1) 
+            setQuestionNumber( questionNumber+1)
+            setSkipQuestionCount(skipQuestionCount+1)
             handleSubmit()
           }
       }
@@ -82,12 +84,25 @@ const Quiz = (props) => {
         }
       }
       const scoreShare=()=>{
+        submitScore()
         navigate({
           pathname:'/score',
           search:createSearchParams({
             score:totalScoreCount
           }).toString()
         })
+      }
+      const scorePayload={
+        quizModule: '638072e926bbb50dfd9ed8e3',
+        totalQuestions:totalQuestion,
+        questionAttempted:totalQuestion-skipQuestionCount,
+        correctAnswers: totalScoreCount,
+        wrongAnswers:totalQuestion-totalScoreCount,
+        score:totalScoreCount
+      }
+      const submitScore=async()=>{
+        const res = await axiosInstance.post("/result",scorePayload,config);
+        console.log(res)
       }
       useEffect(() => {
         handleSubmit()

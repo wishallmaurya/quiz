@@ -4,7 +4,7 @@ import { AiOutlineClockCircle, AiOutlineCalendar } from "react-icons/ai";
 import { axiosInstance } from "../../utils/axiosSetup";
 
 export default function MyQuizzes() {
-  const [list,setList]=useState();
+  const [quizList,setQuizList]=useState('');
   let token = JSON.parse(localStorage.getItem("token"));
   let user = JSON.parse(localStorage.getItem("user"));
   console.log(user._id)
@@ -21,9 +21,11 @@ export default function MyQuizzes() {
 
   const getResult = async () => {
       const res = await axiosInstance.get(`/result/${user._id}`,config, );
+      console.log(res)
       if (res.data.success) {
-        setList(res.data.data)
-        console.log("LIST====-----",res.data.data) 
+        setQuizList(res.data.data)
+        console.log("quizList====-----",res.data.data) 
+        console.log(quizList,'.....................') 
       
 
     }
@@ -35,8 +37,7 @@ export default function MyQuizzes() {
     <div className="flex-col">
           <Menu />
         </div>
-        {console.log(list,"LIST/*****************")}
-     { list?.map((e)=>(
+     { quizList?.map((e)=>(
       <div className="flex  relative left-20 m-2">
 
         <div className="w-5/6 h-28 rounded-lg overflow-hidden shadow-lg flex">
