@@ -5,7 +5,6 @@ import Logo from "../assets/images/logo.png";
 import User from "../assets/images/user.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-
 export default function Header(props) {
   const {
     show,
@@ -28,8 +27,8 @@ export default function Header(props) {
     console.log(visible);
   }, []);
 
-  const logout = async() => {
-  console.log('logoutClick----------  -----')
+  const logout = async () => {
+    console.log("logoutClick----------  -----");
     let clear = await localStorage.clear();
     navigate("/signIn");
   };
@@ -47,19 +46,25 @@ export default function Header(props) {
         </div>
         <div className="w-1/2 hidden lg:flex">
           <div className="w-full flex items-center pl-10 justify-end">
-          <AnchorLink href='#howItsWork' className="m-4 cursor-pointer"><button>How it works</button></AnchorLink>
-          <AnchorLink href='#pricing' className="m-4 cursor-pointer"><button>Pricing</button></AnchorLink>
-          <AnchorLink href='#aboutUs' className="m-4 cursor-pointer"><button>About us</button></AnchorLink>
+            <AnchorLink href="#howItsWork" className="m-4 cursor-pointer">
+              <button>How it works</button>
+            </AnchorLink>
+            <AnchorLink href="#pricing" className="m-4 cursor-pointer">
+              <button>Pricing</button>
+            </AnchorLink>
+            <AnchorLink href="#aboutUs" className="m-4 cursor-pointer">
+              <button>About us</button>
+            </AnchorLink>
 
             <div
               className="flex items-center relative cursor-pointer w-48"
               onClick={() => setProfile(!profile)}
             >
-              {/* {visible || (
+              {visible || (
                 <div className="m-2">
                   <button
                     class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                    onClick={() => navigate("/signIn ")}
+                    onClick={() => navigate("/signIn")}
                   >
                     Login
                   </button>
@@ -74,7 +79,7 @@ export default function Header(props) {
                     Register
                   </button>
                 </div>
-              )} */}
+              )}
               {/* <p className="text-gray-800 text-sm mx-3">{user?.firstName} <br></br>
                           <span className="text-xs text-gray-400">{user?.lastName}</span> */}
 
@@ -93,24 +98,18 @@ export default function Header(props) {
                 </p>
               )}
 
-              <div className="top-8 absolute bg-white z-1"
-               >
+              <div className="top-8 absolute bg-white z-1">
                 {profile ? (
                   // <button onClick={(e)=>{logout(e)}}>My Profile</button>
-                  
-                   <ul className="py-1 m-2">
 
-<li className="" >
-                      <div
-                        className="flex items-center"
-                       
-                      >
+                  <ul className="py-1 m-2">
+                    <li className="">
+                      <div className="flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                           fill="currentColor"
                           className="w-6 h-6"
-                          
                         >
                           <path
                             fillRule="evenodd"
@@ -118,15 +117,14 @@ export default function Header(props) {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span className="text-sm ml-2"  onClick={logout} >Sign Out</span>
+                        <span className="text-sm ml-2" onClick={logout}>
+                          Sign Out
+                        </span>
                       </div>
                     </li>
-                   
-                     <li className="" >
-                      <div
-                        className="flex items-center"
-                       
-                      >
+
+                    <li className="">
+                      <div className="flex items-center">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="icon icon-tabler icon-tabler-user"
@@ -143,10 +141,15 @@ export default function Header(props) {
                           <circle cx={12} cy={7} r={4} />
                           <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                         </svg>
-                        <span className="text-sm ml-2"  onClick={() => navigate("/profile")} >My Profile</span>
+                        <span
+                          className="text-sm ml-2"
+                          onClick={() => navigate("/profile")}
+                        >
+                          My Profile
+                        </span>
                       </div>
                     </li>
-                    
+
                     {/* <li className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center">
                       <div
                         className="flex items-center"
@@ -155,10 +158,8 @@ export default function Header(props) {
                       </div>
                     </li> */}
                     <li
-                      // className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2"
-                    
+                    // className="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mt-2"
                     >
-                     
                       {/* <div 
                       className="flex items-center"
                       > 
@@ -180,8 +181,8 @@ export default function Header(props) {
 
                         <span className="cursor-pointer" onClick={logout} >Sign out</span>
                       </div> */}
-                    </li> 
-                 </ul>
+                    </li>
+                  </ul>
                 ) : (
                   ""
                 )}
@@ -215,8 +216,6 @@ export default function Header(props) {
           </svg>
         )}
       </div>
-      
     </nav>
-    
   );
 }

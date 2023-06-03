@@ -11,6 +11,17 @@ const ChangePassword = () => {
   const [id, setId] = useState(data._id);
   const [password, setPassword] = useState();
   const [newPassword, setNewPassword] = useState();
+  const [newPassword2, setNewPassword2] = useState();
+
+  const matchPassword=(e)=>{
+    e.preventDefault(); 
+
+    if(newPassword===newPassword2){
+      handleSubmit(e)
+    }else{
+      toast.error('Confirm Password not Matched')
+    }
+  }
   const config = {
     headers:{
       Authorization:token
@@ -80,11 +91,12 @@ const ChangePassword = () => {
               className="bg-white-50 border border-gray-300 text-white text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
               placeholder="Confirm Password"
+              onChange={(e) => setNewPassword2(e.target.value)}
             />
           </div>
         </div>
         <div className="relative left-2/4">
-          <button class="bg-white hover:bg-[#3D5890] focus:scale-110 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60" onClick={handleSubmit}>
+          <button class="bg-white hover:bg-[#3D5890] focus:scale-110 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60" onClick={matchPassword}>
             Save Changes
           </button>
           <button class="bg-white hover:bg-[#3D5890]  text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60 mx-8">

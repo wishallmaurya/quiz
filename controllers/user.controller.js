@@ -238,9 +238,18 @@ exports.updatePassword = async (req, res, next) => {
   if (!user) return next(createError(404, "User not found!"));
 
   const { password, newPassword } = req.body;
-  if (!password) return next(createError(400, " password invalid"));
-  if (!newPassword) return next(createError(400, "new password invalid"));
-
+  if (!password){
+    return res.status(200).send({
+      success: false,
+      message: "Enter Old Password",
+    });
+  }
+  if (!newPassword){
+    return res.status(200).send({
+      success: false,
+      message: "Enter New Password",
+    });
+  }
   const isPasswordCorrect = await bcrypt.compare(password, user.password);
   if (!isPasswordCorrect) {
     res.status(200).send({
