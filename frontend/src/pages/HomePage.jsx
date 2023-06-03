@@ -30,7 +30,7 @@ const HomePage = () => {
           </button>
         </div>
 
-        <div className="absolute top-[70rem] left-[4.5rem] w-[69.44rem] h-[32.25rem] text-[1.69rem]">
+        <div id="howItsWork" className="absolute top-[70rem] left-[4.5rem] w-[69.44rem] h-[32.25rem] text-[1.69rem]">
           <div className="absolute top-[16.69rem] left-[44rem] box-border w-[0.13rem] h-[1.79rem] border-r-[2px] border-solid border-darkslategray-200" />
           <div className="absolute top-[12.94rem] left-[44.06rem] font-medium">
             Register on our website
@@ -188,7 +188,7 @@ const HomePage = () => {
         <div className="absolute top-[8.31rem] left-[49.31rem] text-[2.5rem] font-medium inline-block w-[33.19rem]">
           We help to increase your Knowledge
         </div>
-        <div className="absolute top-[2.31rem] left-[38.13rem] text-[2.25rem] font-medium text-darkslategray-500">
+        <div id="aboutUs" className="absolute top-[2.31rem] left-[38.13rem] text-[2.25rem] font-medium text-darkslategray-500">
           Who are We
         </div>
         <div className="absolute top-[17.06rem] left-[49.31rem] text-[1.13rem] text-darkslategray-100 inline-block w-[31.63rem] h-[11.69rem]">
@@ -414,7 +414,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <div className="absolute top-[335rem] left-[41rem] text-[2.5rem] ">
+      <div id="pricing" className="absolute top-[335rem] left-[41rem] text-[2.5rem] ">
         Pricing
       </div>
       <div className="absolute top-[340rem] left-[26rem] text-[2.5rem] font-bold">

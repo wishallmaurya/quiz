@@ -3,6 +3,8 @@ import { MdPadding } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import User from "../assets/images/user.png";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 
 export default function Header(props) {
   const {
@@ -45,9 +47,9 @@ export default function Header(props) {
         </div>
         <div className="w-1/2 hidden lg:flex">
           <div className="w-full flex items-center pl-10 justify-end">
-            <div className="m-4 cursor-pointer" onClick={()=>{navigate('/termsAndCondition')}}>How it works</div>
-            <div className="m-4 cursor-pointer" onClick={()=>{navigate('/termsAndCondition')}}>Pricing</div>
-            <div className="m-4 cursor-pointer" onClick={()=>{navigate('/termsAndCondition')}}>About us</div>
+          <AnchorLink href='#howItsWork' className="m-4 cursor-pointer"><button>How it works</button></AnchorLink>
+          <AnchorLink href='#pricing' className="m-4 cursor-pointer"><button>Pricing</button></AnchorLink>
+          <AnchorLink href='#aboutUs' className="m-4 cursor-pointer"><button>About us</button></AnchorLink>
 
             <div
               className="flex items-center relative cursor-pointer w-48"
