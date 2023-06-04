@@ -30,12 +30,14 @@ import AllResults from "./pages/Admin/AllResults";
 import SingleUser from "./pages/Admin/SingleUser";
 import UpdateQuestions from "./pages/Admin/UpdateQuestions";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
+import PageNotFound from "./layouts/PageNotFound";
 
 
 function App() {
   return (
       <Router>
         <Routes>
+         <Route exact path="*" element={<PageNotFound/>} />
          <Route exact path="/" element={<HomePage/>} />
          <Route exact path="/language" element={<Language/>} />
          <Route exact path="/quizList" element={<QuizList/>} />
