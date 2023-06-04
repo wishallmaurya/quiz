@@ -31,6 +31,7 @@ import SingleUser from "./pages/Admin/SingleUser";
 import UpdateQuestions from "./pages/Admin/UpdateQuestions";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import PageNotFound from "./layouts/PageNotFound";
+import DailyRegisteredUser from "./pages/Admin/DailyRegisteredUser";
 
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
          <Route exact path="/userList" element={ <AllUserList/>} />
          <Route exact path="/AllResults" element={ <AllResults/>} />
          <Route exact path="/SingleUser" element={ <SingleUser/>} />
+         <Route exact path="/dailyRegisteredUser" element={ <DailyRegisteredUser/>} />
          
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />

@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineHome, AiFillPlayCircle } from "react-icons/ai";
 import { FaUsers, FaRupeeSign } from "react-icons/fa";
 import { VscPassFilled } from "react-icons/vsc";
+import { axiosInstance } from "../../utils/axiosSetup";
 
 const AdminDashboard = () => {
+  let token = JSON.parse(localStorage.getItem("token"));
+
+  const [userCount, setUserCount] = useState(0);
+  const config = {
+    headers: {
+      Authorization: token,
+    },
+  };
+
+  const getUser = async () => {
+    console.log("called");
+
+    const res = await axiosInstance.get("dashboard/dailyRegistration", config);
+    if (res.data.success) {
+      setUserCount(res.data.data.length);
+    }
+  };
+  useEffect(() => getUser, []);
   return (
     <>
       <div>
@@ -76,7 +95,8 @@ const AdminDashboard = () => {
                   </div>
                 </li>
                 <li>
-                  <NavLink className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
+                  <NavLink
+                  to='/userList' className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
                     <span className="inline-flex justify-center items-center ml-4">
                       <AiOutlineHome />
                     </span>
@@ -136,14 +156,14 @@ const AdminDashboard = () => {
           <div className="h-full ml-14 mt-2 mb-10 md:ml-64">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4 ">
               <Link
-                to="/userlist"
+                to="/dailyRegisteredUser"
                 className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black"
               >
                 <div className="flex justify-center items-center w-16 h-16 bg-white rounded-full transition-all duration-300 transform group-hover:-rotate-12 text-[#152C4F] hover:bg-blue-200 hover:text-black">
                   <FaUsers size={60} />
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold">257</p>
+                  <p className="text-2xl font-bold">{userCount}</p>
                   <p>Daily Registration</p>
                 </div>
               </Link>
