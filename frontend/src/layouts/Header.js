@@ -111,7 +111,7 @@ export default function Header(props) {
 
               {visible && (
                 <p className=" flex items-center text-gray-800 text-sm mx-3 ">
-                  {/* <img className="p-2 " src={data?.profilePhoto} alt="userImg" /> */}
+                  <img className="p-2 " src={data?.profilePhoto} alt="userImg" />
                   <div className="relative">
                     <img
                       className="rounded-full h-8 w-8 object-cover"
