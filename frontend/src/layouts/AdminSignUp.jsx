@@ -82,9 +82,9 @@ export default function AdminSignUp(props) {
              Or Login with  
             </div>
             <div>
-            <button type="submit" className="w-full px-6 py-2.5  
+            {/* <button type="submit" className="w-full px-6 py-2.5  
               text-[#065FD4] font-medium text-xs border-2 leading-tight rounded shadow-md hover:bg-[#3D5890] hover:text-white  hover:shadow-lg focus:bg-[#3D5890] focus:shadow-lg focus:outline-none focus:ring-0   active:shadow-lg  transition  duration-150 ease-in-out mt-5 "><span><img src={Google}alt='' style={{display:"inline",padding:"2px"}}/></span>&nbsp;Sign Up in with Google</button>
-            </div>
+            </div> */}
           </div>
 
         </div>

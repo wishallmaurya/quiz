@@ -116,7 +116,7 @@ export default function SignIn(props) {
           <div className="text-[rgba(0, 0, 0, 0.6)] p-7 text-center text-[14px] flex justify-center">
             Or Login with
           </div>
-          <div>
+          {/* <div>
             <button
               type="submit"
               className="w-full px-6 py-2.5  
@@ -131,7 +131,7 @@ export default function SignIn(props) {
               </span>
               Log in with Google
             </button>
-          </div>
+          </div> */}
         </div>
         </div>
 
