@@ -42,6 +42,12 @@ exports.login = async (req, res, next) => {
               message: "Admin Not Found",
             });
           }
+          if (!req.body.password) {
+            return res.status(200).send({
+              success: false,
+              message: "Enter Password",
+            });
+          }
         const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
         if (!isPasswordCorrect){
             return res.status(200).send({

@@ -24,10 +24,10 @@ exports.createUser = async (req, res, next) => {
         message: "Enter Email",
       });
     }
-    const isValidEmail=(mail)=>{
+    const isValidEmail = (mail) => {
       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
-      return true
-  }
+        return true;
+    };
     if (!isValidEmail(email)) {
       return res.status(200).send({
         success: false,
@@ -179,7 +179,7 @@ exports.deleteUser = async (req, res, next) => {
 exports.UserSignIn = async (req, res, next) => {
   try {
     const { username } = req.body;
-    if(!username){
+    if (!username) {
       return res.status(200).send({
         success: false,
         message: "Enter Username or Email",
@@ -187,19 +187,25 @@ exports.UserSignIn = async (req, res, next) => {
     }
 
     const user = await userModel.findOne({
-      $or: [{ username: username }, {email: username }],
+      $or: [{ username: username }, { email: username }],
     });
-    if (!user){
+    if (!user) {
       return res.status(200).send({
         success: false,
         message: "User Not Found",
+      });
+    }
+    if (!req.body.password) {
+      return res.status(200).send({
+        success: false,
+        message: "Enter Password",
       });
     }
     const isPasswordCorrect = await bcrypt.compare(
       req.body.password,
       user.password
     );
-    if (!isPasswordCorrect){
+    if (!isPasswordCorrect) {
       return res.status(200).send({
         success: false,
         message: "Incorrect Password",
@@ -238,13 +244,13 @@ exports.updatePassword = async (req, res, next) => {
   if (!user) return next(createError(404, "User not found!"));
 
   const { password, newPassword } = req.body;
-  if (!password){
+  if (!password) {
     return res.status(200).send({
       success: false,
       message: "Enter Old Password",
     });
   }
-  if (!newPassword){
+  if (!newPassword) {
     return res.status(200).send({
       success: false,
       message: "Enter New Password",
