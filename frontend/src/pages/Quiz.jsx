@@ -104,6 +104,14 @@ const Quiz = (props) => {
         const res = await axiosInstance.post("/result",scorePayload,config);
         console.log(res)
       }
+      const submitAlerts=()=>{
+        if(skipQuestionCount>0){
+
+          alert("Are You Sure Want to submit");
+          scoreShare()
+        }else{
+        }
+      }
       useEffect(() => {
         handleSubmit()
       });
@@ -146,7 +154,7 @@ const Quiz = (props) => {
         Skip 
       </button>
       <br />
-      <button class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 absolute right-[10rem]"onClick={scoreShare} >
+      <button class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 absolute right-[10rem]"onClick={submitAlerts} >
         Submit the Quiz 
       </button>
     </>

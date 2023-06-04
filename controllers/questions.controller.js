@@ -49,6 +49,18 @@ exports.updateQuestions = async (req, res, next) => {
         next(error)
     }
 }
+exports.singleQuestions = async (req, res, next) => {
+    try {
+    const data = await Questions.findById(req.params.id)
+        res.status(200).send({
+            success: true,
+            data: data,
+            message: "Question Fetch successfully"
+        })
+    } catch (error) {
+        next(error)
+    }
+}
 
 exports.deleteQuestions = async (req, res, next) => {
     try {
