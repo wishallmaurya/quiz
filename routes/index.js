@@ -10,6 +10,7 @@ const questionRoutes = require('./question.route.js')
 const resultRoutes = require('./result.route')
 const membershipRoutes = require('./membership.route')
 const voucherRoutes = require('./voucher.route')
+const adminDashboardRoutes = require('./adminDashboard.route')
 
 // Routes Usage
 rootRouter.use('/auth', authRoutes)     
@@ -20,6 +21,7 @@ rootRouter.use('/question', questionRoutes)
 rootRouter.use('/result', resultRoutes)     
 rootRouter.use('/membership', membershipRoutes)     
 rootRouter.use('/voucher', voucherRoutes)   
+rootRouter.use('/dashboard', adminDashboardRoutes)   
 
 
 
