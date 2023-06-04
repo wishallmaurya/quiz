@@ -119,7 +119,9 @@ const AdminDashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
+                  <NavLink
+                  to='/AllResults'
+                  className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
                     <span className="inline-flex justify-center items-center ml-4">
                       <AiOutlineHome />
                     </span>
@@ -128,14 +130,14 @@ const AdminDashboard = () => {
                     </span>
                   </NavLink>
                 </li>
-                <li className="px-5 hidden md:block">
+                {/* <li className="px-5 hidden md:block">
                   <div className="flex flex-row items-center mt-5 h-8">
                     <div className="text-sm font-light tracking-wide text-gray-400 uppercase">
                       Settings
                     </div>
                   </div>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <NavLink
                   to='/profile' className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
                     <span className="inline-flex justify-center items-center ml-4">
@@ -145,16 +147,16 @@ const AdminDashboard = () => {
                       Profile
                     </span>
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
-                  <NavLink className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
+                  {/* <NavLink className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6">
                     <span className="inline-flex justify-center items-center ml-4">
                       <AiOutlineHome />
                     </span>
                     <span className="ml-2 text-sm tracking-wide truncate">
                       Settings
                     </span>
-                  </NavLink>
+                  </NavLink> */}
                 </li>
               </ul>
               <p className="mb-14 px-5 py-3 hidden md:block text-center text-sm">
@@ -197,7 +199,7 @@ const AdminDashboard = () => {
                   <VscPassFilled size={70} />
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold">121</p>
+                  <p className="text-2xl font-bold">0</p>
                   <p>Daily Passed User</p>
                 </div>
               </Link>
