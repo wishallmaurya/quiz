@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MdPadding } from "react-icons/md";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import User from "../assets/images/user.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
@@ -15,6 +15,10 @@ export default function Header(props) {
     setProfile,
     responsive,
   } = props;
+  let x=window.location.pathname
+  if(x){
+    x=x.split('/')[1]
+  }
   // const [user, setUser] = useState();
   const [visible, setVisible] = useState(false);
   let navigate = useNavigate({});
@@ -32,10 +36,11 @@ export default function Header(props) {
     let clear = await localStorage.clear();
     navigate("/signIn");
   };
+  console.log(window.location.pathname);
   return (
     <nav className="h-20 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-0">
       <div className="hidden lg:flex w-full pr-6">
-        <div className=" w-1/2 h-full hidden lg:flex items-center pl-3 pr-24" >
+        <div className=" w-1/2 h-full hidden lg:flex items-center pl-3 pr-24">
           <img
             src={Logo}
             alt="logo"
@@ -47,15 +52,35 @@ export default function Header(props) {
         </div>
         <div className="w-1/2 hidden lg:flex">
           <div className="w-full flex items-center pl-10 justify-end">
-            <AnchorLink href="#howItsWork" className="m-4 cursor-pointer">
+            {x ? (
+              <button onClick={() => navigate("/")} className="m-4">
+              How it works
+            </button>
+            ) : (
+              <AnchorLink href="#howItsWork" className="m-4 cursor-pointer">
               <button>How it works</button>
             </AnchorLink>
-            <AnchorLink href="#pricing" className="m-4 cursor-pointer">
+            )}
+            {x ? (
+              <button onClick={() => navigate("/")} className="m-4">
+              Pricing
+            </button>
+            ) : (
+              <AnchorLink href="#pricing" className="m-4 cursor-pointer">
               <button>Pricing</button>
             </AnchorLink>
-            <AnchorLink href="#aboutUs" className="m-4 cursor-pointer">
-              <button>About us</button>
+            )}
+            {x ? (
+              <button onClick={() => navigate("/")} className="m-4">
+             About Us
+            </button>
+            ) : (
+              <AnchorLink href="#aboutUs" className="m-4 cursor-pointer">
+              <button>About Us</button>
             </AnchorLink>
+            )}
+
+  
 
             <div
               className="flex items-center relative cursor-pointer w-48"
