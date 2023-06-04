@@ -110,6 +110,7 @@ const Quiz = (props) => {
           alert("Are You Sure Want to submit");
           scoreShare()
         }else{
+          scoreShare()
         }
       }
       useEffect(() => {
