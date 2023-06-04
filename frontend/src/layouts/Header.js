@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MdPadding } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import User from "../assets/images/user.png";
 import AnchorLink from "react-anchor-link-smooth-scroll";
@@ -35,13 +35,14 @@ export default function Header(props) {
   return (
     <nav className="h-20 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-0">
       <div className="hidden lg:flex w-full pr-6">
-        <div className="w-1/2 h-full hidden lg:flex items-center pl-3 pr-24">
+        <div className=" w-1/2 h-full hidden lg:flex items-center pl-3 pr-24" >
           <img
             src={Logo}
             alt="logo"
             height={"80px"}
             width={"80px"}
-            className="p-2 ml-5"
+            className="p-2 ml-5 cursor-pointer"
+            onClick={() => navigate("/")}
           ></img>
         </div>
         <div className="w-1/2 hidden lg:flex">
