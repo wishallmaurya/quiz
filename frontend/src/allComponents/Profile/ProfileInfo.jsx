@@ -39,7 +39,9 @@ const ProfileInfo = () => {
   return (
     <>
      {/* <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div> */}
+    <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div>
     <div className="flex">
+
         <div className="flex-col">
           <Menu />
         </div>
