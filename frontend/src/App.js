@@ -32,6 +32,7 @@ import UpdateQuestions from "./pages/Admin/UpdateQuestions";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import PageNotFound from "./layouts/PageNotFound";
 import DailyRegisteredUser from "./pages/Admin/DailyRegisteredUser";
+import DailyQuizPlayed from "./pages/Admin/DailyQuizPlayed";
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
          <Route exact path="/AllResults" element={ <AllResults/>} />
          <Route exact path="/SingleUser" element={ <SingleUser/>} />
          <Route exact path="/dailyRegisteredUser" element={ <DailyRegisteredUser/>} />
+         <Route exact path="/dailyQuizPlayed" element={ <DailyQuizPlayed/>} />
          
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />

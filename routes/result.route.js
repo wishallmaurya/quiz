@@ -3,14 +3,14 @@ const { createResult, getResultbyUser, getAllResults } = require('../controllers
 const { verifyToken, verifyAdmin } = require('../utils/validate')
 const router = express.Router()
 
-router.route('/')
+
+router.route('/all')
+    .get(verifyAdmin, getAllResults)
+router.route('/:id')
     .post(verifyToken, createResult)
     .get(verifyToken, getResultbyUser)
 router.route('/:id')
     .get(verifyToken, getResultbyUser)
-
-router.route('/all')
-    .get(verifyAdmin, getAllResults)
 
 
 module.exports = router

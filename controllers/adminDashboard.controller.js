@@ -31,7 +31,8 @@ exports.dailyQuizPlayed = async (req, res, next) => {
     let end = new Date();
     end.setHours(23, 59, 59, 999);
 
-    const data = await Result.find({ createdAt: {$gte: start, $lt: end} });
+    const data = await Result.find({createdAt: {$gte: start, $lt: end} }).populate('userId quizModule').sort({createdAt:-1})
+    // const data = await Result.find({ createdAt: {$gte: start, $lt: end} });
     res.status(200).json({
       success: true,
       data,

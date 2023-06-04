@@ -40,7 +40,7 @@ exports.getAllResults = async (req, res, next) =>{
 
 exports.getResultbyUser = async(req, res, next) =>{
     try{
-        console.log(req.user,'this')
+        // console.log(req.user,'this')
         // const userId = req.user?.id
         const userId = req.params.id
 
