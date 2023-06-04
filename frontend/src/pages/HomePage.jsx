@@ -8,10 +8,10 @@ const HomePage = () => {
   return (
     <Skeleton>
       <Loader />
-      <div className="relative  w-full h-[380rem] top-8 overflow-hidden text-left text-[0.88rem] text-darkslategray-300 ">
-        <div className="absolute top-[32.56rem] left-[8.69rem] box-border w-[0.13rem] h-[1.79rem] border-r-[2px] border-solid border-darkslategray-200" />
+      <div className="relative top-8 w-full h-[380rem] overflow-hidden text-left text-[0.88rem] text-darkslategray-300 ">
+        <div className="absolute  left-[8.69rem] box-border w-[0.13rem] h-[1.79rem] border-r-[2px] border-solid border-darkslategray-200" />
         <img
-          className="absolute h-[4.96%] w-[46.36%] top-[3.59%] right-[3.47%] bottom-[91.45%] left-[50.17%] max-w-full overflow-hidden "
+          className="absolute h-[4.96%] w-[46.36%]  right-[3.47%] bottom-[91.45%] left-[50.17%] max-w-full overflow-hidden max-h-full"
           alt=""
           src="https://ik.imagekit.io/wish/MAD_QUIZ_PROJECT/e003eba1-af7c-4850-9fe4-b26c5572a254_1684387213414954240_Expires_-62135596800_Signature_dh-7rAarTwlfSXauPkx7FCQzsPb_VWD-vL3kUOyKk8MzVUT6E6eX_gxt8Y9CboNJeFiytfN-BiDB_nhpF57P3LGlg8vK7eYN5JGRIi4SH4xfP3qMgg9aalO2qc656qQZJUB3cIm3BcyJX_SPV4UFBQXFQEaeQZS9hy877vCOTl2K8EkovN-W5YJPIxoMBx3ch4bHmc_NyJUi1jk9ar6kU42Oa76vd_YsBpZQLME7E3tD5hgvAzWrcbj5m0ehSgOwBRCdBwr0KvIXaQXoBTVVGYAnkoNmwquMiMnEiAZvCAK_0l19je23OEfEz7BaVAQ3rUJfwArNKjLes2OJD_rsPg___Key-Pair-Id_K1P54FZWCHCL6J?updatedAt=1684391167307"
         />

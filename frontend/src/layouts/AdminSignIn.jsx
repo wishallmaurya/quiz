@@ -14,7 +14,6 @@ export default function AdminSignIn (props) {
   const navigate = useNavigate();
     // form function
     const handleSubmit = async (e) => {
-      console.log('i am signin')
       e.preventDefault();
       try {
         const res = await axiosInstance.post("/auth/signIn", { username, password });
@@ -29,7 +28,7 @@ export default function AdminSignIn (props) {
           localStorage.setItem("user", JSON.stringify(res.data.data));
           console.log(res.data)
           toast.success("Login Successfully")
-            navigate("/");
+            navigate("/adminDashboard");
         } else {
           toast.error(res.data.message)
         }

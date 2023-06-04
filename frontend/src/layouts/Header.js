@@ -53,11 +53,11 @@ export default function Header(props) {
               className="flex items-center relative cursor-pointer w-48"
               onClick={() => setProfile(!profile)}
             >
-              {/* {visible || (
+              {visible || (
                 <div className="m-2">
                   <button
                     class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                    onClick={() => navigate("/signIn ")}
+                    onClick={() => navigate("/signIn")}
                   >
                     Login
                   </button>
@@ -72,7 +72,7 @@ export default function Header(props) {
                     Register
                   </button>
                 </div>
-              )} */}
+              )}
               {/* <p className="text-gray-800 text-sm mx-3">{user?.firstName} <br></br>
                           <span className="text-xs text-gray-400">{user?.lastName}</span> */}
 

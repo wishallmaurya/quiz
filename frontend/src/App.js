@@ -29,6 +29,8 @@ import AllUserList from "./pages/Admin/AllUserList";
 import AllResults from "./pages/Admin/AllResults";
 import SingleUser from "./pages/Admin/SingleUser";
 import UpdateQuestions from "./pages/Admin/UpdateQuestions";
+import UpdateSingleQ from "./pages/Admin/updateSingleQ";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 
 function App() {
@@ -50,15 +52,16 @@ function App() {
 
 
          <Route exact path="/profileInfo" element={ <ProfileInfo/>} />
-         <Route exact path="/myRewards" element={ <MyReward/>} />
+         <Route exact path="/myRewards" element={ <QuizPaymentDetails/>} />
          <Route exact path="/quizPaymentDetails" element={ <QuizPaymentDetails/>} />
          <Route exact path="/myQuiz" element={ <MyQuizzes/>} />
          <Route exact path="/ChangePassword" element={ <ChangePassword/>} />
          <Route exact path="/myReward" element={ <MyReward/>} />
-{/* admin */}
+         {/* admin */}
 
-         {/* <Route exact path="/admin-signup" element={ <AdminSignUp/>} /> */}
+         <Route exact path="/updateQuestion/question/:quesId/" element={ <UpdateSingleQ/>} />
          <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
+         <Route exact path="/adminDashboard" element={ <AdminDashboard/>} />
          <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
          <Route exact path="/updateQuestion" element={ <UpdateQuestions/>} />
          <Route exact path="/userList" element={ <AllUserList/>} />

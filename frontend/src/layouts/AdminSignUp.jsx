@@ -24,7 +24,7 @@ export default function AdminSignUp(props) {
         console.log(res.data)
         if (res.data.success) {
           toast.success(res.data.message)
-          navigate("/admin-signIn");
+          navigate("/");
         } else {
           toast.error(res.data.message)
         } 

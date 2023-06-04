@@ -13,10 +13,10 @@ function Profile() {
       <Loader />
       <div className="bg-[#152C4F] h-44 w-full    "></div>
       <div className="flex">
-        {/* <div className="flex-col">
-          <Menu />
-        </div> */}
-        <ProfileInfo />
+        <div className="flex-col">
+          {/* <Menu /> */}
+        </div>
+        {/* <ProfileInfo /> */}
       </div>
     </Skeleton>
   );

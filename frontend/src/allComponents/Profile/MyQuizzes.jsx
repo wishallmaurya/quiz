@@ -3,7 +3,7 @@ import Menu from "./Menu";
 import { AiOutlineClockCircle, AiOutlineCalendar } from "react-icons/ai";
 import { axiosInstance } from "../../utils/axiosSetup";
 
-export default function MyQuizzes() {
+const MyQuizzes = () => {
   const [list,setList]=useState();
   let token = JSON.parse(localStorage.getItem("token"));
   let user = JSON.parse(localStorage.getItem("user"));
@@ -13,29 +13,25 @@ export default function MyQuizzes() {
       Authorization: token,
     },
   };
-
-  useEffect(()=>(
-    getResult()
-  ),[])
-
-
   const getResult = async () => {
+    try {
       const res = await axiosInstance.get(`/result/${user._id}`,config, );
       if (res.data.success) {
         setList(res.data.data)
-        console.log("LIST====-----",res.data.data) 
-      
-
+      }
+    } catch (error) {
+      console.log(error)
     }
-  }
-  
+  };
+  // useEffect(()=>(
+  //   getResult()
+  // ),[])
   return (
     <>
     <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div>
     <div className="flex-col">
           <Menu />
         </div>
-        {console.log(list,"LIST/*****************")}
      { list?.map((e)=>(
       <div className="flex  relative left-20 m-2">
 
@@ -98,4 +94,4 @@ export default function MyQuizzes() {
   );
 };
 
-
+export default MyQuizzes;

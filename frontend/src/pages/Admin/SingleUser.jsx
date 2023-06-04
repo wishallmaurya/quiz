@@ -3,6 +3,11 @@ import {  AiOutlineCalendar,AiOutlineMail } from "react-icons/ai";
 import { axiosInstance } from '../../utils/axiosSetup';
 const SingleUser = () => {
     const [list,setList]=useState();
+    const [username, setUsername] = useState();
+    const [profilePhoto, setProfilePhoto] = useState();
+    const [email, setEmail] = useState();
+    const [referralCode, setReferralCode] = useState();
+    const [address, setAddress] = useState();
     let token = JSON.parse(localStorage.getItem("token"));
     const config = {
       headers: {
@@ -13,17 +18,20 @@ const SingleUser = () => {
           try {
             const res = await axiosInstance.get("/result/637e10cfa459c390c7127b5f",config, );
             if (res.data.success) {
-              console.log(res.data.data)
+              // console.log(res.data.data)
               setList(res.data.data)
             }
           } catch (error) {}
         };
       const getUser = async () => {
           try {
-            const res = await axiosInstance.get("/user",config, );
+            const res = await axiosInstance.get(`/user/singleUser/64746559f643e9d4f9bcd1f8`,config, );
             if (res.data.success) {
-              console.log(res,'user')
-              
+              setUsername(res.data.data.username)
+              setProfilePhoto(res.data.data.profilePhoto)
+              setEmail(res.data.data.email)
+              setReferralCode(res.data.data.referralCode)
+              setAddress(res.data.data.address)
             }
           } catch (error) {}
         };
@@ -38,25 +46,30 @@ const SingleUser = () => {
 
           <div className="flex-shrink-0 mb-6 h-60 w-60 mx-10 ">
             <img
-              src=''
+              src={profilePhoto}
               alt=""
               className="object-cover object-center w-full h-full rounded dark:bg-gray-500"
             />
           </div>
           <div className="flex flex-col space-y-4">
             <div>
-              <h2 className="text-2xl font-semibold">username</h2>
+            <span className="text-sm dark:text-gray-400">Username:</span>
+              <span className="text-2xl font-semibold">{username}</span>
+              <br />
               <span className="text-sm dark:text-gray-400"> Referral Code:</span>
-              <span className="text-sm dark:text-black"> referralCode</span>
+              <span className="text-sm dark:text-black"> {referralCode}</span>
             </div>
             <div className="space-y-1">
               <span className="flex items-center space-x-2">
-                <span className="dark:text-gray-400 flex">
-                 <AiOutlineMail/> email
+                <span className="text-sm dark:text-black flex">
+              <span className="text-sm dark:text-gray-400">Email::</span>
+                 
+                 <AiOutlineMail/> {email}
                 </span>
               </span>
               <span className="flex items-center space-x-2">
-                <span className="dark:text-gray-400">address</span>
+              <span className="text-sm dark:text-gray-400"> Referral Code:</span>
+                <span className="text-sm dark:text-gray-400">{address}</span>
               </span>
               <span className="flex items-center space-x-2"></span>
             </div>

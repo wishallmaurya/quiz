@@ -5,9 +5,7 @@ import { apiErrors } from "../utils";
 import axios from 'axios'
 
 
-let userToken = JSON.parse(localStorage.getItem("token"));
-
-console.log("TOKEN----",userToken)
+const userToken = localStorage.getItem("token");
 const toastObj = {position: toast.POSITION.TOP_RIGHT};
 
 
