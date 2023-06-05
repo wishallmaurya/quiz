@@ -33,6 +33,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import PageNotFound from "./layouts/PageNotFound";
 import DailyRegisteredUser from "./pages/Admin/DailyRegisteredUser";
 import DailyQuizPlayed from "./pages/Admin/DailyQuizPlayed";
+import UpdateSingleQ from "./pages/Admin/UpdateSingleQ";
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
          <Route exact path="/adminDashboard" element={ <AdminDashboard/>} />
          <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
          <Route exact path="/updateQuestion" element={ <UpdateQuestions/>} />
+         <Route exact path="/updateQuestion/question/:quesId/" element={ <UpdateSingleQ/>} />
          <Route exact path="/userList" element={ <AllUserList/>} />
          <Route exact path="/AllResults" element={ <AllResults/>} />
          <Route exact path="/SingleUser" element={ <SingleUser/>} />
