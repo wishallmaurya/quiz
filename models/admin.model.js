@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const AdminSchema = new mongoose.Schema(
     {
+        profilePhoto:{
+            type:String,
+            default: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
+        },
         username: {
             type: String,
             required: true,

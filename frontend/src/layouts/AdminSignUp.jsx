@@ -99,7 +99,7 @@ export default function AdminSignUp(props) {
       </div>
 
       <ToastContainer />
-      {/* </div> */}
+      </div>
     </>
   );
 }

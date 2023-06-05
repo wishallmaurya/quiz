@@ -69,8 +69,12 @@ const UpdateQuestions = () => {
 
     const res = await axiosInstance.delete(`/question/${id}`,
       config
-    );
 
+    );
+      if(res.data.success){
+        toast.success(res.data.message)
+        handleSubmit();
+      }
   }
   const updateQuestion = async (e) => {
     e.preventDefault();
@@ -129,7 +133,7 @@ const UpdateQuestions = () => {
               </td>
               <td className="">
                 <span className="px-4 py-3  ">
-                  <button>Delete Question</button>
+                  <button onClick={()=>deleteQuestion(item?._id)} >Delete Question</button>
                 </span>
               </td>
 
@@ -139,7 +143,7 @@ const UpdateQuestions = () => {
 
         </tbody>
       </table>
-
+<ToastContainer/>
 
     </>
   );
