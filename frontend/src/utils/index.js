@@ -118,7 +118,7 @@ export const validation = (type = null, key,value) => {
      }
      else if(type === 'option'){
         if(value === '' || value.length < 2 ){
-         warningMsg(`at least 2 options require.`);
+         warningMsg(`At least 2 options are require.`);
          return true;
         }
         else{
