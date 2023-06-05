@@ -54,9 +54,7 @@ const deleteConformation=(id)=>{
 const handleNavigateForm = (id) => {
   navigate(`/SingleUser/${id}`);
 }
-
-
-  return (
+  return (  
     <>
       <div className="text-center font-bold text-[2rem]">List  of the user</div>
       <div className="flex-row flex-wrap m-3 p-3">
