@@ -64,7 +64,6 @@ const UpdateQuestions = () => {
     navigate(`${window.location.pathname}/question/${quesId}`);
   }
 
-
   const deleteQuestion = async (id) => {
 
     const res = await axiosInstance.delete(`/question/${id}`,

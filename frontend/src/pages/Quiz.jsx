@@ -6,7 +6,8 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 
 const Quiz = (props) => {
   let token = JSON.parse(localStorage.getItem("token"));
-
+  let user = JSON.parse(localStorage.getItem("user"));
+console.log(user._id)
   const navigate = useNavigate();
   const [question, setQuestion] = useState();
   const [skipQuestionCount, setSkipQuestionCount] = useState(0);
@@ -134,7 +135,7 @@ const Quiz = (props) => {
     score: totalScoreCount,
   };
   const submitScore = async () => {
-    const res = await axiosInstance.post("/result", scorePayload, config);
+    const res = await axiosInstance.post(`/result/${user._id}`, scorePayload, config);
     console.log(res);
   };
   const submitAlerts = () => {

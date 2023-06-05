@@ -5,10 +5,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import {  validation } from '../../utils'
 import { getAPI, postAPI , patchAPI, deleteAPI} from "../../network";
 import { axiosInstance } from '../../utils/axiosSetup';
+import { useNavigate } from 'react-router-dom';
 
 const CreateQuestion = () => {
   let token = JSON.parse(localStorage.getItem("token"));
-
+ const navigate =useNavigate
   const [option, setOptions] = useState([{index:0,  option:'', isCorrect:false }])
   const [check, setCheck] = useState(false);
   const [ques,setQues]=useState('')
@@ -53,6 +54,7 @@ const CreateQuestion = () => {
       setQuestions({question: '', options: []})
       setOptions([{index:0,  option:'',isCorrect:false }])
       option.option('')
+      navigate(`/updateQuestion`);
     }
   }
 
@@ -62,6 +64,7 @@ const addOptionBtn=()=>{
   var opts=option
   opts.push({index:index,option:'',isCorrect:false})
   setOptions([...opts])
+
 }
 
 const changeOptions=(value,ind)=>{
