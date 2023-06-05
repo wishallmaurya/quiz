@@ -77,8 +77,13 @@ console.log(user._id)
           handleSubmit();
         }
       }
-      setSkipAlert(false)
+    }else{
+      if (questionNumber < totalQuestion) {
+        setQuestionNumber(questionNumber + 1);
+        handleSubmit();
+      }
     }
+    setSkipAlert(false)
   };
   const previousQuestion = () => {
     if (questionNumber > 1) {
@@ -112,7 +117,7 @@ console.log(user._id)
     setSkipAlert(!skipAlert);
   };
   const answerCount4 = () => {
-    if (option3Answer === true) {
+    if (option4Answer === true) {
       setTotalScoreCount(totalScoreCount + 1);
     }
     setSkipAlert(!skipAlert);
