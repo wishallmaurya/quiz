@@ -10,7 +10,7 @@ const CreateQuestion = () => {
   let token = JSON.parse(localStorage.getItem("token"));
 
   const [option, setOptions] = useState([{index:0,  option:'', isCorrect:false }])
-
+  const [check, setCheck] = useState(false);
   const [ques,setQues]=useState('')
   const [questions, setQuestions] = useState({question: '', options: []})
 
@@ -19,31 +19,40 @@ const CreateQuestion = () => {
       Authorization:token
     }
   };
+ 
+  
   const saveQuestion =  async(e) => {
     e.preventDefault();
 
-    if(validation('empty','Question',ques)){
+      if(validation('empty','Question',ques)){
        
         return;
       }
-      else if(validation('array','options',option)){
+      else if(validation('option','options',option)){
        
         return;
       }
+      else if(check===false){
+        toast.error("Please Select Correct Answer ")
+        return;
+      }
+      
+
       let payload = {
         quizModule:'638072e926bbb50dfd9ed8e3',
         question: ques,
         options:option,
         
     }
-    console.log(payload,"Payload+++++++++++++++++++++++")
+    // console.log(payload,"Payload+++++++++++++++++++++++")
     const data = await axiosInstance.post(`/question`, payload,config);
     console.log(config)
     if(data){
       toast.success(data.data.message)
       console.log(data)
-      setQuestions({question:'',options:[]})
+      setQuestions({question: '', options: []})
       setOptions([{index:0,  option:'',isCorrect:false }])
+      option.option('')
     }
   }
 
@@ -68,12 +77,15 @@ const changeOptions=(value,ind)=>{
 );
 }
 const setChecked=(val ,ind)=>{
-  let index=option.length
+  setCheck(val)
+  let index= option.length
   setOptions(current =>
     current.map((obj, index) => {
+        
         if (index === ind) {
             return { ...obj, isCorrect: true };
         }
+        
 
         return obj;
     }),
