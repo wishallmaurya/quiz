@@ -10,6 +10,7 @@ const AdminDashboard = () => {
 
   const [userCount, setUserCount] = useState(0);
   const [quizCount, setQuizCount] = useState(0);
+  const [passedCount, setPassedCount] = useState(0);
   const config = {
     headers: {
       Authorization: token,
@@ -32,8 +33,17 @@ const AdminDashboard = () => {
       setQuizCount(res.data.data.length);
     }
   };
+  const getPassedUser = async () => {
+    console.log("called");
+
+    const res = await axiosInstance.get("dashboard/DailyPassedUser", config);
+    if (res.data.success) {
+      setPassedCount(res.data.data.length);
+    }
+  };
   useEffect(() => getUser, []);
   useEffect(() => getQuiz, []);
+  useEffect(() => getPassedUser, []);
   return (
     <>
       <div>
@@ -192,14 +202,14 @@ const AdminDashboard = () => {
                 </div>
               </Link>
               <Link
-                to="/AllResults"
+                to="/dailyPassedUser"
                 className="bg-[#152C4F]  shadow-lg rounded-md flex items-center justify-between p-3  text-white font-medium group hover:bg-blue-100 hover:text-black"
               >
                 <div className="flex justify-center items-center w-16 h-16 bg-white rounded-full transition-all duration-300 transform group-hover:-rotate-12 text-[#152C4F] hover:bg-blue-200 hover:text-black">
                   <VscPassFilled size={70} />
                 </div>
                 <div className="text-right">
-                  <p className="text-2xl font-bold">0</p>
+                  <p className="text-2xl font-bold">{passedCount}</p>
                   <p>Daily Passed User</p>
                 </div>
               </Link>

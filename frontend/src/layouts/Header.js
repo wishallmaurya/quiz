@@ -169,7 +169,7 @@ export default function Header(props) {
                         </svg>
                         <span
                           className="text-sm ml-2"
-                          onClick={() => navigate("/profile")}
+                          onClick={() => navigate("/profileInfo")}
                         >
                           My Profile
                         </span>

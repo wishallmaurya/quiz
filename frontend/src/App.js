@@ -34,6 +34,7 @@ import PageNotFound from "./layouts/PageNotFound";
 import DailyRegisteredUser from "./pages/Admin/DailyRegisteredUser";
 import DailyQuizPlayed from "./pages/Admin/DailyQuizPlayed";
 import UpdateSingleQ from "./pages/Admin/UpdateSingleQ";
+import DailyPassedUser from "./pages/Admin/DailyPassedUser";
 
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
          <Route exact path="/invite" element={ <Invite />} />
          <Route exact path="/payment" element={ <Payment/>} />
          <Route exact path="/paymentmethod" element={ <Method/>} />
-         <Route exact path="/profile" element={ <Profile/>} />
+         {/* <Route exact path="/profile" element={ <Profile/>} /> */}
 
 
          <Route exact path="/profileInfo" element={ <ProfileInfo/>} />
@@ -74,6 +75,7 @@ function App() {
          <Route exact path="/SingleUser" element={ <SingleUser/>} />
          <Route exact path="/dailyRegisteredUser" element={ <DailyRegisteredUser/>} />
          <Route exact path="/dailyQuizPlayed" element={ <DailyQuizPlayed/>} />
+         <Route exact path="/dailyPassedUser" element={ <DailyPassedUser/>} />
          
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
