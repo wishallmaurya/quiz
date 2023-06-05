@@ -169,9 +169,9 @@ const AdminDashboard = () => {
                   </NavLink> */}
                 </li>
               </ul>
-              <p className="mb-14 px-5 py-3 hidden md:block text-center text-sm">
+              <Link to='/' className="mb-14 px-5 py-3 hidden md:block text-center text-sm">
                 OLIVA MINISTERIES QUIZ
-              </p>
+              </Link>
             </div>
           </div>
 

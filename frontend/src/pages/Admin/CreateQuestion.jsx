@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CreateQuestion = () => {
   let token = JSON.parse(localStorage.getItem("token"));
- const navigate =useNavigate
+ const navigate =useNavigate()
   const [option, setOptions] = useState([{index:0,  option:'', isCorrect:false }])
   const [check, setCheck] = useState(false);
   const [ques,setQues]=useState('')
@@ -23,7 +23,7 @@ const CreateQuestion = () => {
  
   
   const saveQuestion =  async(e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
       if(validation('empty','Question',ques)){
        
@@ -47,14 +47,15 @@ const CreateQuestion = () => {
     }
     // console.log(payload,"Payload+++++++++++++++++++++++")
     const data = await axiosInstance.post(`/question`, payload,config);
-    console.log(config)
-    if(data){
+    console.log(data) 
+    if(data.data.success){
       toast.success(data.data.message)
-      console.log(data)
-      setQuestions({question: '', options: []})
-      setOptions([{index:0,  option:'',isCorrect:false }])
-      option.option('')
-      navigate(`/updateQuestion`);
+      
+      // console.log(data,  )
+      // setQuestions({question: '', options: []})
+      // setOptions([{index:0,  option:'',isCorrect:false }])
+      // option.option('')
+      navigate("/updateQuestion");
     }
   }
 
@@ -116,7 +117,7 @@ const setChecked=(val ,ind)=>{
                       }}
                       ></input>
                       </label>
-                      <span>Create at Least 3 Options </span>
+                      <span>Create at Least 2 Options </span>
                     </div>
                    
                     <div className='grid grid-cols-2 gap-5  mt-5'>
