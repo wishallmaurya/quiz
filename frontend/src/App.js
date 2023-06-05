@@ -72,7 +72,7 @@ function App() {
          <Route exact path="/updateQuestion/question/:quesId/" element={ <UpdateSingleQ/>} />
          <Route exact path="/userList" element={ <AllUserList/>} />
          <Route exact path="/AllResults" element={ <AllResults/>} />
-         <Route exact path="/SingleUser" element={ <SingleUser/>} />
+         <Route exact path="/SingleUser/:id" element={ <SingleUser/>} />
          <Route exact path="/dailyRegisteredUser" element={ <DailyRegisteredUser/>} />
          <Route exact path="/dailyQuizPlayed" element={ <DailyQuizPlayed/>} />
          <Route exact path="/dailyPassedUser" element={ <DailyPassedUser/>} />

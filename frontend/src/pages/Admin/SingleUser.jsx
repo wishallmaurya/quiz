@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {  AiOutlineCalendar,AiOutlineMail } from "react-icons/ai";
 import { axiosInstance } from '../../utils/axiosSetup';
+import { useParams } from 'react-router-dom';
 const SingleUser = () => {
     const [list,setList]=useState();
+    const {id}= useParams()
     const [username, setUsername] = useState();
     const [profilePhoto, setProfilePhoto] = useState();
     const [email, setEmail] = useState();
@@ -16,7 +18,7 @@ const SingleUser = () => {
     };
       const getResult = async () => {
           try {
-            const res = await axiosInstance.get("/result/637e10cfa459c390c7127b5f",config, );
+            const res = await axiosInstance.get(`/result/${id}`,config, );
             if (res.data.success) {
               // console.log(res.data.data)
               setList(res.data.data)
@@ -25,7 +27,7 @@ const SingleUser = () => {
         };
       const getUser = async () => {
           try {
-            const res = await axiosInstance.get(`/user/singleUser/64746559f643e9d4f9bcd1f8`,config, );
+            const res = await axiosInstance.get(`/user/singleUser/${id}`,config, );
             if (res.data.success) {
               setUsername(res.data.data.username)
               setProfilePhoto(res.data.data.profilePhoto)
