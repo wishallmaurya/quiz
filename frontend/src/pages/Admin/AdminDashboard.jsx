@@ -7,7 +7,7 @@ import { axiosInstance } from "../../utils/axiosSetup";
 
 const AdminDashboard = () => {
   let token = JSON.parse(localStorage.getItem("token"));
-
+  const [userList, setUserList] = useState();
   const [userCount, setUserCount] = useState(0);
   const [quizCount, setQuizCount] = useState(0);
   const [passedCount, setPassedCount] = useState(0);
@@ -39,9 +39,20 @@ const AdminDashboard = () => {
       setPassedCount(res.data.data.length);
     }
   };
+  const getUserList = async () => {
+  
+    const res  = await axiosInstance.get("/user/all", config);
+      if (res.data.success) {
+       
+        setUserList(res.data.data);
+        console.log(res.data,'swwwwwwwwwwwwwwwwww')
+      }
+  
+  };
   useEffect(() => getUser, []);
   useEffect(() => getQuiz, []);
   useEffect(() => getPassedUser, []);
+  useEffect(() => getUserList, []);
   return (
     <>
       <div>
@@ -248,19 +259,19 @@ const AdminDashboard = () => {
                         <tr className="text-xs font-semibold tracking-wide text-left text-white uppercase border-b  bg-[#152C4F]">
                           <th className="px-4 py-3">Users</th>
                           <th className="px-4 py-3">Email</th>
-                          <th className="px-4 py-3">Quiz-Played</th>
-                          <th className="px-4 py-3">Score</th>
+                          <th className="px-4 py-3">Joined</th>
+                          <th className="px-4 py-3">Refer Count</th>
                           <th className="px-4 py-3">Subscription</th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
+{userList?.map((item)=>(                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
                           <td className="px-4 py-3">
                             <div className="flex items-center text-sm">
                               <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                 <img
                                   className="object-cover w-full h-full rounded-full"
-                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
+                                  src={item.profilePhoto}
                                   alt=''
                                   loading="lazy"
                                 />
@@ -270,256 +281,29 @@ const AdminDashboard = () => {
                                 />
                               </div>
                               <div>
-                                <p className="font-semibold">User Name </p>
+                                <p className="font-semibold">{item.username} </p>
                                 <p className="text-xs text-gray-600 dark:text-gray-400">
-                                  referralCode
+                                {item.referralCode}
                                 </p>
                               </div>
                             </div>
                           </td>
-                          <td className="px-4 py-3 text-sm">user@gmail.com</td>
+                          <td className="px-4 py-3 text-sm">{item.email}</td>
                           <td className="">
                             <span className="px-4 py-3  ">
-                              General Knowledge Quiz
+                              {item?.createdAt.split('T')[0]}
                             </span>
                           </td>
                           <td className>
-                            <span className="px-4 py-3  ">67</span>
+                            <span className="px-4 py-3  ">{item?.rewards?.length}</span>
                           </td>
                           <td className>
                             <span className="px-4 py-3  ">
                               Yes
                             </span>
                           </td>
-                        </tr>
-                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
-                          <td className="px-4 py-3">
-                            <div className="flex items-center text-sm">
-                              <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                <img
-                                  className="object-cover w-full h-full rounded-full"
-                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
-                                  alt=''
-                                  loading="lazy"
-                                />
-                                <div
-                                  className="absolute inset-0 rounded-full shadow-inner"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                              <div>
-                                <p className="font-semibold">User Name </p>
-                                <p className="text-xs text-gray-600 dark:text-gray-400">
-                                  referralCode
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-sm">user@gmail.com</td>
-                          <td className="">
-                            <span className="px-4 py-3  ">
-                              General Knowledge Quiz
-                            </span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">67</span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">
-                              Yes
-                            </span>
-                          </td>
-                        </tr>
-                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
-                          <td className="px-4 py-3">
-                            <div className="flex items-center text-sm">
-                              <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                <img
-                                  className="object-cover w-full h-full rounded-full"
-                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
-                                  alt=''
-                                  loading="lazy"
-                                />
-                                <div
-                                  className="absolute inset-0 rounded-full shadow-inner"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                              <div>
-                                <p className="font-semibold">User Name </p>
-                                <p className="text-xs text-gray-600 dark:text-gray-400">
-                                  referralCode
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-sm">user@gmail.com</td>
-                          <td className="">
-                            <span className="px-4 py-3  ">
-                              General Knowledge Quiz
-                            </span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">67</span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">
-                              Yes
-                            </span>
-                          </td>
-                        </tr>
-                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
-                          <td className="px-4 py-3">
-                            <div className="flex items-center text-sm">
-                              <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                <img
-                                  className="object-cover w-full h-full rounded-full"
-                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
-                                  alt=''
-                                  loading="lazy"
-                                />
-                                <div
-                                  className="absolute inset-0 rounded-full shadow-inner"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                              <div>
-                                <p className="font-semibold">User Name </p>
-                                <p className="text-xs text-gray-600 dark:text-gray-400">
-                                  referralCode
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-sm">user@gmail.com</td>
-                          <td className="">
-                            <span className="px-4 py-3  ">
-                              General Knowledge Quiz
-                            </span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">67</span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">
-                              Yes
-                            </span>
-                          </td>
-                        </tr>
-                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
-                          <td className="px-4 py-3">
-                            <div className="flex items-center text-sm">
-                              <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                <img
-                                  className="object-cover w-full h-full rounded-full"
-                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
-                                  alt=''
-                                  loading="lazy"
-                                />
-                                <div
-                                  className="absolute inset-0 rounded-full shadow-inner"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                              <div>
-                                <p className="font-semibold">User Name </p>
-                                <p className="text-xs text-gray-600 dark:text-gray-400">
-                                  referralCode
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-sm">user@gmail.com</td>
-                          <td className="">
-                            <span className="px-4 py-3  ">
-                              General Knowledge Quiz
-                            </span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">67</span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">
-                              Yes
-                            </span>
-                          </td>
-                        </tr>
-                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
-                          <td className="px-4 py-3">
-                            <div className="flex items-center text-sm">
-                              <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                <img
-                                  className="object-cover w-full h-full rounded-full"
-                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
-                                  alt=''
-                                  loading="lazy"
-                                />
-                                <div
-                                  className="absolute inset-0 rounded-full shadow-inner"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                              <div>
-                                <p className="font-semibold">User Name </p>
-                                <p className="text-xs text-gray-600 dark:text-gray-400">
-                                  referralCode
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-sm">user@gmail.com</td>
-                          <td className="">
-                            <span className="px-4 py-3  ">
-                              General Knowledge Quiz
-                            </span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">67</span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">
-                              Yes
-                            </span>
-                          </td>
-                        </tr>
-                        <tr className="bg-[#152C4F]  hover:bg-blue-100  text-white hover:text-black ">
-                          <td className="px-4 py-3">
-                            <div className="flex items-center text-sm">
-                              <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                <img
-                                  className="object-cover w-full h-full rounded-full"
-                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-512.png"
-                                  alt=''
-                                  loading="lazy"
-                                />
-                                <div
-                                  className="absolute inset-0 rounded-full shadow-inner"
-                                  aria-hidden="true"
-                                />
-                              </div>
-                              <div>
-                                <p className="font-semibold">User Name </p>
-                                <p className="text-xs text-gray-600 dark:text-gray-400">
-                                  referralCode
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="px-4 py-3 text-sm">user@gmail.com</td>
-                          <td className="">
-                            <span className="px-4 py-3  ">
-                              General Knowledge Quiz
-                            </span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">67</span>
-                          </td>
-                          <td className>
-                            <span className="px-4 py-3  ">
-                              Yes
-                            </span>
-                          </td>
-                        </tr>
+                        </tr>))}
+
                       </tbody>
                     </table>
                   </div>
