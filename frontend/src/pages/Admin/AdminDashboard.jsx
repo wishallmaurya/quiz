@@ -146,7 +146,7 @@ const AdminDashboard = () => {
                       User List
                     </span>
                     <span className="hidden md:block px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">
-                      New 3+
+                      {userCount?`New ${userCount}+`:''}
                     </span>
                   </NavLink>
                 </li>
@@ -309,7 +309,7 @@ const AdminDashboard = () => {
                   </div>
                   <div className="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
                     <span className="flex items-center col-span-3">
-                      Showing 21-30 of 100
+                      Showing {userList?.length} users
                     </span>
                   </div>
                 </div>
