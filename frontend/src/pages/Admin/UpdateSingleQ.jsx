@@ -124,7 +124,7 @@ const setChecked=(val ,ind)=>{
                       onChange={(v) => {
                         setQues(v.target.value)
                       }}
-                      ></input>
+                      ></input>s
                       </label>
                       <span>Create at Least 2 Options</span>
                     </div>

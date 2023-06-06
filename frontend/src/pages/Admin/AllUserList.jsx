@@ -85,7 +85,13 @@ const handleNavigateForm = (id) => {
               <span className="flex items-center space-x-2">
                 <span className="dark:text-gray-400">{item.address}</span>
               </span>
-              <span className="flex items-center space-x-2"></span>
+              <span className="flex items-center space-x-2"> </span>
+              </div>
+              <div className="space-y-1 space-x-10">
+              <span className="flex items-center space-x-2"> Total referral -  &nbsp;
+                <span className="dark:text-black">{item.rewards.length}</span>
+              </span>
+              <span className="flex items-center space-x-2"> </span>
               </div>
             <div className="absolute right-80">
             <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={(e)=>{deleteConformation(item._id)}}>Delete</button>

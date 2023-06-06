@@ -10,6 +10,7 @@ const SingleUser = () => {
     const [email, setEmail] = useState();
     const [referralCode, setReferralCode] = useState();
     const [address, setAddress] = useState();
+    const [rewardsCount, setRewardsCount] = useState();
     let token = JSON.parse(localStorage.getItem("token"));
     const config = {
       headers: {
@@ -34,6 +35,7 @@ const SingleUser = () => {
               setEmail(res.data.data.email)
               setReferralCode(res.data.data.referralCode)
               setAddress(res.data.data.address)
+              setRewardsCount(res.data.data.rewards.length)
             }
           } catch (error) {}
         };
@@ -41,6 +43,7 @@ const SingleUser = () => {
             getResult()
             getUser()
         },[])
+
   return (
     <>
       <div className="text-center font-bold text-[2rem] bg-[#152C4F] text-white p-5"> User Details </div>
@@ -71,7 +74,11 @@ const SingleUser = () => {
               </span>
               <span className="flex items-center space-x-2">
               <span className="text-sm dark:text-gray-400"> Referral Code:</span>
-                <span className="text-sm dark:text-gray-400">{address}</span>
+                <span className="text-sm dark:text-black">{address}</span>
+              </span>
+              <span className="flex items-center space-x-2">
+              <span className="text-sm dark:text-gray-400"> Referred :</span>
+                <span className="text-sm dark:text-black">{rewardsCount}</span>
               </span>
               <span className="flex items-center space-x-2"></span>
             </div>
