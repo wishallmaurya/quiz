@@ -2,13 +2,21 @@ const QuizModule = require('../models/quiz.module.model')
 
 exports.create =async (req, res , next) =>{
     try{
-        const quizModule = new QuizModule(req.body)
+        if(req.body.name &&req.body.noOfQuestions){
+                    const quizModule = new QuizModule(req.body)
         const savedQuizModule = await quizModule.save()
         res.status(200).send({
             success: true,
             data:savedQuizModule,
             message:"Quiz module created successfully"
         })
+        }else{
+            res.status(200).send({
+                success: false,
+                message:"Fill the Quiz name and Ques Count"
+            })
+        }
+
     }catch(error){
         next(error)
     }
