@@ -120,11 +120,12 @@ const CreateQuestion = () => {
             <div className="mb-5 ">
               <div className="mt-5">
                 <label htmlFor="cars">Choose a Quiz Module     :</label>
-                <select name="quiz" id="quiz" onChange={(e) => {
+                <select  name="quiz" id="quiz" onChange={(e) => {
                   setQuizModuleSave(e.target.value);
                 }}>
-                  {quizModule?.map((p)=>( <option value={p?._id}>{p?.name}</option>))
-                  }
+
+                  <option value="value" disabled selected >--Select Quiz Module--</option>
+                  {quizModule?.map((p)=>( <option value={p?._id}>{p?.name}</option>))}
                  
 
                 </select>

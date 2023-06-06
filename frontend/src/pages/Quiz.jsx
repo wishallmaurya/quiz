@@ -124,7 +124,6 @@ const Quiz = (props) => {
     setSkipAlert(!skipAlert);
   };
   const scoreShare = () => {
-    submitScore();
     navigate({
       pathname: "/score",
       search: createSearchParams({

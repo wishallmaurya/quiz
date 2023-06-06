@@ -78,7 +78,7 @@ function App() {
          <Route exact path="/dailyRegisteredUser" element={ <DailyRegisteredUser/>} />
          <Route exact path="/dailyQuizPlayed" element={ <DailyQuizPlayed/>} />
          <Route exact path="/dailyPassedUser" element={ <DailyPassedUser/>} />
-         
+
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
           <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} /> */}
