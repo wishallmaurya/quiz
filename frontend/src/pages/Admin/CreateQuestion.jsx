@@ -63,7 +63,7 @@ const CreateQuestion = () => {
       // setQuestions({question: '', options: []})
       // setOptions([{index:0,  option:'',isCorrect:false }])
       // option.option('')
-      navigate("/updateQuestion");
+      // navigate(`/updateQuestion/${quizModuleSave}`);
     }
   };
 
@@ -126,8 +126,6 @@ const CreateQuestion = () => {
 
                   <option value="value" disabled selected >--Select Quiz Module--</option>
                   {quizModule?.map((p)=>( <option value={p?._id}>{p?.name}</option>))}
-                 
-
                 </select>
               </div>
 

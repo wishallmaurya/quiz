@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, createSearchParams } from "react-router-dom";
+import { useNavigate, createSearchParams,useParams } from "react-router-dom";
 import { axiosInstance } from "../../utils/axiosSetup";
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -7,7 +7,9 @@ import { ToastContainer, toast } from 'react-toastify';
 const UpdateQuestions = () => {
   let token = JSON.parse(localStorage.getItem("token"));
 
+  const {moduleId}= useParams()
   const navigate = useNavigate();
+  console.log(moduleId,'..............1.')
   const [id, setId] = useState();
   const [question, setQuestion] = useState();
   const [allQuestion, setAllQuestion] = useState([]);
@@ -33,7 +35,7 @@ const UpdateQuestions = () => {
   const handleSubmit = async (e) => {
     try {
       const res = await axiosInstance.get(
-        "/question/quiz-module/638072e926bbb50dfd9ed8e3",
+        `/question/quiz-module/${moduleId}`,
         config
       );
       if (res.data.success) {

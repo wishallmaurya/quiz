@@ -11,6 +11,8 @@ export default function UpdateSingleQ(){
   let token = JSON.parse(localStorage.getItem("token"));
   const navigate = useNavigate();
   const {quesId}= useParams()
+  const {moduleId}= useParams()
+  console.log(moduleId,',,q,q,q,q')
   const [question,setQuestion]=useState([])
   const [option, setOptions] = useState([])
 
@@ -57,7 +59,7 @@ export default function UpdateSingleQ(){
     //   }
 
       let payload = {
-        quizModule:'638072e926bbb50dfd9ed8e3',
+        quizModule:moduleId,
         question: ques,
         options:option,
         
@@ -70,7 +72,7 @@ export default function UpdateSingleQ(){
       console.log(data)
       setQuestions({question:'',options:[]})
       // setOptions([{index:0,  option:'',isCorrect:false }])
-      navigate('/updateQuestion')
+      navigate(`/updateQuestion/${moduleId}`)
     }
   }
 
@@ -122,7 +124,7 @@ const setChecked=(val ,ind)=>{
                       onChange={(v) => {
                         setQues(v.target.value)
                       }}
-                      ></input>s
+                      ></input>
                       </label>
                       <span>Create at Least 2 Options</span>
                     </div>
