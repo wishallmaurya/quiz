@@ -24,7 +24,7 @@ const HomePage = () => {
         <div className="absolute top-[34rem] left-[8.75rem] rounded bg-style shadow-[0px_4px_8px_rgba(61,_88,_144,_0.24)] flex flex-row py-[0.5rem] px-[1rem] items-start justify-start cursor-pointer text-center text-white bg-blue-500">
           <button
             className="relative tracking-[1px] capitalize font-medium"
-            onClick={() => navigate("/quiz")}
+            onClick={() => navigate("/quizlist")}
           >
             Start The Quiz
           </button>
@@ -167,7 +167,7 @@ const HomePage = () => {
       <div className="absolute top-[240rem] left-[39.88rem] rounded bg-style shadow-[0px_4px_8px_rgba(61,_88,_144,_0.24)] flex flex-row py-[0.5rem] px-[1rem] items-center justify-start gap-[0.25rem] cursor-pointer text-center text-white bg-blue-500">
         <button
           className="relative tracking-[0.75px] capitalize font-medium"
-          onClick={() => navigate("/quiz")}
+          onClick={() => navigate("/quizlist")}
         >
           Start The Quiz
         </button>

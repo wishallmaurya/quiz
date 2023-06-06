@@ -78,7 +78,7 @@ export default function Footer() {
                 <Link to="/termsAndCondition">Terms and Policy</Link>
               </div>
               <div className="text-[#D6D6D6] text-[12px] font-light">
-                <Link to="/quiz">Quiz</Link>
+                <Link to="/quizList">Quiz</Link>
               </div>
             </div>
             <div className="flex justify-around flex-col mt-6">

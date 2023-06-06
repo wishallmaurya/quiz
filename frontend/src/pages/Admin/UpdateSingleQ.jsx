@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Skeleton from '../../layouts/Skeleton'
-import { MdDelete } from 'react-icons/md'
 import { useNavigate, createSearchParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import {  validation } from '../../utils'

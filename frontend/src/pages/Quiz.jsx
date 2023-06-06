@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import Header from "../layouts/Header";
 import { axiosInstance } from "../utils/axiosSetup";
 import ScoreCard from "./ScoreCard";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate,useParams } from "react-router-dom";
 
 const Quiz = (props) => {
   let token = JSON.parse(localStorage.getItem("token"));
   let user = JSON.parse(localStorage.getItem("user"));
-console.log(user._id)
+  const {id}= useParams()
+
   const navigate = useNavigate();
   const [question, setQuestion] = useState();
   const [skipQuestionCount, setSkipQuestionCount] = useState(0);
@@ -32,7 +33,7 @@ console.log(user._id)
   const handleSubmit = async (e) => {
     try {
       const res = await axiosInstance.get(
-        "/question/quiz-module/638072e926bbb50dfd9ed8e3",
+        `/question/quiz-module/${id}`,
         config
       );
       if (res.data.success) {
