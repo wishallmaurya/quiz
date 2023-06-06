@@ -35,6 +35,7 @@ import DailyRegisteredUser from "./pages/Admin/DailyRegisteredUser";
 import DailyQuizPlayed from "./pages/Admin/DailyQuizPlayed";
 import UpdateSingleQ from "./pages/Admin/UpdateSingleQ";
 import DailyPassedUser from "./pages/Admin/DailyPassedUser";
+import CreateQuizModule from "./pages/Admin/CreateQuizModule";
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
          {/* <Route exact path="/admin-signup" element={ <AdminSignUp/>} /> */}
          <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
          <Route exact path="/adminDashboard" element={ <AdminDashboard/>} />
+         <Route exact path="/createQuizModule" element={ <CreateQuizModule/>} />
          <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
          <Route exact path="/updateQuestion" element={ <UpdateQuestions/>} />
          <Route exact path="/updateQuestion/question/:quesId/" element={ <UpdateSingleQ/>} />
