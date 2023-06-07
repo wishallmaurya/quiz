@@ -40,14 +40,14 @@ const ProfileInfo = () => {
     <>
      {/* <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div> */}
      
-    <div className="bg-[#152C4F] h-20 w-full  mb-5   "></div>
+    <div className="bg-[#152C4F] h-20 w-full     "></div>
     <div className="flex">
 
         <div className="flex-col">
           <Menu />
         </div>
       <form> 
-        <div className="grid gap-6 w-80 relative left-2/4">
+        <div className="grid gap-6 w-80 relative left-2/4 ml-56" >
         <span className="text-[2rem] m-10">Profile Details</span>
           <div>
             <label className="block mb-2 text-sm font-medium text-black ">
@@ -104,7 +104,7 @@ const ProfileInfo = () => {
             />
           </div>
         </div>
-        <div className="relative left-2/4">
+        <div className="relative left-2/4 ml-56">
           <button class="bg-white hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60 " onClick={handleSubmit}>
             Save Changes
           </button>
