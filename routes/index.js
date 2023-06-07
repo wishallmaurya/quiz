@@ -22,7 +22,7 @@ rootRouter.use('/result', resultRoutes)
 rootRouter.use('/membership', membershipRoutes)     
 rootRouter.use('/voucher', voucherRoutes)   
 rootRouter.use('/dashboard', adminDashboardRoutes)   
-
+  
 
 
 module.exports = rootRouter;

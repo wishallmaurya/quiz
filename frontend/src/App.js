@@ -40,21 +40,24 @@ import UpdateQuizList from "./pages/Admin/UpdateQuizList";
 
 
 function App() {
+  let user = JSON.parse(localStorage.getItem("user"));
+  const auth=user.role
+console.log(auth,'...1.1.1.1.')
   return (
       <Router>
         <Routes>
          <Route exact path="*" element={<PageNotFound/>} />
          <Route exact path="/" element={<HomePage/>} />
          <Route exact path="/language" element={<Language/>} />
-         <Route exact path="/quizList" element={<QuizList/>} />
-         <Route exact path="/quiz/:id" element={<Quiz/>} />
-         <Route exact path="/score" element={<ScoreCard/>} />
-         <Route exact path="/signIn" element={<SignIn/>} />
-         <Route exact path="/signUp" element={<SignUp/>} />
+         <Route exact path="/quizList" element={auth?<QuizList/>:<PageNotFound/>} />
+         <Route exact path="/quiz/:id" element={auth?<Quiz/>:<PageNotFound/>} />
+         <Route exact path="/score" element={auth?<ScoreCard/>:<PageNotFound/>} />
+         <Route exact path="/signIn" element={auth?<HomePage/>:<SignIn/>} />
+         <Route exact path="/signUp" element={auth?<HomePage/>:<SignUp/>} />
          <Route exact path="/termsAndCondition" element={ <TermsAndCondition />} />
-         <Route exact path="/invite" element={ <Invite />} />
-         <Route exact path="/payment" element={ <Payment/>} />
-         <Route exact path="/paymentmethod" element={ <Method/>} />
+         <Route exact path="/invite" element={ auth==='user'?<Invite />:<PageNotFound/>} />
+         <Route exact path="/payment" element={auth==='user'? <Payment/>:<PageNotFound/>} />
+         <Route exact path="/paymentmethod" element={auth==='user'? <Method/>:<PageNotFound/>} />
          {/* <Route exact path="/profile" element={ <Profile/>} /> */}
 
 
@@ -68,18 +71,18 @@ function App() {
 
          {/* <Route exact path="/admin-signup" element={ <AdminSignUp/>} /> */}
          <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
-         <Route exact path="/adminDashboard" element={ <AdminDashboard/>} />
-         <Route exact path="/createQuizModule" element={ <CreateQuizModule/>} />
-         <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
-         <Route exact path="/updateQuizList" element={ <UpdateQuizList/>} />
-         <Route exact path="/updateQuestion/:moduleId" element={ <UpdateQuestions/>} />
-         <Route exact path="/updateQuestion/:moduleId/question/:quesId/" element={ <UpdateSingleQ/>} />
-         <Route exact path="/userList" element={ <AllUserList/>} />
-         <Route exact path="/AllResults" element={ <AllResults/>} />
-         <Route exact path="/SingleUser/:id" element={ <SingleUser/>} />
-         <Route exact path="/dailyRegisteredUser" element={ <DailyRegisteredUser/>} />
-         <Route exact path="/dailyQuizPlayed" element={ <DailyQuizPlayed/>} />
-         <Route exact path="/dailyPassedUser" element={ <DailyPassedUser/>} />
+         <Route exact path="/adminDashboard" element={ auth==='admin'?<AdminDashboard/>:<PageNotFound/>} />
+         <Route exact path="/createQuizModule" element={ auth==='admin'?<CreateQuizModule/>:<PageNotFound/>} />
+         <Route exact path="/createQuestion" element={ auth==='admin'?<CreateQuestion/>:<PageNotFound/>} />
+         <Route exact path="/updateQuizList" element={ auth==='admin'?<UpdateQuizList/>:<PageNotFound/>} />
+         <Route exact path="/updateQuestion/:moduleId" element={ auth==='admin'?<UpdateQuestions/>:<PageNotFound/>} />
+         <Route exact path="/updateQuestion/:moduleId/question/:quesId/" element={auth==='admin'? <UpdateSingleQ/>:<PageNotFound/>} />
+         <Route exact path="/userList" element={ auth==='admin'?<AllUserList/>:<PageNotFound/>} />
+         <Route exact path="/AllResults" element={auth==='admin'? <AllResults/>:<PageNotFound/>} />
+         <Route exact path="/SingleUser/:id" element={ auth==='admin'?<SingleUser/>:<PageNotFound/>} />
+         <Route exact path="/dailyRegisteredUser" element={auth==='admin'? <DailyRegisteredUser/>:<PageNotFound/>} />
+         <Route exact path="/dailyQuizPlayed" element={auth==='admin'? <DailyQuizPlayed/>:<PageNotFound/>} />
+         <Route exact path="/dailyPassedUser" element={ auth==='admin'?<DailyPassedUser/>:<PageNotFound/>} />
 
          <Route element={<PrivateRoutes />}>
           {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
