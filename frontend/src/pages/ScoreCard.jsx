@@ -9,8 +9,8 @@ const navigate=useNavigate()
   let data = JSON.parse(localStorage.getItem("user"));
   return (
     <>
-    <div className=''>   
-      <div className="absolute left-[8rem] text-center bg-blue-400 h-72 w-[80%] text-white my-10 rounded">
+    <div className='flex flex-col justify-center items-center'>   
+      <div className="flex flex-col text-center bg-blue-400 h-auto w-[80%] text-white  rounded">
 
         <div className=" m-5 text-center text-[2rem] flex-col">
             <span>Congratulations !</span> <br />
@@ -23,7 +23,7 @@ const navigate=useNavigate()
        
       </div> 
             <button
-        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 absolute top-[80%] left-[45%]"
+        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 w-40"
         onClick={()=>navigate('/myQuiz')}
       >
        Detailed View 
