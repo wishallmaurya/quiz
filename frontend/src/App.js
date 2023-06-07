@@ -55,7 +55,7 @@ function App() {
          <Route exact path="/" element={<HomePage/>} />
          <Route exact path="/language" element={<Language/>} />
          <Route exact path="/quizList" element={auth?<QuizList/>:<ForbiddenPage/>} />
-         <Route exact path="/quiz/:id" element={auth?<Quiz/>:<ForbiddenPage/>} />
+         <Route exact path="/quiz/:id" element={auth?<Quiz/>:<ForbiddenPage/>} /> 
          <Route exact path="/score" element={auth?<ScoreCard/>:<ForbiddenPage/>} />
          <Route exact path="/signIn" element={auth?<HomePage/>:<SignIn/>} />
          <Route exact path="/signUp" element={auth?<HomePage/>:<SignUp/>} />

@@ -171,22 +171,22 @@ const Quiz = (props) => {
           {question}
         </div>
       </div>
-      <div className="flex mx-6 justify-center">
+      <div className="flex justify-center">
         <button
-          className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white"
+          className="bg-gray-200  mx-10 my-5  max-[640px]:mx-2  max-[640px]:my-1 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white "
           onClick={answerCount1}
         >
           A. {option1}
         </button>
         <button
-          className="bg-gray-200 mx-10 my-5 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white"
+          className="bg-gray-200 mx-10 my-5  max-[640px]:mx-2  max-[640px]:my-1 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white"
           onClick={answerCount2}
         >
           B. {option2}
         </button>
         {option3 ? (
           <button
-            className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white"
+            className="bg-gray-200  mx-10 my-5  max-[640px]:mx-2  max-[640px]:my-1 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white"
             onClick={answerCount3}
           >
             C. {option3}
@@ -196,7 +196,7 @@ const Quiz = (props) => {
         )}
         {option4 ? (
           <button
-            className="bg-gray-200  mx-10 my-5 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white"
+            className="bg-gray-200  mx-10 my-5  max-[640px]:mx-2  max-[640px]:my-1 rounded-md text-center py-3 px-3 focus:bg-[#3D5890] focus:text-white"
             onClick={answerCount4}
           >
             D. {option4}
@@ -205,27 +205,31 @@ const Quiz = (props) => {
           ""
         )}
       </div>
+      <div className="flex ">
       <button
-        class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-16"
+        class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-10"
         onClick={previousQuestion}
       >
         Previous
       </button>
+      <div className="absolute right-9">
       <button
-        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-1 absolute right-[15rem]"
+        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-1"
         onClick={questionCount}
       >
         Next
       </button>
       <button
-        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 absolute right-[10rem]"
+        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 "
         onClick={skipQuestion}
       >
         Skip
       </button>
+      </div>
+      </div>
       <br />
       <button
-        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 absolute right-[10rem]"
+        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-6 mx-6 float-right"
         onClick={submitAlerts}
       >
         Submit the Quiz
