@@ -51,12 +51,12 @@ const MyReward = () => {
   console.log(rewards,emptyData);
   return (
     <>
-      <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div>
+      <div className="bg-[#152C4F] h-20 w-full  mb-5   "></div>
       <div className="flex">
         <div className="flex-col">
           <Menu />
         </div>
-        <div className="flex-col">
+        <div className="flex-col m-10 ml-80">
           <div className="w-44 h-44 rounded-lg overflow-hidden shadow-lg ">
             <div className="px-5 text-green-400 text-[2rem]">
               {totalRewards}

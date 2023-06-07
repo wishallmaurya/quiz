@@ -35,7 +35,7 @@ export default function MyQuizzes() {
   
   return (
     <>
-    <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div>
+    <div className="bg-[#152C4F] h-20 w-full  mb-5   "></div>
     <div className="flex">
     <div className="flex-col">
           <Menu />
@@ -47,7 +47,7 @@ export default function MyQuizzes() {
         </button>
       </div> */}
                {/* Quiz Result Start */}
-               <div className>
+               <div className="ml-96">
                { list?.map((e)=>(
 
               <div className="mt-4 mx-4 ">

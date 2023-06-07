@@ -52,12 +52,12 @@ const ChangePassword = () => {
   return (
     <>
       {" "}
-      <div className="bg-[#152C4F] h-44 w-full   mb-5  "></div>
+      <div className="bg-[#152C4F] h-20 w-full "></div>
       <div className="flex">
         <div className="flex-col">
           <Menu />
         </div>
-        <form>
+        <form className="ml-56 flex-col flex-wrap">
           <div className="grid gap-6 w-90 relative left-2/4 ">
             <span className="text-[2rem] text-center font-bold">
               Change Password

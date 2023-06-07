@@ -4,12 +4,12 @@ import Menu from "./Menu";
 const QuizPaymentDetails = () => {
   return (
     <>
-         <div className="bg-[#152C4F] h-44 w-full   mb-5  "></div>
+         <div className="bg-[#152C4F] h-20 w-full   mb-5  "></div>
     <div className="flex">
         <div className="flex-col">
           <Menu />
         </div>
-      <div className="">
+      <div className="ml-80">
         <div className="text-green-400 text-center text-[16px] font-light  mt-8">
           You have paid your one time Fee
         </div>
