@@ -25,9 +25,9 @@ function Payment({ navigation }) {
             <Loader loader={load} />
 
             <div className=' flex justify-center mt-3 relative '>
-                <div className=' bg-[#FCFCFC] h-[auto] w-2/3 rounded-xl sm:shadow-md shadow-inner'>
+                <div className=' bg-[#FCFCFC] h-[auto] w-[auto] rounded-xl sm:shadow-md shadow-inner'>
                     <div className='flex justify-center m-8'>
-                        <div className='text-center align-center'>
+                        <div className='text-center align-center px-4'>
                             <div className='text-xl text-[#282828] font-medium'>
                                 Quiz Payments
                             </div>
