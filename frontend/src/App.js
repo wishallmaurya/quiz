@@ -42,7 +42,7 @@ import ForbiddenPage from "./layouts/ForbiddenPage";
 
 function App() {
   let user = JSON.parse(localStorage.getItem("user"));
-  const auth=user.role
+  const auth=user?.role
 console.log(auth,'...1.1.1.1.')
   return (
       <Router>
