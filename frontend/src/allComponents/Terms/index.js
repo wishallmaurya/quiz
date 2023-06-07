@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import { getAPI, postAPI } from '../../network'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 import { checkVisibility, componentVisibility, fullName, validation } from '../../utils'
 import Loader from "../../components/Loader"
 
@@ -84,7 +84,7 @@ function TermsAndCondition({ navigation }) {
     return (
         <Skeleton>
             <Loader loader={load} />
-            <div className='bg-[#152C4F] h-44 w-full rounded-br-full' >
+            <div className='bg-[#152C4F] h-auto p-5 w-full ' >
                 <div className='flex justify-center text-3xl text-white leading-9 '>
                     <p className='align-center mt-16'>Oliva Ministries Terms & Conditions and Privacy Policy</p>
                 </div>
@@ -93,7 +93,10 @@ function TermsAndCondition({ navigation }) {
             <div className='flex justify-center'>
             <div className='w-2/3 leading-[3rem] mt-5'>
                     <p>1. Terms
-                        By accessing the website at https://olivaministries.com, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.
+                        By accessing the website at &nbsp;
+                        <Link to='/' className='text-blue-400 hover:text-blue-600'>
+                        https://olivaministries.com</Link>
+                        , you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.
                         </p><br></br>  
                         <p>  
                         2. Use License
