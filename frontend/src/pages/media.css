@@ -1,0 +1,97 @@
+
+
+
+@media (max-width: 640px) { 
+    .gain{
+        color: #333333;
+        font-weight: 500;
+        font-size: 25px;
+        width: 90%;
+      }
+      .who{
+        font-size: 20px;
+        color: #152C4F;
+      }
+    .para{
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        color: #152C4F;
+        font-weight: 500;
+        font-size: 20px;
+      }
+      .textprag{
+        font-size: 18px;
+        color: #333333;
+      }
+      .imgs{
+        width:25rem;
+        height: auto;
+      }
+      .imgss{
+        width:20rem !important;
+        height: auto;
+      }
+      .imgback{
+        width:30rem;
+        height:auto
+        
+      }
+      .textHelp{
+        font-size: 20px;
+      
+      }
+      .textPara{
+        font-size: 15px;
+      }
+      .light{
+        height: 2rem;
+        width: 2rem;
+      }
+      .reward{
+        font-weight: 400;
+        font-size: 14px;
+        color: #5D6169;
+      }
+      .footer{
+        text-align: center;
+        justify-items: center !important;
+      }
+
+
+}
+
+/* @media (min-width: 640px & max-width: 767px) { 
+
+ }
+
+     
+ @media (min-width: 768px and max-width: 1023px) {
+    
+  }
+
+ @media (min-width: 1024px and max-width: 1279px) { ... }
+
+ @media (min-width: 1280px and max-width: 1535px) { ... } */
+
+ @media (min-width: 1536px) { 
+
+  }
+
+
+
+@media (min-width: 1024px) { 
+
+
+
+
+}
+
+
+/* 'desktop': '1280px', */
+@media (min-width: 1280px) {
+  
+    
+
+
+
+ }

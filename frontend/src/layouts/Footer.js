@@ -7,7 +7,7 @@ import Logo from "../assets/images/logImg.png";
 import Linkedin from "../assets/images/linkedin.png";
 import Facebook from "../assets/images/facebook.png";
 import Twitter from "../assets/images/twitter.png";
-let Year =  new Date().getFullYear();
+let Year = new Date().getFullYear();
 
 
 
@@ -25,9 +25,37 @@ export default function Footer() {
     return (
         <>
 
-            <div className="flex justify-center h-80 bg-[#152C4F] text-[#FFFFFF] mt-8">
-                <div className="w-4/5">
-                    <div className="flex justify-around h-50 mb-5">
+            <div className="footer justify-start grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-4  bg-[#152C4F] text-[#FFFFFF] mt-8">
+                <div className="p-10 m-2">
+                    <img src={Logo} alt="logo" height={"auto"} width={"100px"}></img>
+                    <p className="text-[18px] mt-4 " >Oliva Ministries</p>
+                    <div className="text-[18px] mt-4">+1 (7635) 547-12-97</div>
+                    <div className="text-[12px] mt-4">support@lift.agency</div>
+                </div>
+
+                <div className="p-10 m-2">
+                    <div className="font-normal mt-4">Quick Links</div>
+                    <div className="text-[#D6D6D6] text-[12px] font-light mt-4">About us</div>
+                    <div className="text-[#D6D6D6] text-[12px] font-light mt-4" >Pricing</div>
+                </div>
+                <div className="p-10 m-2">
+                    <div className="font-normal">&nbsp;</div>
+                    <div className="text-[#D6D6D6] text-[12px] font-light  mt-4"><Link to="/termsAndCondition">Terms and Policy</Link></div>
+                    <div className="text-[#D6D6D6] text-[12px] font-light  mt-4">Quiz</div>
+
+                </div>
+                <div className="p-10 m-2">
+                <div className="font-normal mt-4">Subscribe</div>
+                    <div className="text-[#152C4F] mt-5">
+                        <input type="text" className="focus:outline-none w-[9rem] p-2 rounded-l-lg"></input>
+                            <button style={{ height: "2.1rem", width: "2rem", float: "right", backgroundColor: "#478EFF" }} className="rounded-r-lg" >
+                                <img alt="arrow" src={Arrow} className="p-2 "></img>
+                            </button>
+                    </div>
+
+                </div>
+
+                {/* <div className="flex justify-around h-50 mb-5">
                         <div className="flex justify-between mt-6 ">
                             <div ><img src={Logo} alt="logo" height={"auto"} width={"100px"}></img>
                                 <p className="text-[18px] mt-4 " >Oliva Ministries</p>
@@ -68,8 +96,7 @@ export default function Footer() {
                         <div>
                             <p>© {Year} Oliva Ministries. All rights reserved</p>
                         </div>
-                    </div>
-                </div>
+                    </div> */}
 
             </div>
 
