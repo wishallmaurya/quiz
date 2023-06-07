@@ -46,7 +46,7 @@ function App() {
    if(user?.username==='admin'){
     auth='admin'
    }else{
-    auth=user?.role
+    auth='user'
    }
   return (
       <Router>

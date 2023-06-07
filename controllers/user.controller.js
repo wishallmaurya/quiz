@@ -212,7 +212,6 @@ exports.UserSignIn = async (req, res, next) => {
       });
     }
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT);
-    console.log(token, "pass");
     const { password, ...options } = user._doc;
     res.status(200).json({
       success: true,
