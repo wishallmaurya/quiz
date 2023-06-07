@@ -26,7 +26,6 @@ export default function AdminSignIn (props) {
           // });            
           localStorage.setItem("token", JSON.stringify(res.data.data.token));
           localStorage.setItem("user", JSON.stringify(res.data.data));
-          console.log(res.data)
           toast.success("Login Successfully")
           setTimeout(() => {
             navigate("/adminDashboard");
