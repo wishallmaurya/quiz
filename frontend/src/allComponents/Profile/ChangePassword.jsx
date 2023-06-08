@@ -52,7 +52,7 @@ const ChangePassword = () => {
   return (
     <>
       {" "}
-      <div className="bg-[#152C4F] h-20 w-full "></div>
+      <div className="bg-[#152C4F] h-auto w-full "></div>
       <div className="flex">
         <div className="flex-col">
           <Menu />
