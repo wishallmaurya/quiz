@@ -40,15 +40,16 @@ const ProfileInfo = () => {
     <>
      {/* <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div> */}
      
-    {/* <div className=" bg-[#152C4F] h-20 w-full     "></div> */}
+    <div className=" bg-[#152C4F] h-20 w-full     "></div>
     <div className="flex">
 
         <div className="flex-col">
           <Menu />
         </div>
-      <form> 
-        <div className="" >
-        <span className="text-[2rem] m-10">Profile Details</span>
+        <div className="w-full flex flex-col justify-center items-center ">
+        <div className="text-[3rem] mb-10">Profile details</div>
+      <form className="h-96 w-[50%] font-bold"> 
+        <div  >
           <div>
             <label className="block mb-2 text-sm font-medium text-black ">
               Username or Name
@@ -104,15 +105,16 @@ const ProfileInfo = () => {
             />
           </div>
         </div>
-        <div className="relative left-2/4 ml-56">
+        <div className="max-[640px]:flex max-[640px]:flex-col max-[1080px]:justify-center">
           <button class="bg-white hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60 " onClick={handleSubmit}>
             Save Changes
           </button>
-          <button class="bg-white hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60 mx-8">
+          <button class="bg-white hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60 min-[1080px]:mx-8">
             Cancel
           </button>
         </div>
       </form>
+      </div>
       </div>
       <ToastContainer />
     </>
