@@ -52,18 +52,17 @@ const ChangePassword = () => {
   return (
     <>
       {" "}
-      <div className="bg-[#152C4F] h-auto w-full "></div>
+      {/* <div className=" bg-[#152C4F] h-20 w-full     "></div> */}
+
       <div className="flex">
         <div className="flex-col">
           <Menu />
         </div>
-        <form className="ml-56 flex-col flex-wrap">
-          <div className="grid gap-6 w-90 relative left-2/4 ">
-            <span className="text-[2rem] text-center font-bold">
-              Change Password
-            </span>
-
-            <div className="relative w-full">
+        <div className="w-full flex flex-col justify-center items-center">
+        <div className="md:text-[3rem] text-[2rem] mb-10">Change Password </div>
+        <form className="h-96 w-[50%] font-bold">
+          <div className=" ">
+               <div className="relative w-full">
               <label className="block mb-2 text-sm font-medium text-black">
                 Old Password
               </label>
@@ -115,18 +114,19 @@ const ChangePassword = () => {
             </div>
             </div>
           </div>
-          <div className="relative left-2/4">
+          <div className="max-[640px]:flex max-[640px]:flex-col max-[1080px]:justify-center">
             <button
               class="bg-white hover:bg-[#3D5890] focus:scale-110 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60"
               onClick={matchPassword}
             >
               Save Changes
             </button>
-            <button class="bg-white hover:bg-[#3D5890]  text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60 mx-8">
+            <button class="bg-white hover:bg-[#3D5890]  text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-60 min-[1080px]:mx-8">
               Cancel
             </button>
           </div>
         </form>
+      </div>
       </div>
       <ToastContainer />
     </>

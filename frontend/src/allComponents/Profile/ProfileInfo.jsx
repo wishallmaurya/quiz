@@ -40,14 +40,14 @@ const ProfileInfo = () => {
     <>
      {/* <div className="bg-[#152C4F] h-44 w-full  mb-5   "></div> */}
      
-    <div className=" bg-[#152C4F] h-20 w-full     "></div>
+    {/* <div className=" bg-[#152C4F] h-20 w-full     "></div> */}
     <div className="flex">
 
-        <div className="flex-col">
+        <div className="">
           <Menu />
         </div>
         <div className="w-full flex flex-col justify-center items-center ">
-        <div className="text-[3rem] mb-10">Profile details</div>
+        <div className="md:text-[3rem] text-[2rem] mb-10">Profile details</div>
       <form className="h-96 w-[50%] font-bold"> 
         <div  >
           <div>

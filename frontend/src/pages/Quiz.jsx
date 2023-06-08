@@ -8,7 +8,6 @@ const Quiz = (props) => {
   let token = JSON.parse(localStorage.getItem("token"));
   let user = JSON.parse(localStorage.getItem("user"));
   const {id}= useParams()
-
   const navigate = useNavigate();
   const [question, setQuestion] = useState();
   const [skipQuestionCount, setSkipQuestionCount] = useState(0);
@@ -132,7 +131,7 @@ const Quiz = (props) => {
     });
   };
   const scorePayload = {
-    quizModule: "638072e926bbb50dfd9ed8e3",
+    quizModule: id,
     totalQuestions: totalQuestion,
     questionAttempted: totalQuestion - skipQuestionCount,
     correctAnswers: totalScoreCount,
