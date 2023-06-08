@@ -18,7 +18,7 @@ const Menu = () => {
       <div className=" ">
 
 
-          <div className="fixed flex flex-col left-0 w-14 hover:md:w-80 hover:w-60 md:w-80 h-full text-black transition-all duration-300 border-none z-10 sidebar text-[1.5rem] bg-white">
+          <div className="flex flex-col left-0 w-14 hover:md:w-80 hover:w-60 md:w-80 h-full text-black transition-all duration-300 border-none z-10 sidebar text-[1.5rem] bg-white">
             <div className="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow border-r-2">
               <ul className="flex flex-col py-4 space-y-1">
               <li className="flex flex-col items-center ">

@@ -29,17 +29,16 @@ export default function MyQuizzes() {
   return (
     <>
       {/* <div className="bg-[#152C4F] h-20 w-full  mb-5"></div> */}
-      <div className="flex justify-center ">
+      <div className="flex  ">
         <div className="">
           <Menu />
         </div>
 
         {/* Quiz Result Start */}
-        <div className="w-auto flex flex-col justify-center items-center">
+        <div className="w-[100%] flex flex-col justify-center items-center max-[640px]:ml-2">
           {list?.map((e) => (
-            <div className="mt-4 mx-4 max-[750px]:ml-20 max-[1250px]:ml-64 w-[100%]">
-              <div className="">
-                <table className="">
+            
+                <table className="mt-4 mx-4  w-[100%]">
                   <tbody className="border-2 flex">
                     <tr className=" hover:bg-[#152C4F]  bg-white  hover:text-white text-black  ">
                       <td className="px-4 py-3">
@@ -83,8 +82,6 @@ export default function MyQuizzes() {
                     </tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
           ))}
         </div>
 
