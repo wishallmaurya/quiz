@@ -47,7 +47,7 @@ const ProfileInfo = () => {
           <Menu />
         </div>
       <form> 
-        <div className="grid gap-6 w-80 relative left-2/4 ml-56" >
+        <div className="" >
         <span className="text-[2rem] m-10">Profile Details</span>
           <div>
             <label className="block mb-2 text-sm font-medium text-black ">
