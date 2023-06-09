@@ -65,9 +65,9 @@ const MyReward = () => {
             <div className="px-10">Points</div>
           </div>
         <div className="flex flex-col justify-center items-center border-blue-400 border-4">
-          <div className="flex-col">
+          <div className="flex-col ">
             {rewards?.map((e) => (
-              <div className="w-[100%] h-20 rounded-lg overflow-hidden shadow-lg flex">
+              <div className="w-[100%] h-20 rounded-lg overflow-hidden shadow-lg flex bor">
                 <div className="px-6 mx-10 py-4 flex-col text-[0.8rem]">
                   <div className="  mb-2">{e.data}</div>
                   <div className="  mb-2">{e.date.split("T")[0]}</div>
