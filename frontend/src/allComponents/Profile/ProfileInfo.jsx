@@ -7,7 +7,7 @@ const ProfileInfo = () => {
   let data = JSON.parse(localStorage.getItem("user"));
   let token = JSON.parse(localStorage.getItem("token"));
 
-  const [id, setId] = useState(data._id);
+  const id = data._id;
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");

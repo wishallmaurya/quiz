@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Menu from "./Menu";
 import { axiosInstance } from "../../utils/axiosSetup";
+import Spinner from '../../layouts/Spinner'
 
 const MyReward = () => {
   const [rewards, setRewards] = useState();
+  const [loading, setLoading] = useState(true)
   let [totalRewards, setTotalRewards] = useState(0);
   let token = JSON.parse(localStorage.getItem("token"));
 
@@ -50,6 +52,10 @@ const MyReward = () => {
   useEffect(() => fetchData, 
   // eslint-disable-next-line
   []);
+  useEffect(()=>{
+    rewards?setLoading(false):setLoading(true)
+  // eslint-disable-next-line
+  },[fetchData])
   console.log(rewards,emptyData);
   return (
     <>
@@ -59,7 +65,7 @@ const MyReward = () => {
           <Menu />
         </div>
         <div className="w-auto flex-col justify-center items-center m-2 ">
-          <div className="w-auto  h-auto py-10 border-gray-400 border-2 rounded-lg flex justify-center items-center px-5 max-[640px]:flex-col ">
+          <div className="w-auto  h-auto py-10 my-10 border-gray-400 border-2 rounded-lg flex justify-center items-center px-5 max-[640px]:flex-col max-[1100px]:ml-2 ml-40">
             
             <img
                 className="w-8 h-8 md:w-20 md:h-20 bg-blue-200  rounded-lg"
@@ -74,9 +80,9 @@ const MyReward = () => {
             Redeem Voucher
           </button>
           </div>
-        <div className="w-auto mt-10 flex flex-col justify-center items-center">
-          <div className="flex-col ">
-            {rewards?.map((e) => (
+        <div className="w-auto mt-10 flex flex-col justify-center items-center max-[1100px]:ml-2 ml-40">
+          <div className="flex-col  ">
+            {loading?<Spinner/>:rewards?.map((e) => (
               <div className="w-[100%] mt-4 h-20 rounded-lg overflow-hidden shadow-lg flex border-gray-400 border-2">
                 <div className="px-6 max-[1080px]:mx-1 max-[480px]:px-1 mx-10 py-4 flex-col text-[0.8rem]">
                   <div className="  mb-2">{e.data}</div>

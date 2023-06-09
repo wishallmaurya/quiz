@@ -3,12 +3,13 @@ import Header from "../layouts/Header";
 import { axiosInstance } from "../utils/axiosSetup";
 import ScoreCard from "./ScoreCard";
 import { createSearchParams, useNavigate,useParams } from "react-router-dom";
-
+import Spinner from "../layouts/Spinner";
 const Quiz = (props) => {
   let token = JSON.parse(localStorage.getItem("token"));
   let user = JSON.parse(localStorage.getItem("user"));
   const {id}= useParams()
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
   const [question, setQuestion] = useState();
   const [skipQuestionCount, setSkipQuestionCount] = useState(0);
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -153,10 +154,15 @@ const Quiz = (props) => {
   useEffect(() => {
     handleSubmit();
   });
+  useEffect(()=>{
+    question?setLoading(false):setLoading(true)
+      // eslint-disable-next-line
+  },[handleSubmit])
   return (
     <>
       {/* <ScoreCard score={totalScoreCount}/> */}
       <Header></Header>
+      {loading?<Spinner/>:''}
       <div className="text-center text-[2rem] my-6">
         Question {questionNumber}/{totalQuestion}
       </div>
