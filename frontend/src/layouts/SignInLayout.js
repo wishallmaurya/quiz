@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Button from "../components/Button";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { axiosInstance } from "../utils/axiosSetup";
 export default function SignIn(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState();
   // const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   // form function
@@ -43,6 +44,26 @@ export default function SignIn(props) {
       console.log(error);
     }
   };
+  
+	const getUser = async () => {
+		try {
+			const url = await axiosInstance.get(`/auth/login/success`);
+			const { data } = await axios.get(url, { withCredentials: true });
+			setUser(data.user._json);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
+	const googleAuth = () => {
+    window.open(
+			`http://localhost:3005/api/v1/auth/google/callback`,
+			"_self"
+		);
+	};
 
   return (
     <>
@@ -116,11 +137,11 @@ export default function SignIn(props) {
           <div className="text-[rgba(0, 0, 0, 0.6)] p-7 text-center text-[14px] flex justify-center">
             Or Login with
           </div>
-          {/* <div>
+          <div>
             <button
               type="submit"
               className="w-full px-6 py-2.5  
-              text-[#065FD4] font-medium text-xs border-2 leading-tight rounded shadow-md hover:bg-[#3D5890] hover:text-white  hover:shadow-lg focus:bg-[#3D5890] focus:shadow-lg focus:outline-none focus:ring-0   active:shadow-lg  transition  duration-150 ease-in-out mt-5 "
+              text-[#065FD4] font-medium text-xs border-2 leading-tight rounded shadow-md hover:bg-[#3D5890] hover:text-white  hover:shadow-lg focus:bg-[#3D5890] focus:shadow-lg focus:outline-none focus:ring-0   active:shadow-lg  transition  duration-150 ease-in-out mt-5  " onClick={googleAuth}
             >
               <span>
                 <img
@@ -131,7 +152,7 @@ export default function SignIn(props) {
               </span>
               Log in with Google
             </button>
-          </div> */}
+          </div>
         </div>
         </div>
 

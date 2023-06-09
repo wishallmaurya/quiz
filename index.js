@@ -3,24 +3,37 @@ const mongoose = require("mongoose");
 const express = require("express");
 var cors = require("cors");
 const env = process.env.NODE_ENV
-const app = express();
+const cookieSession=require("cookie-session")
 var path = require('path');
 const morgan = require("morgan")
-
+const passport=require("passport")
+const app = express();
 
 //Root Router
 const routes = require("./routes");
-
+const passportSetup=require('./passport')
 if (env === 'development') {
     mongoose.set('debug', true);
 }
 
 //Middleware
+app.use(
+	cookieSession({
+		name: "session",
+		keys: ["hello"],
+		
+	})
+);
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(morgan('dev'))
 app.use(cors());
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+
 app.use("/api/v1", routes);
 
 app.use((err, req, res, next) => {
@@ -33,6 +46,7 @@ app.use((err, req, res, next) => {
         stack: err.stack
     })
 })
+
 const db = process.env.DB_URL
 const PORT = process.env.PORT || 8080
 const config = {
