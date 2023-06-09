@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Menu from "./Menu";
-import { AiOutlineClockCircle, AiOutlineCalendar } from "react-icons/ai";
 import { axiosInstance } from "../../utils/axiosSetup";
 
 export default function MyQuizzes() {
@@ -24,7 +23,9 @@ export default function MyQuizzes() {
       console.log("temp====-----", temp[0]);
     }
   };
-  useEffect(() => getResult, []);
+  useEffect(() => getResult,
+  // eslint-disable-next-line
+  []);
 
   return (
     <>

@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { AiOutlineHome, AiFillPlayCircle, AiOutlineDatabase} from "react-icons/ai";
-import { FaUsers, FaRupeeSign } from "react-icons/fa";
-import { VscPassFilled,VscReferences } from "react-icons/vsc";
+import {  NavLink } from "react-router-dom";
+import {  AiOutlineDatabase} from "react-icons/ai";
+import { VscReferences } from "react-icons/vsc";
 import { BsPlay } from "react-icons/bs";
 import { MdPassword ,MdOutlinePayment} from "react-icons/md";
 import {BiTransferAlt} from "react-icons/bi";

@@ -47,22 +47,24 @@ const MyReward = () => {
       )
     );
   };
-  useEffect(() => fetchData, []);
+  useEffect(() => fetchData, 
+  // eslint-disable-next-line
+  []);
   console.log(rewards,emptyData);
   return (
     <>
-      <div className="bg-[#152C4F] h-20 w-full  mb-5   "></div>
+      {/* <div className="bg-[#152C4F] h-20 w-full  mb-5   "></div> */}
       <div className="flex">
-        <div className="flex-col">
+        <div className="">
           <Menu />
         </div>
-        <div className="flex-col m-10 ml-80">
           <div className="w-44 h-44 rounded-lg overflow-hidden shadow-lg ">
             <div className="px-5 text-green-400 text-[2rem]">
               {totalRewards}
             </div>
             <div className="px-10">Points</div>
           </div>
+        <div className="flex flex-col justify-center items-center border-blue-400 border-4">
           <div className="flex-col">
             {rewards?.map((e) => (
               <div className="w-[100%] h-20 rounded-lg overflow-hidden shadow-lg flex">

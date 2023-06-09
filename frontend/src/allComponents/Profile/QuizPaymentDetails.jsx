@@ -4,18 +4,19 @@ import Menu from "./Menu";
 const QuizPaymentDetails = () => {
   return (
     <>
-         <div className="bg-[#152C4F] h-20 w-full   mb-5  "></div>
+         {/* <div className="bg-[#152C4F] h-20 w-full   mb-5  "></div> */}
     <div className="flex">
         <div className="flex-col">
           <Menu />
         </div>
-      <div className="ml-80">
-        <div className="text-green-400 text-center text-[16px] font-light  mt-8">
+        <div className="w-[100%]">
+      <div className="flex flex-col items-center mt-5">
+        <div className="text-green-400 text-center text-[16px] font-light p-6  mt-8">
           You have paid your one time Fee
         </div>
 
         <div className="flex justify-center mt-6 ">
-          <div className="w-72 h-80 border  rounded-xl">
+          <div className="w-auto p-4 h-80 border  rounded-xl">
             <div>
               <div className="text-xl  mt-5 font-bold text-center">
                 One Time Fee
@@ -37,6 +38,7 @@ const QuizPaymentDetails = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
