@@ -27,4 +27,4 @@ router.put("/updatePassword/:id", verifyToken, updatePassword)
 router.put("/update/:id", verifyToken, upload, updateById)
 router.post("/signin" , UserSignIn)
 
-module.exports = router
+module.exports = router 

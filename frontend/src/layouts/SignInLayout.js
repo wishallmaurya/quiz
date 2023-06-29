@@ -47,8 +47,10 @@ export default function SignIn(props) {
   
 	const getUser = async () => {
 		try {
-			const url = await axiosInstance.get(`/auth/login/success`);
-			const { data } = await axios.get(url, { withCredentials: true });
+			// const url = await axiosInstance.get(`/auth/login/success`);
+			const { data } = await axios.get("http://localhost:3005/auth/login/success", { withCredentials: true });
+      console.log(data)
+      localStorage.setItem("user", JSON.stringify(data.user._json));
 			setUser(data.user._json);
 		} catch (err) {
 			console.log(err);
@@ -135,10 +137,10 @@ export default function SignIn(props) {
             </form>
           </div>
           <div className="text-[rgba(0, 0, 0, 0.6)] p-7 text-center text-[14px] flex justify-center">
-            Or Login with
+            {/* Or Login with */}
           </div>
           <div>
-            <button
+            {/* <button
               type="submit"
               className="w-full px-6 py-2.5  
               text-[#065FD4] font-medium text-xs border-2 leading-tight rounded shadow-md hover:bg-[#3D5890] hover:text-white  hover:shadow-lg focus:bg-[#3D5890] focus:shadow-lg focus:outline-none focus:ring-0   active:shadow-lg  transition  duration-150 ease-in-out mt-5  " onClick={googleAuth}
@@ -151,7 +153,7 @@ export default function SignIn(props) {
                 />
               </span>
               Log in with Google
-            </button>
+            </button> */}
           </div>
         </div>
         </div>

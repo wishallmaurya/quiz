@@ -1,10 +1,28 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Skeleton from "../layouts/Skeleton";
 import Loader from "../components/Loader";
 import { useNavigate } from "react-router-dom";
 import Right from "../assets/images/right.png";
+import { axiosInstance } from "../utils/axiosSetup";
+import axios from "axios";
 const HomePage = () => {
+  const [user, setUser] = useState();
   const navigate = useNavigate();
+  const getUser = async () => {
+		try {
+			const url = await axiosInstance.get(`/auth/login/success`);
+			const { data } = await axios.get('http://localhost:3005/auth/login/success', { withCredentials: true });
+      console.log(url,'1111')
+			setUser(data.user._json);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	useEffect(() => {
+		getUser();
+	}, []);
+  console.log(user,'//')
   return (
     <Skeleton>
       <Loader />

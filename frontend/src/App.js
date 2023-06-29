@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
   
 import ProtectedRoute from "./utils/protectedRoute";
 import PrivateRoutes from "./route/PrivateRoutes";
+import AdminRoutes from "./route/AdminRoutes";
+import LoginSingUpRoutes from "./route/LoginSingUpRoutes";
 import Protect from "./pages/Protect/index.js";
 import SignIn from "./layouts/SignInLayout";
 import SignUp from "./layouts/SignUpLayout";
@@ -41,30 +43,31 @@ import ForbiddenPage from "./layouts/ForbiddenPage";
 
 
 function App() {
-  let user = JSON.parse(localStorage.getItem("user"));
-  let auth
-   if(user?.username==='admin'){
-    auth='admin'
-   }else{
-    if(user) auth='user'
-   }
+
   return (
       <Router>
         <Routes>
          <Route exact path="*" element={<PageNotFound/>} />
          <Route exact path="/" element={<HomePage/>} />
          <Route exact path="/language" element={<Language/>} />
-         <Route exact path="/quizList" element={auth?<QuizList/>:<ForbiddenPage/>} />
-         <Route exact path="/quiz/:id" element={auth?<Quiz/>:<ForbiddenPage/>} /> 
-         <Route exact path="/score" element={auth?<ScoreCard/>:<ForbiddenPage/>} />
-         <Route exact path="/signIn" element={auth?<HomePage/>:<SignIn/>} />
-         <Route exact path="/signUp" element={auth?<HomePage/>:<SignUp/>} />
+
          <Route exact path="/termsAndCondition" element={ <TermsAndCondition />} />
-         <Route exact path="/invite" element={ auth==='user'?<Invite />:<ForbiddenPage/>} />
-         <Route exact path="/payment" element={auth==='user'? <Payment/>:<ForbiddenPage/>} />
-         <Route exact path="/paymentMethod" element={auth==='user'? <Method/>:<ForbiddenPage/>} />
          {/* <Route exact path="/profile" element={ <Profile/>} /> */}
 
+         
+         <Route element={<LoginSingUpRoutes />}>
+         <Route exact path="/signIn" element={<SignIn/>} />
+
+         <Route exact path="/signUp" element={<SignUp/>} />
+          </Route>
+         <Route element={<PrivateRoutes />}>
+         <Route exact path="/quizList" element={<QuizList/>} />
+         <Route exact path="/quiz/:id" element={<Quiz/>} /> 
+         <Route exact path="/score" element={<ScoreCard/>} />
+         <Route exact path="/invite" element={ <Invite />} />
+         <Route exact path="/payment" element={ <Payment/>} />
+         <Route exact path="/paymentMethod" element={ <Method/>} />
+          
 
          <Route exact path="/profileInfo" element={ <ProfileInfo/>} />
          <Route exact path="/myRewards" element={ <MyReward/>} />
@@ -72,30 +75,33 @@ function App() {
          <Route exact path="/myQuiz" element={ <MyQuizzes/>} />
          <Route exact path="/ChangePassword" element={ <ChangePassword/>} />
          <Route exact path="/myReward" element={ <MyReward/>} />
+         </Route>
+
+
 {/* admin */}
+<Route element={<AdminRoutes />}>
 
          {/* <Route exact path="/admin-signup" element={ <AdminSignUp/>} /> */}
          <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
-         <Route exact path="/adminDashboard" element={ auth==='admin'?<AdminDashboard/>:<ForbiddenPage/>} />
-         <Route exact path="/createQuizModule" element={ auth==='admin'?<CreateQuizModule/>:<ForbiddenPage/>} />
-         <Route exact path="/createQuestion" element={ auth==='admin'?<CreateQuestion/>:<ForbiddenPage/>} />
-         <Route exact path="/updateQuizList" element={ auth==='admin'?<UpdateQuizList/>:<ForbiddenPage/>} />
-         <Route exact path="/updateQuestion/:moduleId" element={ auth==='admin'?<UpdateQuestions/>:<ForbiddenPage/>} />
-         <Route exact path="/updateQuestion/:moduleId/question/:quesId/" element={auth==='admin'? <UpdateSingleQ/>:<ForbiddenPage/>} />
-         <Route exact path="/userList" element={ auth==='admin'?<AllUserList/>:<ForbiddenPage/>} />
-         <Route exact path="/AllResults" element={auth==='admin'? <AllResults/>:<ForbiddenPage/>} />
-         <Route exact path="/SingleUser/:id" element={ auth==='admin'?<SingleUser/>:<ForbiddenPage/>} />
-         <Route exact path="/dailyRegisteredUser" element={auth==='admin'? <DailyRegisteredUser/>:<ForbiddenPage/>} />
-         <Route exact path="/dailyQuizPlayed" element={auth==='admin'? <DailyQuizPlayed/>:<ForbiddenPage/>} />                                              
-         <Route exact path="/dailyPassedUser" element={ auth==='admin'?<DailyPassedUser/>:<ForbiddenPage/>} />
+         <Route exact path="/adminDashboard" element={ <AdminDashboard/>} />
+         <Route exact path="/createQuizModule" element={ <CreateQuizModule/>} />
+         <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
+         <Route exact path="/updateQuizList" element={ <UpdateQuizList/>} />
+         <Route exact path="/updateQuestion/:moduleId" element={ <UpdateQuestions/>} />
+         <Route exact path="/updateQuestion/:moduleId/question/:quesId/" element={ <UpdateSingleQ/>} />
+         <Route exact path="/userList" element={ <AllUserList/>} />
+         <Route exact path="/AllResults" element={ <AllResults/>} />
+         <Route exact path="/SingleUser/:id" element={ <SingleUser/>} />
+         <Route exact path="/dailyRegisteredUser" element={ <DailyRegisteredUser/>} />
+         <Route exact path="/dailyQuizPlayed" element={ <DailyQuizPlayed/>} />                                              
+         <Route exact path="/dailyPassedUser" element={ <DailyPassedUser/>} />
 
-         <Route element={<PrivateRoutes />}>
-          {/* <Route exact path="/" element={<ProtectedRoute ><Dashboard/></ProtectedRoute>} />
-          <Route exact path="/dashboard" element={<ProtectedRoute> <Dashboard /></ProtectedRoute>} /> */}
-          
          </Route>
-         <Route exact path="/protect" element={<Protect />}/>
+
+         <Route exact path="/ForbiddenPage" element={<ForbiddenPage />}/>
+         
         </Routes>
+
       </Router>
    
   );

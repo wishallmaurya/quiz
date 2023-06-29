@@ -6,12 +6,12 @@ const env = process.env.NODE_ENV
 const cookieSession=require("cookie-session")
 var path = require('path');
 const morgan = require("morgan")
-const passport=require("passport")
+// const passport=require("passport")
 const app = express();
 
 //Root Router
 const routes = require("./routes");
-const passportSetup=require('./passport')
+// const passportSetup=require('./passport')
 if (env === 'development') {
     mongoose.set('debug', true);
 }
@@ -30,11 +30,13 @@ app.use(express.json());
 app.use(morgan('dev'))
 app.use(cors());
 
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 
 app.use("/api/v1", routes);
+const authRoutes = require('./routes/auth.route')
+app.use('/auth',authRoutes)
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500

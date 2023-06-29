@@ -189,7 +189,7 @@ export default function SignUp(props) {
               </form>
             </div>
             <div className="text-[rgba(0, 0, 0, 0.6)] p-7 text-center text-[14px] flex justify-center">
-              Or Login with
+              {/* Or Login with */}
             </div>
             {/* <div>
               <button

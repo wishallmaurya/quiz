@@ -6,7 +6,6 @@ const { login, register } = require("../controllers/auth.controller");
 router.post("/signin", login);
 router.post("/create-admin", register);
 router.get("/login/success", (req, res) => {
-    console.log('code was here')
 	if (req.user) {
 		res.status(200).json({
 			error: false,
@@ -35,8 +34,9 @@ router.get(
 	})
 );
 
-router.get("/logout", (req, res) => {
+router.get("/logout", (req, res) => {  
 	req.logout();
 	res.redirect(process.env.CLIENT_URL);
 });  
 module.exports = router;
+
