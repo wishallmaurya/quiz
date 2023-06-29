@@ -54,11 +54,12 @@ function App() {
          <Route exact path="/termsAndCondition" element={ <TermsAndCondition />} />
          {/* <Route exact path="/profile" element={ <Profile/>} /> */}
 
-         
+
          <Route element={<LoginSingUpRoutes />}>
          <Route exact path="/signIn" element={<SignIn/>} />
 
          <Route exact path="/signUp" element={<SignUp/>} />
+         <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
           </Route>
          <Route element={<PrivateRoutes />}>
          <Route exact path="/quizList" element={<QuizList/>} />
@@ -82,7 +83,6 @@ function App() {
 <Route element={<AdminRoutes />}>
 
          {/* <Route exact path="/admin-signup" element={ <AdminSignUp/>} /> */}
-         <Route exact path="/admin-signIn" element={ <AdminSignIn/>} />
          <Route exact path="/adminDashboard" element={ <AdminDashboard/>} />
          <Route exact path="/createQuizModule" element={ <CreateQuizModule/>} />
          <Route exact path="/createQuestion" element={ <CreateQuestion/>} />
