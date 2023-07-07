@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 const Language = () => {
   const navigate = useNavigate();
+
+  const setLanguage=(lang)=>{
+    console.log(lang);
+    localStorage.setItem("language", JSON.stringify(lang));
+  }
   return (
     <>
       <Header />
@@ -17,17 +22,17 @@ const Language = () => {
           Select Your Preferred Language to Start the Quiz
         </div>
         <div className="flex flex-wrap mx-4 justify-center">
-          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16">
+          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16 focus:bg-[#3D5890] focus:text-white" onClick={()=>setLanguage("en")}>
             English
           </button>
-          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16">
+          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16 focus:bg-[#3D5890] focus:text-white" onClick={()=>setLanguage("hi")}>
             Hindi
           </button>
-          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16">
+          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16 focus:bg-[#3D5890] focus:text-white" onClick={()=>setLanguage("ta")}>
             Tamil
           </button>
-          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16">
-            German
+          <button class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded max-[640px]:my-3 my-10 mx-16 focus:bg-[#3D5890] focus:text-white" onClick={()=>setLanguage("te")}>
+          Telugu
           </button>
         </div>
         <button

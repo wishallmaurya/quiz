@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Header from "../layouts/Header";
 import { axiosInstance } from "../utils/axiosSetup";
+import axios from "axios";
 import ScoreCard from "./ScoreCard";
-import { createSearchParams, useNavigate,useParams } from "react-router-dom";
+import { createSearchParams, useNavigate, useParams } from "react-router-dom";
 import Spinner from "../layouts/Spinner";
 const Quiz = (props) => {
   let token = JSON.parse(localStorage.getItem("token"));
   let user = JSON.parse(localStorage.getItem("user"));
-  const {id}= useParams()
+  const { id } = useParams()
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true)
   const [question, setQuestion] = useState();
@@ -25,6 +26,9 @@ const Quiz = (props) => {
   const [totalScoreCount, setTotalScoreCount] = useState(0);
   const [skipAlert, setSkipAlert] = useState(false);
 
+
+  const translateFrom = 'en'
+  const translateTo = JSON.parse(localStorage.getItem("language"))
   const config = {
     headers: {
       Authorization: token,
@@ -37,15 +41,53 @@ const Quiz = (props) => {
         config
       );
       if (res.data.success) {
-        setQuestion(res.data.data[questionNumber - 1].question);
-        setOption1(res.data.data[questionNumber - 1].options[0].option);
-        setOption2(res.data.data[questionNumber - 1].options[1].option);
-        if (res.data.data[questionNumber - 1].options[2]) {
-          setOption3(res.data.data[questionNumber - 1].options[2].option);
+        if (translateTo==='hi'||translateTo==='te'||translateTo==='ta') {
+          const translate = await axios.get(
+            `https://api.mymemory.translated.net/get?q=${res.data.data[questionNumber - 1].question}&langpair=${translateFrom}|${translateTo}`,
+
+          )
+          setQuestion(translate.data.responseData.translatedText);
+          const translateOption1 = await axios.get(
+            `https://api.mymemory.translated.net/get?q=${res.data.data[questionNumber - 1].options[0].option}&langpair=${translateFrom}|${translateTo}`,
+
+          )
+          setOption1(translateOption1.data.responseData.translatedText);
+          const translateOption2 = await axios.get(
+            `https://api.mymemory.translated.net/get?q=${res.data.data[questionNumber - 1].options[1].option}&langpair=${translateFrom}|${translateTo}`,
+
+          )
+          setOption2(translateOption2.data.responseData.translatedText);
+
+          if (res.data.data[questionNumber - 1].options[2]) {
+            const translateOption3 = await axios.get(
+              `https://api.mymemory.translated.net/get?q=${res.data.data[questionNumber - 1].options[2].option}&langpair=${translateFrom}|${translateTo}`,
+  
+            )
+            setOption3(translateOption3.data.responseData.translatedText);
+          }
+          if (res.data.data[questionNumber - 1].options[3]) {
+            const translateOption4 = await axios.get(
+              `https://api.mymemory.translated.net/get?q=${res.data.data[questionNumber - 1].options[3].option}&langpair=${translateFrom}|${translateTo}`,
+  
+            )
+            setOption4(translateOption4.data.responseData.translatedText);
+          }
+
+        }else{
+          setQuestion(res.data.data[questionNumber - 1].question);
+          setOption1(res.data.data[questionNumber - 1].options[0].option);
+          setOption2(res.data.data[questionNumber - 1].options[1].option);
+          if (res.data.data[questionNumber - 1].options[2]) {
+            setOption3(res.data.data[questionNumber - 1].options[2].option);
+          }
+          if (res.data.data[questionNumber - 1].options[3]) {
+            setOption4(res.data.data[questionNumber - 1].options[3].option);
+          }
         }
-        if (res.data.data[questionNumber - 1].options[3]) {
-          setOption4(res.data.data[questionNumber - 1].options[3].option);
-        }
+
+
+
+   
         setOption1Answer(
           res.data.data[questionNumber - 1].options[0].isCorrect
         );
@@ -70,7 +112,7 @@ const Quiz = (props) => {
     }
   };
   const questionCount = () => {
-    if(!skipAlert){
+    if (!skipAlert) {
       var answer = window.confirm("Are You Sure Want to skip");
       if (answer) {
         if (questionNumber < totalQuestion) {
@@ -78,7 +120,7 @@ const Quiz = (props) => {
           handleSubmit();
         }
       }
-    }else{
+    } else {
       if (questionNumber < totalQuestion) {
         setQuestionNumber(questionNumber + 1);
         handleSubmit();
@@ -154,15 +196,15 @@ const Quiz = (props) => {
   useEffect(() => {
     handleSubmit();
   });
-  useEffect(()=>{
-    question?setLoading(false):setLoading(true)
-      // eslint-disable-next-line
-  },[handleSubmit])
+  useEffect(() => {
+    question ? setLoading(false) : setLoading(true)
+    // eslint-disable-next-line
+  }, [handleSubmit])
   return (
     <>
       {/* <ScoreCard score={totalScoreCount}/> */}
       <Header></Header>
-      {loading?<Spinner/>:''}
+      {loading ? <Spinner /> : ''}
       <div className="text-center text-[2rem] my-6">
         Question {questionNumber}/{totalQuestion}
       </div>
@@ -211,26 +253,26 @@ const Quiz = (props) => {
         )}
       </div>
       <div className="flex ">
-      <button
-        class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-10"
-        onClick={previousQuestion}
-      >
-        Previous
-      </button>
-      <div className="absolute right-9">
-      <button
-        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-1"
-        onClick={questionCount}
-      >
-        Next
-      </button>
-      <button
-        class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 "
-        onClick={skipQuestion}
-      >
-        Skip
-      </button>
-      </div>
+        <button
+          class="bg-gray-200 hover:bg-[#3D5890] text-black-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-10"
+          onClick={previousQuestion}
+        >
+          Previous
+        </button>
+        <div className="absolute right-9">
+          <button
+            class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded my-10 mx-1"
+            onClick={questionCount}
+          >
+            Next
+          </button>
+          <button
+            class="bg-transparent hover:bg-[#3D5890] text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded  my-10 mx-1 "
+            onClick={skipQuestion}
+          >
+            Skip
+          </button>
+        </div>
       </div>
       <br />
       <button

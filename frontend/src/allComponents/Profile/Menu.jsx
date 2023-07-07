@@ -140,7 +140,7 @@ const Menu = () => {
                 </li>
                 <li>
                   <NavLink
-                  to='/quizList'
+                  to='/language'
                   className="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-100   hover:text-black border-l-4 border-transparent  pr-6 focus:bg-[#152C4F] focus:text-white">
                     <span className="inline-flex justify-center items-center ml-4">
                       <BsPlay />
